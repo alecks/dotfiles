@@ -16,3 +16,15 @@ It also includes a tmux and iTerm2 config, all using the [catppuccin](https://gi
 - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 - run `C-I` and `C-r` in tmux
 - `cp ~/.config/nvim/other/.tmux.conf ~/.tmux.conf`
+
+## bindings
+
+### nvim
+
+- leader is space
+- `<leader>\` splits to the right
+
+### tmux
+
+- leader is `C-z`
+- `<leader>-` splits below
