@@ -1,6 +1,6 @@
 # nvim setup
 
-This is a really basic lazy-nvim setup, pretty much unchanged from the starter repo.
+This is a really basic [lazy-vim](https://lazyvim.org) setup, pretty much unchanged from the starter repo.
 
 It also includes a tmux and iTerm2 config, all using the [catppuccin](https://github.com/catppuccin) theme.
 
