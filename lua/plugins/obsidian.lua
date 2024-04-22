@@ -23,6 +23,9 @@ return {
         path = "~/Documents/Alex's Vault",
       },
     },
+    templates = {
+      subdir = "Templates",
+    },
     disable_frontmatter = true,
   },
 }
