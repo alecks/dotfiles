@@ -14,7 +14,7 @@ It also includes a tmux and iTerm2 config, all using the [catppuccin](https://gi
 ## then for tmux
 
 - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
-- run `C-I` and `C-r` in tmux
+- run `I` then `r` in tmux
 - `cp ~/.config/nvim/other/.tmux.conf ~/.tmux.conf`
 
 ## bindings
