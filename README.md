@@ -1,21 +1,16 @@
-# nvim setup
+# dotfiles
 
-This is a really basic [lazy-vim](https://lazyvim.org) setup, pretty much unchanged from the starter repo.
-
-It also includes a tmux and iTerm2 config, all using the [catppuccin](https://github.com/catppuccin) theme.
+- basic [neovim](https://neovim.io) setup using [lazyvim](https://lazyvim.org)
+- pretty [tmux](https://github.com/tmux/tmux/wiki) config using [catppuccin](https://github.com/catppuccin/tmux)
+- kitty terminal with [Iosevka](https://github.com/be5invis/Iosevka) font
+- uses the [kanagawa-dragon](https://github.com/rebelot/kanagawa.nvim) theme
 
 ![image of editor](./image.png)
 
-## installation for nvim
+## installation
 
-- `git clone github.com/alecks/nvim-setup ~/.config/nvim`
-- `brew install ripgrep lazygit`
-
-## then for tmux
-
-- `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
-- run `I` then `r` in tmux
-- `cp ~/.config/nvim/other/.tmux.conf ~/.tmux.conf`
+- `git clone github.com/alecks/dotfiles ~/.config`
+- `bash ./.config/install.sh`
 
 ## bindings
 
