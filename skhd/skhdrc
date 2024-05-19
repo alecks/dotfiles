@@ -1,0 +1,49 @@
+# https://www.josean.com/posts/yabai-setup was a good reference
+
+# focus on up/down/left/right window
+hyper - j : yabai -m window --focus south
+hyper - k : yabai -m window --focus north
+hyper - h : yabai -m window --focus west
+hyper - l : yabai -m window --focus east
+
+# switch to left/right display
+hyper - s: yabai -m display --focus west
+hyper - g: yabai -m display --focus east
+
+# move window to left/right display
+alt - s : yabai -m window --display west; yabai -m display --focus west;
+alt - g : yabai -m window --display east; yabai -m display --focus east;
+
+# float
+hyper - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# maximise
+hyper - m : yabai -m window --toggle zoom-fullscreen
+
+# balance window sizing
+hyper - e : yabai -m space --balance
+
+# swap with window below/above/left/right
+alt - j : yabai -m window --swap south
+alt - k : yabai -m window --swap north
+alt - h : yabai -m window --swap west
+alt - l : yabai -m window --swap east
+
+# move window to below/above/left/right, and split with the window already there
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - h : yabai -m window --warp west
+shift + alt - l : yabai -m window --warp east
+
+# move window to prev/next space
+hyper - p : yabai -m window --space prev;
+hyper - n : yabai -m window --space next;
+
+# move window to space 1/2/3/4/5/6/7
+hyper - 1 : yabai -m window --space 1;
+hyper - 2 : yabai -m window --space 2;
+hyper - 3 : yabai -m window --space 3;
+hyper - 4 : yabai -m window --space 4;
+hyper - 5 : yabai -m window --space 5;
+hyper - 6 : yabai -m window --space 6;
+hyper - 7 : yabai -m window --space 7;
