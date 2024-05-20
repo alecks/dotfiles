@@ -1,7 +1,7 @@
 # dotfiles
 
 - basic [neovim](https://neovim.io) setup using [lazyvim](https://lazyvim.org)
-- kitty terminal with [Iosevka](https://github.com/be5invis/Iosevka) font
+- [wezterm](https://wezfurlong.org/wezterm/) with [Iosevka](https://github.com/be5invis/Iosevka) font
 - tiling window manager setup with [yabai](https://github.com/koekeishiya/yabai)
 - keybinds with [skhd](https://github.com/koekeishiya/skhd)
 
@@ -12,7 +12,7 @@
 - `git clone github.com/alecks/dotfiles ~/.config`
 - `bash ./.config/install.sh`
 
-This script installs fonts (Iosevka and Nerd Symbols), nvim, kitty, tmux, lazygit, skhd, yabai, and other required dependencies.
+This script installs fonts (Iosevka and Nerd Symbols), nvim, tmux, lazygit, skhd, yabai, and other required dependencies.
 
 ## bindings
 
