@@ -1,10 +1,7 @@
 # dotfiles
 
 - basic [neovim](https://neovim.io) setup using [lazyvim](https://lazyvim.org)
-- pretty [tmux](https://github.com/tmux/tmux/wiki) config using [catppuccin](https://github.com/catppuccin/tmux)
 - kitty terminal with [Iosevka](https://github.com/be5invis/Iosevka) font
-- uses the [kanagawa-dragon](https://github.com/rebelot/kanagawa.nvim) theme
-
 - tiling window manager setup with [yabai](https://github.com/koekeishiya/yabai)
 - keybinds with [skhd](https://github.com/koekeishiya/skhd)
 
