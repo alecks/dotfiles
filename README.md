@@ -12,7 +12,7 @@
 - `git clone github.com/alecks/dotfiles ~/.config`
 - `bash ./.config/install.sh`
 
-This script installs fonts (Iosevka and Nerd Symbols), nvim, tmux, lazygit, skhd, yabai, and other required dependencies.
+This script installs fonts (Iosevka and Nerd Symbols), nvim, tmux, wezterm, lazygit, skhd, yabai, and other required dependencies.
 
 ## bindings
 
