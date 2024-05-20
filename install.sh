@@ -4,7 +4,7 @@
 curl https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf -o ~/Library/Fonts/SymbolsNerdFont-Regular.ttf
 # install packages
 brew tap homebrew/cask-fonts
-brew install nvim tmux kitty ripgrep lazygit font-iosevka koekeishiya/formulae/skhd koekeishiya/formulae/yabai
+brew install nvim tmux ripgrep lazygit font-iosevka koekeishiya/formulae/skhd koekeishiya/formulae/yabai
 # tmux
 ln -s ~/.config/tmux.conf ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
