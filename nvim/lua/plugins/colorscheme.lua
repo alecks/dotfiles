@@ -1,14 +1,7 @@
 return {
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    config = function()
-      require("rose-pine").setup({
-        styles = { italic = false },
-      })
-    end,
-  },
+  "cdmill/neomodern.nvim",
+  "rebelot/kanagawa.nvim",
   { "LazyVim/LazyVim", opts = {
-    colorscheme = "rose-pine",
+    colorscheme = "roseprime",
   } },
 }
