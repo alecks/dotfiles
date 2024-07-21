@@ -9,6 +9,6 @@
 ## installation
 
 - `git clone github.com/alecks/dotfiles ~/.config`
-- `bash ./.config/install.sh`
+- `chmod +x install && ./install`
 
 This script installs nvim, wezterm, lazygit, skhd, yabai, ripgrep, Nerd Fonts and Iosevka as a replacement for Berkeley Mono.
