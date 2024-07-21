@@ -1,9 +1,8 @@
 # dotfiles
 
-- basic [neovim](https://neovim.io) setup using [lazyvim](https://lazyvim.org)
-- [kitty](https://sw.kovidgoyal.net/kitty/) with [Iosevka](https://github.com/be5invis/Iosevka) font
-- tiling window manager setup with [yabai](https://github.com/koekeishiya/yabai)
-- keybinds with [skhd](https://github.com/koekeishiya/skhd)
+- basic [neovim](https://neovim.io) config based on kickstart
+- [wezterm](https://wezfurlong.org/wezterm) with [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
+- tiling window manager setup with [yabai](https://github.com/koekeishiya/yabai) and [skhd](https://github.com/koekeishiya/skhd)
 
 ![image of editor](./image.png)
 
@@ -12,4 +11,4 @@
 - `git clone github.com/alecks/dotfiles ~/.config`
 - `bash ./.config/install.sh`
 
-This script installs fonts (Iosevka and Nerd Symbols), nvim, kitty, lazygit, skhd, yabai, and other required dependencies.
+This script installs nvim, wezterm, lazygit, skhd, yabai, ripgrep, Nerd Fonts and Iosevka as a replacement for Berkeley Mono.
