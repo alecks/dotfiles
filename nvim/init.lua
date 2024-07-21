@@ -155,9 +155,18 @@ require("lazy").setup({
       pcall(require("telescope").load_extension, "ui-select")
 
       local builtin = require("telescope.builtin")
+      local function find_git_or_cwd()
+        vim.fn.system("git rev-parse --is-inside-work-tree")
+        if vim.v.shell_error == 0 then
+          builtin.git_files({ show_untracked = true })
+        else
+          builtin.find_files()
+        end
+      end
+      vim.keymap.set("n", "<leader><leader>", find_git_or_cwd, { desc = "[S]earch Git Files" })
+
       vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
       vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-      vim.keymap.set("n", "<leader><leader>", builtin.git_files, { desc = "[S]earch Git Files" })
       vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles in CWD" })
       vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
       vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
