@@ -46,6 +46,10 @@ vim.opt.cursorline = true
 -- min number of lines above/below cursor
 vim.opt.scrolloff = 10
 
+-- tabs and spaces
+vim.o.tabstop = 4
+vim.o.shiftwidth = 2
+
 -- KEYMAPS
 
 -- highlight searches, clear on esc
@@ -351,7 +355,7 @@ require("lazy").setup({
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
 
           -- confirm a completion
-          ["<C-Space>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-CR>"] = cmp.mapping.confirm({ select = true }),
 
           -- navigate to the next placeholder field
           ["<C-l>"] = cmp.mapping(function()
