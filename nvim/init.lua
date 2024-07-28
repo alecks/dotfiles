@@ -34,14 +34,15 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- live substitutions
 vim.opt.inccommand = "split"
 
 -- highlight current line
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 -- min number of lines above/below cursor
 vim.opt.scrolloff = 10
@@ -49,6 +50,12 @@ vim.opt.scrolloff = 10
 -- tabs and spaces
 vim.o.tabstop = 4
 vim.o.shiftwidth = 2
+
+-- use block cursor
+vim.opt.guicursor = "n-v-i-c:block"
+
+-- for obsidian.nvim, hidden characters not displayed
+vim.opt.conceallevel = 2
 
 -- KEYMAPS
 
@@ -379,17 +386,23 @@ require("lazy").setup({
     end,
   },
 
+  -- start colorschemes
+  { "vague2k/vague.nvim" },
   {
-    "0xstepit/flow.nvim",
-    priority = 1000,
+    "projekt0n/caret.nvim",
     config = function()
-      require("flow").setup({ transparent = false })
-    end,
-    init = function()
-      vim.cmd.colorscheme("flow")
-      vim.cmd.hi("Comment gui=none")
+      -- vim.cmd("colorscheme caret")
     end,
   },
+
+  {
+    "tjdevries/colorbuddy.nvim",
+    priority = 1000,
+    init = function()
+      vim.cmd("colorscheme gruvbuddy")
+    end,
+  },
+  -- end colorschemes
 
   -- fancy todo comments, without gutter signs
   {
@@ -461,6 +474,23 @@ require("lazy").setup({
       local cmp = require("cmp")
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
+  },
+
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
   },
 
   -- import lua/plugins dir
