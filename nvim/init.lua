@@ -1,6 +1,6 @@
 -- leader is space
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 vim.g.use_nerd_font = true
 
@@ -107,6 +107,7 @@ require("lazy").setup({
   -- git status in gutter
   {
     "lewis6991/gitsigns.nvim",
+    event = "UIEnter",
     opts = {
       signs = {
         add = { text = "+" },
@@ -120,6 +121,7 @@ require("lazy").setup({
 
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     config = function()
       require("which-key").setup()
       require("which-key").add({
@@ -136,7 +138,7 @@ require("lazy").setup({
 
   {
     "nvim-telescope/telescope.nvim",
-    event = "VimEnter",
+    event = "UIEnter",
     branch = "0.1.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -293,7 +295,7 @@ require("lazy").setup({
   -- auto formatting
   {
     "stevearc/conform.nvim",
-    lazy = false,
+    event = "InsertEnter",
     keys = {
       {
         "<leader>f",
@@ -305,7 +307,7 @@ require("lazy").setup({
       },
     },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
       format_on_save = function(bufnr)
         -- disable lsp_fallback for certain filetypes
         local disable_filetypes = {}
@@ -322,6 +324,7 @@ require("lazy").setup({
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
+        css = { "prettierd" },
       },
     },
   },
@@ -387,19 +390,28 @@ require("lazy").setup({
   },
 
   -- start colorschemes
-  { "vague2k/vague.nvim" },
   {
     "projekt0n/caret.nvim",
-    config = function()
+    lazy = true,
+    init = function()
       -- vim.cmd("colorscheme caret")
     end,
   },
 
   {
     "tjdevries/colorbuddy.nvim",
+    lazy = true,
     priority = 1000,
     init = function()
-      vim.cmd("colorscheme gruvbuddy")
+      -- vim.cmd("colorscheme gruvbuddy")
+    end,
+  },
+
+  {
+    "thallada/farout.nvim",
+    lazy = true,
+    init = function()
+      vim.cmd("colorscheme farout")
     end,
   },
   -- end colorschemes
@@ -407,7 +419,7 @@ require("lazy").setup({
   -- fancy todo comments, without gutter signs
   {
     "folke/todo-comments.nvim",
-    event = "VimEnter",
+    event = "UIEnter",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = { signs = false },
   },
@@ -433,6 +445,7 @@ require("lazy").setup({
   -- banging highlighting etc
   {
     "nvim-treesitter/nvim-treesitter",
+    priority = 2000,
     build = ":TSUpdate",
     opts = {
       ensure_installed = {
@@ -448,6 +461,7 @@ require("lazy").setup({
         "vim",
         "vimdoc",
       },
+      ignore_install = { "norg" },
       auto_install = true,
       highlight = {
         enable = true,
