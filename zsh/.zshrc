@@ -36,8 +36,11 @@ else
   # END opam configuration
 fi
 
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
-alias cdd="command cd"
-alias cd="z"
+# initialise fzf, surpress error if unavailable
+eval "$(fzf --zsh 2>/dev/null || echo '')"
 
+if command -v zoxide &>/dev/null; then
+  # only initialise and alias z if it is available
+  eval "$(zoxide init zsh)"
+  alias cd="z"
+fi
