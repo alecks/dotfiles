@@ -38,5 +38,6 @@ fi
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+alias cdd="command cd"
 alias cd="z"
 
