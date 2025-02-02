@@ -403,7 +403,7 @@ require("lazy").setup({
     lazy = true,
     priority = 1000,
     init = function()
-      -- vim.cmd("colorscheme gruvbuddy")
+      vim.cmd("colorscheme gruvbuddy")
     end,
   },
 
@@ -411,7 +411,7 @@ require("lazy").setup({
     "thallada/farout.nvim",
     lazy = true,
     init = function()
-      vim.cmd("colorscheme farout")
+      -- vim.cmd("colorscheme farout")
     end,
   },
   -- end colorschemes
