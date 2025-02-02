@@ -26,4 +26,5 @@ if [[ -z "$BYPASS_NIX_CHECK" ]]; then
     esac
 fi
 
+export IN_NIX=1
 exec nix-user-chroot ~/.nix "$@"
