@@ -1,21 +1,21 @@
-autoload -Uz compinit && compinit
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/catppuccin_mocha.omp.json)"
-prompt_context(){}
-
 if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   # We're on a uni machine.
 
   export PATH="$HOME/.local/bin:$PATH"
   # If we haven't already asked to enter nix, ask.
-  if [[ -z "$ENTER_NIX_CHECK" ]]; then
-	exec enter-nix zsh --login
+  if [[ -z "$DONE_NIX_CHECK" ]]; then
+    if [[ ! -o interactive ]]; then
+      # Bypass the check if we aren't interactive, go straight into the nix environment.
+      # Use BYPASS_NIX_CHECK_NORMAL to bypass into the normal env.
+      export BYPASS_NIX_CHECK=1
+    fi
+
+    exec enter-nix zsh "$@"
   fi
 
-  if [[ -n "$IN_NIX" ]]; then
-    # We're in nix, set up nix environment.
-    if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
-	    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-    fi
+  if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+    # If we have access to nix-profile, set up nix environment.
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
   fi
 
   echo "Welcome back to ${$(hostname)%%.*}."
@@ -35,6 +35,10 @@ else
   [[ ! -r '/Users/alex/.opam/opam-init/init.zsh' ]] || source '/Users/alex/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
   # END opam configuration
 fi
+
+autoload -Uz compinit && compinit
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/catppuccin_mocha.omp.json)"
+prompt_context(){}
 
 # initialise fzf, surpress error if unavailable
 eval "$(fzf --zsh 2>/dev/null || echo '')"
