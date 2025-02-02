@@ -4,12 +4,6 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   export PATH="$HOME/.local/bin:$PATH"
   # If we haven't already asked to enter nix, ask.
   if [[ -z "$DONE_NIX_CHECK" ]]; then
-    if [[ ! -o interactive ]]; then
-      # Bypass the check if we aren't interactive, go straight into the nix environment.
-      # Use BYPASS_NIX_CHECK_NORMAL to bypass into the normal env.
-      export BYPASS_NIX_CHECK=1
-    fi
-
     exec enter-nix zsh "$@"
   fi
 

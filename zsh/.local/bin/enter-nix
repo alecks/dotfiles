@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Tell the shell we've already checked, so it doesn't call us again.
+export DONE_NIX_CHECK=1
+
 # If we are already in the nix environment or the user wants to bypass to the normal environment, bypass.
 if grep -q "nix-user-chroot" /proc/$$/cmdline || [[ -n "$BYPASS_NIX_CHECK_NORMAL" ]]; then
     exec "$@"
@@ -8,9 +11,6 @@ fi
 
 # If the user doesn't want to bypass, continue.
 if [[ -z "$BYPASS_NIX_CHECK" ]]; then
-    # Tell the shell we've already checked, so it doesn't call us again.
-    export DONE_NIX_CHECK=1
-
     echo "Would you like to enter the Nix environment? (Y/n)"
     read -r response
 
