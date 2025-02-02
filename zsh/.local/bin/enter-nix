@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Would you like to enter the Nix environment? (Y/n)"
+read -r response
+
+# We've checked if the user wants to enter nix, let the spawned shell know so that it doesn't ask again.
+export ENTER_NIX_CHECK=1
+
+case "$response" in
+    [nN]*)
+        echo "Staying in the normal environment."
+        exec "$@"
+        ;;
+    *)
+        if [[ -n "$IN_NIX" ]]; then
+            echo "Already in Nix environment, attempting anyway..."
+        fi
+
+        echo "Entering the Nix environment..."
+        export IN_NIX=1
+        exec nix-user-chroot ~/.nix "$@"
+        ;;
+esac
