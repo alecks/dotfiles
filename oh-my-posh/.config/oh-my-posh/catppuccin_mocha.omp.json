@@ -14,7 +14,7 @@
         {
           "foreground": "p:os",
           "style": "plain",
-          "template": "{{ if .Env.IN_NIX }}󱄅 {{ else }}{{.Icon}}{{ end }}",
+          "template": "{{ if .Env.IN_NIX }}󱄅 {{ else }}{{.Icon}}{{ end }} ",
           "type": "os"
         },
         {
