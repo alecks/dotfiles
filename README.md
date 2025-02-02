@@ -2,6 +2,8 @@
 
 Dotfiles for my personal Mac and my university's DICE computers. Shared dotfiles are in the `shared` directory, then `mac` and `dice` are separate.
 
+Designed to be installed using GNU [stow](https://www.gnu.org/software/stow/).
+
 ## Shared
 
 - basic [neovim](https://neovim.io) config based on kickstart
