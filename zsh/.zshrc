@@ -11,9 +11,11 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
 	exec enter-nix zsh --login
   fi
 
-  # Set up nix environment.
-  if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
-	  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+  if [[ -n "$IN_NIX" ]]; then
+    # We're in nix, set up nix environment.
+    if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+	    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    fi
   fi
 
   echo "Welcome back to ${$(hostname)%%.*}."
