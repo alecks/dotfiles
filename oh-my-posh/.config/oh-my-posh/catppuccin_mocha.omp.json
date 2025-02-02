@@ -14,7 +14,7 @@
         {
           "foreground": "p:os",
           "style": "plain",
-          "template": "{{.Icon}} ",
+          "template": "{{ if (shell \"grep nix-user-chroot /proc/$$/cmdline\") }}󱄅 Nix{{ else }}{{.Icon}} {{.Name}}{{ end }}",
           "type": "os"
         },
         {
