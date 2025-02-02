@@ -1,6 +1,6 @@
 # dotfiles
 
-Dotfiles for my personal Mac and my university's DICE computers. Shared dotfiles are in the `shared` directory, then `mac` and `dice` are separate.
+Dotfiles for my personal Mac and my university's DICE computers. 
 
 Designed to be installed using GNU [stow](https://www.gnu.org/software/stow/).
 
