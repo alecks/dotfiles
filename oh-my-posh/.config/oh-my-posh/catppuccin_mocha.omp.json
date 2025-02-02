@@ -14,7 +14,7 @@
         {
           "foreground": "p:os",
           "style": "plain",
-          "template": "{{ if (shell \"grep nix-user-chroot /proc/$$/cmdline\") }}󱄅 Nix{{ else }}{{.Icon}} {{.Name}}{{ end }}",
+          "template": "{{ if .Env.IN_NIX }}󱄅 {{ else }}{{.Icon}}{{ end }}",
           "type": "os"
         },
         {
