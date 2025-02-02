@@ -4,7 +4,7 @@
 export DONE_NIX_CHECK=1
 
 # If we are already in the nix environment or the user wants to bypass to the normal environment, bypass.
-if grep -q "nix-user-chroot" /proc/$$/cmdline || [[ -n "$BYPASS_NIX_CHECK_NORMAL" ]]; then
+if [[ -n "$BYPASS_NIX_CHECK_NORMAL" ]] || [[ -d "$HOME/.nix-profile" ]]; then
     exec "$@"
     exit 0
 fi
