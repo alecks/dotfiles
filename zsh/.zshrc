@@ -3,15 +3,20 @@ eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/catppuccin_mocha.omp.j
 prompt_context(){}
 
 if [[ "$(hostname)" == *ed.ac.uk* ]]; then
-  # We're on a uni machine
-  echo "Welcome back to ${$(hostname)%%.*}."
+  # We're on a uni machine.
 
   export PATH="$HOME/.local/bin:$PATH"
-  # Ensure Nix environment is loaded
-  alias with-nix="nix-user-chroot ~/.nix"
-  if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
-      . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+  # If we haven't already asked to enter nix, ask.
+  if [[ -z "$ENTER_NIX_CHECK" ]]; then
+	exec enter-nix zsh --login
   fi
+
+  # Set up nix environment.
+  if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+	  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+  fi
+
+  echo "Welcome back to ${$(hostname)%%.*}."
 else
   # Personal
   export PATH=$PATH:$(go env GOPATH)/bin
