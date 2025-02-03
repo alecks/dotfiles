@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# These names aren't accurate. Poimandres theme.
+export RED=0xffd0679d
+export YELLOW=0xfffffac2
+export ORANGE=0xff89ddff
+export GREEN=0xff5DE4c7
+export GREEN_BG=0x195DE4c7
+export LAVENDER=0xffe4f0fb
+export LAVENDER_BG=0x19e4f0fb
+export FLAMINGO=0xffADD7FF
+export FLAMINGO_BG=0x19ADD7FF
+export PINK=0xffd0679d
+export PINK_BG=0x19d0679d
+
+export OVERLAY1=0xffa6accd
+
+# General bar colors
+export BAR_COLOR=0x00000000
+export LABEL_COLOR=$OVERLAY1
+
+export POPUP_BACKGROUND_COLOR=0xFF272936
+
+# Item colors
+export SPACE_SELECTED=$LAVENDER
+export SPACE_SELECTED_BACKGROUND=$LAVENDER_BG
+export SPACE=$OVERLAY1
+export SPACE_BACKGROUND=0x00000000
+
+export CALENDAR=$LAVENDER
+export CALENDAR_BACKGROUND=$LAVENDER_BG
+
+export BATTERY=$GREEN
+export BATTERY_WARNING=$YELLOW
+export BATTERY_CRITICAL=$RED
+export BATTERY_BACKGROUND=$GREEN_BG
+
+export WIFI=$FLAMINGO
+export WIFI_BACKGROUND=$FLAMINGO_BG
+
+export VOLUME=$PINK
+export VOLUME_BACKGROUND=$PINK_BG
