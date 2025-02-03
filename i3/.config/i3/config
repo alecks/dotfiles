@@ -41,7 +41,7 @@ bindsym $mod+q kill
 # lock session
 bindsym $mod+Shift+q exec --no-startup-id xscreensaver-command -lock
 
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+space exec --no-startup-id rofi -show combi
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
