@@ -2,13 +2,13 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Poimandres"
 
 config.font = wezterm.font_with_fallback({
 	"Berkeley Mono",
-	"Symbols Nerd Font Mono",
+	-- 	"Symbols Nerd Font Mono",
 })
-config.font_size = 16
+config.font_size = 18
 
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
