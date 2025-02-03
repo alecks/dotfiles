@@ -1,0 +1,6 @@
+# If inside an interactive shell, switch to Zsh
+# TODO: This is a kind of janky way to change the shell.
+if [[ -n "$PS1" && "$SHELL" != "/bin/zsh" ]]; then
+    exec zsh
+fi
+
