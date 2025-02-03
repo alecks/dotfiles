@@ -40,6 +40,7 @@ eval "$(fzf --zsh 2>/dev/null || echo '')"
 
 if command -v zoxide &>/dev/null; then
   # only initialise and alias z if it is available
+  # note: must be done after compinit
   eval "$(zoxide init zsh)"
   alias cd="z"
 fi
