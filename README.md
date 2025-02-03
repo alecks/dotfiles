@@ -19,7 +19,8 @@ Designed to be installed using GNU [stow](https://www.gnu.org/software/stow/).
 ## DICE
 
 - i3 setup
-- nix for local package management
+- ~~nix for local package management~~
+- [infpi](https://github.com/alecks/infpi) for local package management
 
 
 ![image of editor](./dice.png)
