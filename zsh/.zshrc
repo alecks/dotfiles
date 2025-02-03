@@ -31,7 +31,7 @@ else
 fi
 
 autoload -Uz compinit && compinit
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/catppuccin_mocha.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/poimandres.omp.json)"
 prompt_context(){}
 
 # initialise fzf, surpress error if unavailable
