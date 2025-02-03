@@ -2,6 +2,7 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   # We're on a uni machine.
 
   export PATH="$HOME/.local/bin:$PATH"
+  export BYPASS_NIX_CHECK_NORMAL=1
   # If we haven't already asked to enter nix, ask.
   if [[ -z "$DONE_NIX_CHECK" ]]; then
     exec enter-nix zsh "$@"
