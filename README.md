@@ -14,7 +14,7 @@ Designed to be installed using GNU [stow](https://www.gnu.org/software/stow/).
 - tiling window manager setup with [AeroSpace](https://github.com/nikitabobko/AeroSpace)
 - hyperkey with Karabiner
 
-![image of editor](./image.jpg)
+![image of macos setup](./mac.jpg)
 
 ## DICE
 
@@ -23,4 +23,4 @@ Designed to be installed using GNU [stow](https://www.gnu.org/software/stow/).
 - [infpi](https://github.com/alecks/infpi) for local package management
 
 
-![image of editor](./dice.png)
+![image of dice setup](./dice.png)
