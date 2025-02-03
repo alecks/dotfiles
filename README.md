@@ -20,3 +20,6 @@ Designed to be installed using GNU [stow](https://www.gnu.org/software/stow/).
 
 - i3 setup
 - nix for local package management
+
+
+![image of editor](./dice.png)
