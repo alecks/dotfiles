@@ -31,4 +31,4 @@ See `stowlist-mac`.
 
 ![image of dice setup](./dice.png)
 
-See `stowlist-dice`. The DICE dotfiles are designed to work on an unmodified DICE install, with no extra programs downloaded. Use [infpi](https://github.com/alecks/infpi) to install more programs like a newer version of nvim to work with these dotfiles and oh-my-posh.
+See `stowlist-dice`. The DICE dotfiles should work on an unmodified DICE install, with no extra programs downloaded. Use [infpi](https://github.com/alecks/infpi) to install more programs like a newer version of nvim to work with these dotfiles and oh-my-posh. Picom is a pain to install but isn't necessary.
