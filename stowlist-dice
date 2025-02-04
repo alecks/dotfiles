@@ -1,0 +1,6 @@
+include stowlist-shared
+
+i3
+i3status
+kitty
+dice-login
