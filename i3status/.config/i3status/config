@@ -21,13 +21,13 @@ memory {
 }
 
 volume master {
-    format = "<span background='#ADD7FF' foreground='#1b1e28' font_weight='bold'>  AUX  </span><span background='#303340' foreground='#a6accd'>  %volume  </span>"
-    format_muted = "<span background='#ADD7FF' foreground='#1b1e28' font_weight='bold'>  AUX  </span><span background='#303340' foreground='#a6accd'>  Muted  </span>"
+    format = "<span background='#ADD7FF' foreground='#1b1e28' font_weight='bold'>  AUX  </span><span background='#303340' foreground='#a6accd'>  %volume  </span> "
+    format_muted = "<span background='#ADD7FF' foreground='#1b1e28' font_weight='bold'>  AUX  </span><span background='#303340' foreground='#a6accd'>  Muted  </span> "
     device = "default"
     mixer = "Master"
     mixer_idx = 0
 }
 
 time {
-	format = "%d/%m/%Y %H:%M "
+	format = " %d/%m/%Y %H:%M "
 }
