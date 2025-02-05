@@ -14,3 +14,4 @@ nvim.bk
 lazy-lock.json
 helix
 karabiner/automatic_backups
+.__afs*
