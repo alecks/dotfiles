@@ -17,8 +17,8 @@ font pango:Berkeley Mono 11
 
 focus_follows_mouse no
 
-# compositor
-exec --no-startup-id picom -b
+# start compositor if we aren't on remote desktop
+exec --no-startup-id bash -c 'if [[ -z "$XRDP_SESSION" ]]; then picom -b; fi'
 
 # desktop background
 exec --no-startup-id feh --bg-scale ~/.config/i3/background.png
