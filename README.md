@@ -22,7 +22,7 @@ See `stowlist-shared`.
 - [Ghostty](http://ghostty.org/) terminal
 - [Karabiner Elements](http://karabiner-elements.pqrs.org/) for hyperkey with CapsLock
 
-![image of macos setup](./mac.jpg)
+![image of macos setup](./mac.png)
 
 See `stowlist-mac`.
 
