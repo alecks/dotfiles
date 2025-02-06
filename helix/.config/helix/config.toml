@@ -1,0 +1,4 @@
+theme = "poimandres"
+
+[editor.cursor-shape]
+insert = "bar"
