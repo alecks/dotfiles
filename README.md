@@ -8,15 +8,19 @@ This repository has a `stow-all.sh` script which can be used to install all pack
 
 ## Shared
 
-- basic [neovim](https://neovim.io) config based on kickstart
-- [wezterm](https://wezfurlong.org/wezterm) with [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
+- [Helix](https://helix-editor.com) code editor (attempt 2 at swtiching from nvim)
+- [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
+- [oh-my-posh](https://ohmyposh.dev) for zsh theme
+- [Poimandres](https://github.com/drcmda/poimandres-theme) colourscheme, ported for many things
 
 See `stowlist-shared`.
 
 ## Mac
 
-- tiling window manager setup with [AeroSpace](https://github.com/nikitabobko/AeroSpace)
-- hyperkey with Karabiner
+- [Aerospace](https://github.com/nikitabobko/AeroSpace) tiling window manager
+- [SketchyBar](https://github.com/FelixKratz/SketchyBar) status bar
+- [Ghostty](http://ghostty.org/) terminal
+- [Karabiner Elements](http://karabiner-elements.pqrs.org/) for hyperkey with CapsLock
 
 ![image of macos setup](./mac.jpg)
 
@@ -24,11 +28,11 @@ See `stowlist-mac`.
 
 ## DICE
 
-- i3 setup
-- ~~nix for local package management~~
-- [infpi](https://github.com/alecks/infpi) for local package management
+- [i3](https://i3wm.org) window manager, with i3status and [picom](https://picom.app)
+- [kitty](https://sw.kovidgoyal.net/kitty/) terminal
+- [infpi](https://github.com/alecks/infpi) for local package management, with the ability to use Nix (see dice-login)
 
 
 ![image of dice setup](./dice.png)
 
-See `stowlist-dice`. The DICE dotfiles should work on an unmodified DICE install, with no extra programs downloaded. Use [infpi](https://github.com/alecks/infpi) to install more programs like a newer version of nvim to work with these dotfiles and oh-my-posh. Picom is a pain to install but isn't necessary.
+See `stowlist-dice`. The DICE dotfiles should work on an unmodified DICE install, with no extra programs downloaded. Picom is optional for less screen tearing, but is a pain to install.
