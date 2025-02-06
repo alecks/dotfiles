@@ -1,6 +1,10 @@
 font-family = Berkeley Mono
 font-size = 18
 
+# Don't dim unfocused windows.
+unfocused-split-opacity = 1
+
+# Poimandres theme
 palette = 0=#1b1e28
 palette = 1=#d0679d
 palette = 2=#5de4c7
