@@ -1,4 +1,5 @@
 theme = "poimandres"
+# light: theme = "flatwhite"
 
 # Use a bar rather than block cursor for insert mode.
 [editor.cursor-shape]
@@ -7,3 +8,6 @@ insert = "bar"
 # Show hidden/dotfiles in the file picker.
 [editor.file-picker]
 hidden = false
+
+[keys.normal]
+"C-b" = ":sh pdflatex -interaction=nonstopmode -output-directory=output main.tex"

@@ -1,3 +1,22 @@
 [[language]]
 name = "markdown"
 soft-wrap.enable = true
+
+[language-server.texlab]
+command = "texlab"
+
+# onSave doesn't seem to work with Helix. Use C-b in config.toml instead.
+[language-server.texlab.config.build]
+executable = "pdflatex"
+args = ["-interaction=nonstopmode", "-output-directory=output", "%f"]
+onSave = false
+auxDirectory = "output"
+
+[language-server.texlab.config.chktex]
+onOpenAndSave = true
+onEdit = true
+
+[[language]]
+name = "latex"
+language-servers = ["texlab"]
+soft-wrap.enable = true
