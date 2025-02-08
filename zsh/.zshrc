@@ -43,4 +43,7 @@ if command -v zoxide &>/dev/null; then
   alias cd="z"
 fi
 
-eval "$(starship init zsh)"
+# initialise starship if it exists
+if command -v starship &> /dev/null; then
+    eval "$(starship init zsh)"
+fi
