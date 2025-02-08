@@ -23,7 +23,10 @@ See `stowlist-shared`.
 - [Ghostty](http://ghostty.org/) terminal
 - [Karabiner Elements](http://karabiner-elements.pqrs.org/) for hyperkey with CapsLock
 
-![image of macos setup](./mac.png)
+<div align="center">
+  <img src="./screenshots/mac.png" alt="image of macos setup" width="45%">
+  <img src="./screenshots/mac-light.png" alt="image of macos setup in light mode" width="45%">
+</div>
 
 See `stowlist-mac`.
 
@@ -34,6 +37,6 @@ See `stowlist-mac`.
 - [infpi](https://github.com/alecks/infpi) for local package management, with the ability to use Nix (see dice-login)
 
 
-![image of dice setup](./dice.png)
+![image of dice setup](./screenshots/dice.png)
 
 See `stowlist-dice`. The DICE dotfiles should work on an unmodified DICE install, with no extra programs downloaded. Picom is optional for less screen tearing, but is a pain to install.
