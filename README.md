@@ -10,7 +10,7 @@ This repository has a `stow-all.sh` script which can be used to install all pack
 
 - [Helix](https://helix-editor.com) code editor (attempt 2 at swtiching from nvim)
 - [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
-- [oh-my-posh](https://ohmyposh.dev) for zsh theme
+- [starship](https://starship.rs) for zsh theme (not required)
 - [Poimandres](https://github.com/drcmda/poimandres-theme) colourscheme, ported for many things
 
 See `stowlist-shared`.
