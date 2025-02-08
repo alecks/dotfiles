@@ -1,9 +1,9 @@
-theme = "poimandres"
-# light: theme = "flatwhite"
+# controlled by scripts/toggle-theme.sh
+theme = "gruvbox_light_soft"
 
-# Use a bar rather than block cursor for insert mode.
-[editor.cursor-shape]
-insert = "bar"
+[editor]
+line-number = "relative"
+rulers = [80]
 
 # Show hidden/dotfiles in the file picker.
 [editor.file-picker]
