@@ -31,7 +31,7 @@ else
   # END opam configuration
 fi
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -C
 
 # initialise fzf, surpress error if unavailable
 eval "$(fzf --zsh 2>/dev/null || echo '')"
@@ -42,3 +42,5 @@ if command -v zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
   alias cd="z"
 fi
+
+eval "$(starship init zsh)"
