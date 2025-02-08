@@ -11,7 +11,8 @@ This repository has a `stow-all.sh` script which can be used to install all pack
 - [Helix](https://helix-editor.com) code editor (attempt 2 at swtiching from nvim)
 - [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
 - [starship](https://starship.rs) for zsh theme (not required)
-- [Poimandres](https://github.com/drcmda/poimandres-theme) colourscheme, ported for many things
+- [Poimandres](https://github.com/drcmda/poimandres-theme) colourscheme for dark mode, ported for many things
+- Gruvbox colourscheme for light mode (use `scripts/toggle-theme.sh` to switch)
 
 See `stowlist-shared`.
 
