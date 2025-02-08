@@ -1,3 +1,4 @@
 lazy-lock.json
 .__afs*
 karabiner/.config/karabiner/automatic_backups
+*.bak
