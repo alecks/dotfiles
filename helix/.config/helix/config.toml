@@ -4,6 +4,7 @@ theme = "gruvbox_light_soft"
 [editor]
 line-number = "relative"
 rulers = [80]
+color-modes = true
 
 # Show hidden/dotfiles in the file picker.
 [editor.file-picker]
