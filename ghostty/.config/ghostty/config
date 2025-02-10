@@ -7,6 +7,8 @@ theme = "GruvboxLight"
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
 
+window-decoration = false
+
 # Poimandres theme
 # palette = 0=#1b1e28
 # palette = 1=#d0679d
