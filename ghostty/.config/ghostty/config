@@ -8,6 +8,7 @@ theme = "GruvboxLight"
 unfocused-split-opacity = 1
 
 window-decoration = false
+gtk-single-instance = true
 
 # Poimandres theme
 # palette = 0=#1b1e28
