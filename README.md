@@ -9,8 +9,9 @@ This repository has a `stow-all.sh` script which can be used to install all pack
 ## Shared
 
 - [Helix](https://helix-editor.com) code editor (attempt 2 at swtiching from nvim)
-- [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
+- [Ghostty](https://ghostty.org) terminal
 - [starship](https://starship.rs) for zsh theme (not required)
+- [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
 - [Poimandres](https://github.com/drcmda/poimandres-theme) colourscheme for dark mode, ported for many things
 - Gruvbox colourscheme for light mode (use `scripts/toggle-theme.sh` to switch)
 
@@ -20,7 +21,6 @@ See `stowlist-shared`.
 
 - [Aerospace](https://github.com/nikitabobko/AeroSpace) tiling window manager
 - [SketchyBar](https://github.com/FelixKratz/SketchyBar) status bar
-- [Ghostty](http://ghostty.org/) terminal
 - [Karabiner Elements](http://karabiner-elements.pqrs.org/) for hyperkey with CapsLock
 
 <div align="center">
@@ -33,9 +33,7 @@ See `stowlist-mac`.
 ## DICE
 
 - [i3](https://i3wm.org) window manager, with i3status and [picom](https://picom.app)
-- [kitty](https://sw.kovidgoyal.net/kitty/) terminal
 - [infpi](https://github.com/alecks/infpi) for local package management, with the ability to use Nix (see dice-login)
-
 
 ![image of dice setup](./screenshots/dice.png)
 
