@@ -1,8 +1,8 @@
 font-family = Berkeley Mono
-font-size = 16
+font-size = 17.5
 
 # Controlled by scripts/toggle-theme.sh
-theme = "GruvboxLight"
+theme = "iceberg-light"
 
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
