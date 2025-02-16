@@ -237,6 +237,11 @@ require("lazy").setup({
       })
     end,
   },
+
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+  },
   -- END COLORSCHEMES
 
   -- MINI
@@ -360,9 +365,6 @@ require("lazy").setup({
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
-
-  -- import lua/plugins dir
-  { import = "plugins" },
 })
 
 vim.cmd("colorscheme catppuccin")
