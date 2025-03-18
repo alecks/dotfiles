@@ -62,18 +62,19 @@ outer.bottom = 0
 outer.top = [{ monitor."built-in" = 0 }, 25]
 outer.right = 0
 
-# 1 is left, 2 is right. Force workspaces 1-4 to be left monitor,
-# 5-8 are the right-hand monitor
+# 1 is left, 2 is right. Force workspaces 1-5 to be left monitor,
+# 6-9 are the right-hand monitor
 
 [workspace-to-monitor-force-assignment]
 1 = 1
 2 = 1
 3 = 1
 4 = 1
-5 = 2
+5 = 1
 6 = 2
 7 = 2
 8 = 2
+9 = 2
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
