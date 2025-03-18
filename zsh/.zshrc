@@ -31,6 +31,8 @@ else
   # END opam configuration
 fi
 
+alias vi="nvim"
+
 autoload -Uz compinit && compinit -C
 
 # initialise fzf, surpress error if unavailable
@@ -47,3 +49,5 @@ fi
 if command -v starship &> /dev/null; then
     eval "$(starship init zsh)"
 fi
+
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
