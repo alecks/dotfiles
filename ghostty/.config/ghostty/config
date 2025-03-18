@@ -1,8 +1,8 @@
 font-family = Berkeley Mono
-font-size = 17.5
+font-size = 18
 
 # Controlled by scripts/toggle-theme.sh
-theme = "iceberg-light"
+theme = "terafox"
 
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
