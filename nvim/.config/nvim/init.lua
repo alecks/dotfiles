@@ -49,8 +49,10 @@ vim.o.shiftwidth = 2
 -- use block cursor
 vim.opt.guicursor = "n-v-i-c:block"
 
--- for obsidian.nvim, hidden characters not displayed
-vim.opt.conceallevel = 2
+-- disable formatting on save
+vim.g.format_on_save = false
+-- don't format zig files on save (zig likes to do its own thing)
+vim.g.zig_fmt_autosave = false
 
 -- KEYMAPS
 
@@ -82,6 +84,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*.c",
+  callback = function()
+    local first_line = vim.api.nvim_buf_get_lines(0, 0, 1, false)[1]
+    if string.match(first_line, "#define CLAY_IMPLEMENTATION") then
+      vim.cmd("TSDisable indent")
+    end
+  end,
+})
+
 -- LAZY.NVIM - initial setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
@@ -98,7 +110,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   "tpope/vim-sleuth", -- detect indent style
 
-  -- git status in gutter
+  -- GITSIGNS - git status in gutter
   {
     "lewis6991/gitsigns.nvim",
     event = "UIEnter",
@@ -113,12 +125,14 @@ require("lazy").setup({
     },
   },
 
-  -- lsp config
+  -- LSPCONFIG
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       { "williamboman/mason.nvim", config = true },
       "williamboman/mason-lspconfig.nvim",
+
+      "saghen/blink.cmp",
 
       -- configures luals for neovim config
       { "folke/lazydev.nvim", opts = {} },
@@ -136,7 +150,7 @@ require("lazy").setup({
           map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
           map("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
           map("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-          map("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+          map("gt", vim.lsp.buf.type_definition, "[G]oto [T]ype Definition")
 
           map("<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
           map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
@@ -144,15 +158,14 @@ require("lazy").setup({
       })
 
       local servers = {
-        lua_ls = {
+        zls = {
           settings = {
-            Lua = {
-              completion = {
-                callSnippet = "Replace",
-              },
+            zls = {
+              enable_build_on_save = true,
             },
           },
         },
+
         texlab = {
           settings = {
             texlab = {
@@ -177,8 +190,11 @@ require("lazy").setup({
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            -- only overrides capabilities above
+
+            -- extend capabilities table (overwriting), and add blink capabilities
             server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+            server.capabilities = require("blink.cmp").get_lsp_capabilities(server.capabilities)
+
             require("lspconfig")[server_name].setup(server)
           end,
         },
@@ -188,7 +204,7 @@ require("lazy").setup({
     end,
   },
 
-  -- auto formatting
+  -- CONFORM - formatting
   {
     "stevearc/conform.nvim",
     event = "InsertEnter",
@@ -205,6 +221,9 @@ require("lazy").setup({
     opts = {
       notify_on_error = true,
       format_on_save = function(bufnr)
+        if not vim.g.format_on_save then
+          return
+        end
         -- disable lsp_fallback for certain filetypes
         local disable_filetypes = {}
         return {
@@ -219,30 +238,34 @@ require("lazy").setup({
   },
 
   -- COLORSCHEMES
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    lazy = true,
-    config = function()
-      require("catppuccin").setup({
-        flavour = "latte",
-        integrations = {
-          gitsigns = true,
-          treesitter = true,
-          mini = {
-            enabled = true,
-          },
-        },
-      })
-    end,
-  },
 
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-  },
+  { "EdenEast/nightfox.nvim", priority = 1000 },
+  { "miikanissi/modus-themes.nvim", priority = 1000 },
   -- END COLORSCHEMES
+
+  -- BLINK - completion
+  {
+    "saghen/blink.cmp",
+    -- optional: provides snippets for the snippet source
+    -- dependencies = "rafamadriz/friendly-snippets",
+    version = "*",
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = {
+        preset = "default",
+        ["<C-d>"] = { "show", "show_documentation", "hide_documentation" },
+        ["<C-c>"] = { "select_and_accept" },
+      },
+      signature = { enabled = true },
+      -- Default list of enabled providers defined so that you can extend it
+      -- elsewhere in your config, without redefining it, due to `opts_extend`
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+    },
+    opts_extend = { "sources.default" },
+  },
 
   -- MINI
   {
@@ -257,15 +280,6 @@ require("lazy").setup({
       -- statusline
       require("mini.statusline").setup()
 
-      -- autocomplete
-      require("mini.completion").setup()
-      local imap_expr = function(lhs, rhs)
-        vim.keymap.set("i", lhs, rhs, { expr = true })
-      end
-      -- use Tab and S-Tab to go between completions
-      imap_expr("<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
-      imap_expr("<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
-
       -- glyph icon provider
       local miniicons = require("mini.icons")
       miniicons.setup()
@@ -277,18 +291,18 @@ require("lazy").setup({
       miniextra.setup()
 
       -- commonly used pickers, easier keybinds
-      vim.keymap.set("n", "<leader><leader>", minipick.builtin.files, { desc = "Search files in CWD" })
+      vim.keymap.set("n", "<leader><leader>", miniextra.pickers.git_files, { desc = "Search Git files" })
       vim.keymap.set("n", "<leader>/", minipick.builtin.grep_live, { desc = "Search buffers with live grep" })
 
       -- other pickers
-      vim.keymap.set("n", "<leader>sg", miniextra.pickers.git_files, { desc = "[S]earch [G]it Files" })
-      vim.keymap.set("n", "<leader>sd", miniextra.pickers.diagnostic, { desc = "[S]earch [D]iagnostics" })
-      vim.keymap.set("n", "<leader>sb", minipick.builtin.buffers, { desc = "[S]earch [B]uffers" })
+      vim.keymap.set("n", "<leader>sf", minipick.builtin.files, { desc = "[S]earch [f]iles in CWD" })
+      vim.keymap.set("n", "<leader>sd", miniextra.pickers.diagnostic, { desc = "[S]earch [d]iagnostics" })
+      vim.keymap.set("n", "<leader>sb", minipick.builtin.buffers, { desc = "[S]earch [b]uffers" })
 
       -- lsp pickers
-      vim.keymap.set("n", "<leader>ds", function()
+      vim.keymap.set("n", "<leader>ss", function()
         miniextra.pickers.lsp({ scope = "document_symbol" })
-      end, { desc = "[D]ocument [S]ymbols" })
+      end, { desc = "[S]earch document [s]ymbols" })
 
       local miniclue = require("mini.clue")
       miniclue.setup({
@@ -337,10 +351,7 @@ require("lazy").setup({
           miniclue.gen_clues.z(),
 
           { mode = "n", keys = "<leader>c", desc = "[C]ode" },
-          { mode = "n", keys = "<leader>d", desc = "[D]ocument" },
           { mode = "n", keys = "<leader>s", desc = "[S]earch" },
-          { mode = "n", keys = "<leader>w", desc = "[W]orkspace" },
-          { mode = "n", keys = "<leader>t", desc = "[T]oggle" },
         },
       })
     end,
@@ -367,4 +378,4 @@ require("lazy").setup({
   },
 })
 
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme terafox")
