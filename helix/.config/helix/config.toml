@@ -1,5 +1,5 @@
 # controlled by scripts/toggle-theme.sh
-theme = "modus_vivendi"
+theme = "carbonfox"
 
 [editor]
 line-number = "relative"
