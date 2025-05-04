@@ -13,7 +13,7 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
   fi
 
-  echo "Welcome back to ${$(hostname)%%.*}."
+  echo "Welcome back to $(hostname)."
 else
   # Personal
   export PATH=$PATH:$(go env GOPATH)/bin
