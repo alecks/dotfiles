@@ -9,7 +9,7 @@ after-login-command = []
 # Disable sketchybar
 # after-startup-command = ["exec-and-forget sketchybar"]
 
-exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']
+# exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']
 
 # Start AeroSpace at login
 start-at-login = true
@@ -109,8 +109,10 @@ outer.right = 0
 # '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-cmd-ctrl-shift-alt-slash = 'layout tiles horizontal vertical'
-cmd-ctrl-shift-alt-comma = 'layout accordion horizontal vertical'
+# Transpose
+cmd-ctrl-shift-alt-t = 'layout horizontal vertical'
+# Switch between layout modes
+cmd-ctrl-shift-alt-a = 'layout tiles accordion'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 cmd-ctrl-shift-alt-h = 'focus left'
@@ -119,10 +121,10 @@ cmd-ctrl-shift-alt-k = 'focus up'
 cmd-ctrl-shift-alt-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-h = 'move left'
-alt-j = 'move down'
-alt-k = 'move up'
-alt-l = 'move right'
+ctrl-shift-h = 'move left'
+ctrl-shift-j = 'move down'
+ctrl-shift-k = 'move up'
+ctrl-shift-l = 'move right'
 
 alt-shift-h = 'join-with left'
 alt-shift-j = 'join-with down'
