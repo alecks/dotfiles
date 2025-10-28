@@ -20,3 +20,8 @@ onEdit = true
 name = "latex"
 language-servers = ["texlab"]
 soft-wrap.enable = true
+
+[[language]]
+name = "c"
+auto-format = true
+
