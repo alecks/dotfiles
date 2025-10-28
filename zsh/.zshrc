@@ -29,8 +29,6 @@ else
   # This section can be safely removed at any time if needed.
   [[ ! -r '/Users/alex/.opam/opam-init/init.zsh' ]] || source '/Users/alex/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
   # END opam configuration
-
-  source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 fi
 
 alias vi="nvim"
