@@ -2,7 +2,7 @@ font-family = Berkeley Mono
 font-size = 17
 
 # Controlled by scripts/toggle-theme.sh
-theme = "terafox"
+theme = Gruvbox Material
 
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
