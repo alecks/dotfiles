@@ -1,5 +1,5 @@
 # controlled by scripts/toggle-theme.sh
-theme = "gruvbox-material"
+theme = "gruvbox"
 
 [editor]
 line-number = "relative"
