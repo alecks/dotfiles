@@ -1,0 +1,329 @@
+* {
+    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free',
+        'Font Awesome 6 Brands', monospace;
+    font-size: 13px;
+}
+
+/* --- Base Waybar Window Style --- */
+window#waybar {
+    background-color: rgba(23, 32, 42, 0.8); /* Dark Navy, slightly transparent */
+    color: #ecf0f1; /* Light grey text */
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+    opacity: 0; /* Fully hidden when not in use */
+}
+
+/*
+ * Uncomment these if you want to apply specific styles for empty or solo Waybar instances.
+ * They are minimal by default in this theme, so no special styling here for now.
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #1a242d;
+}
+*/
+
+/* --- Module Button Styles --- */
+button {
+    box-shadow: inset 0 -2px transparent; /* Subtle bottom shadow */
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -2px #a8c8e1; /* Light blue on hover for clarity */
+}
+
+/* --- Workspaces --- */
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: #bdc3c7; /* Muted grey for inactive workspaces */
+}
+
+#workspaces button:hover {
+    background: rgba(44, 62, 80, 0.3); /* Darker navy on hover */
+}
+
+#workspaces button.focused {
+    background-color: #2c3e50; /* Darker navy for focused workspace */
+    box-shadow: inset 0 -2px #a8c8e1; /* Light blue underline for focused */
+    color: #ecf0f1; /* Lighter text for focused */
+}
+
+#workspaces button.urgent {
+    background-color: #e74c3c; /* Red for urgent, keep this for visibility */
+    color: #ffffff;
+}
+
+#mode {
+    background-color: #34495e; /* Medium navy for mode indicator */
+    box-shadow: inset 0 -2px #a8c8e1;
+    color: #ecf0f1;
+}
+
+/* --- Generic Module Spacing & Color --- */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd,
+#language,
+#keyboard-state,
+#privacy-item {
+    padding: 0 10px;
+    color: #ecf0f1; /* Default text color for modules */
+    background-color: #1a242d; /* Consistent dark navy background for most modules */
+    margin: 0 2px; /* Slight spacing between modules */
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* --- Individual Module Styling (Navy Palette) --- */
+#clock {
+    background-color: #2c3e50; /* Slightly lighter navy for clock */
+}
+
+#battery {
+    background-color: #1a242d;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #ecf0f1;
+    background-color: #27ae60; /* Green for charging, good contrast */
+}
+
+@keyframes blink {
+    to {
+        background-color: #e74c3c; /* Red for critical battery */
+        color: #ffffff;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #e74c3c; /* Red for critical */
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #e74c3c; /* Red for performance */
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9; /* Blue for balanced */
+    color: #ecf0f1;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #27ae60; /* Green for power-saver */
+    color: #ecf0f1;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: #1a242d;
+}
+
+#memory {
+    background-color: #1a242d;
+}
+
+#disk {
+    background-color: #1a242d;
+}
+
+#backlight {
+    background-color: #1a242d;
+}
+
+#network {
+    background-color: #1a242d;
+}
+
+#network.disconnected {
+    background-color: #e74c3c; /* Red for disconnected */
+    color: #ffffff;
+}
+
+#pulseaudio {
+    background-color: #1a242d;
+}
+
+#pulseaudio:hover {
+    background-color: #34495e; /* Darker on hover */
+}
+
+#pulseaudio.muted {
+    background-color: #34495e; /* Muted navy for muted audio */
+    color: #bdc3c7;
+}
+
+#wireplumber {
+    background-color: #1a242d;
+}
+
+#wireplumber.muted {
+    background-color: #e74c3c; /* Red for muted WirePlumber */
+}
+
+#custom-media {
+    background-color: #1a242d;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #1db954; /* Spotify green */
+    color: #ecf0f1;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ff8c00; /* VLC orange */
+    color: #ecf0f1;
+}
+
+#temperature {
+    background-color: #1a242d;
+}
+
+#temperature.critical {
+    background-color: #e74c3c; /* Red for critical temp */
+    color: #ffffff;
+}
+
+#tray {
+    background-color: #1a242d;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #e74c3c; /* Red for attention needed */
+}
+
+#idle_inhibitor {
+    background-color: #1a242d;
+}
+
+#idle_inhibitor.activated {
+    background-color: #34495e; /* Darker navy when activated */
+    color: #ecf0f1;
+}
+
+#mpd {
+    background-color: #1a242d;
+}
+
+#mpd.disconnected {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+#mpd.stopped {
+    background-color: #34495e; /* Muted navy when stopped */
+    color: #bdc3c7;
+}
+
+#mpd.paused {
+    background-color: #2c3e50; /* Slightly darker navy when paused */
+    color: #ecf0f1;
+}
+
+#language {
+    background: #1a242d;
+    color: #a8c8e1; /* Light blue for language */
+    padding: 0 5px;
+    margin: 0 2px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #1a242d;
+    color: #a8c8e1; /* Light blue for keyboard state */
+    padding: 0 0px;
+    margin: 0 2px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(44, 62, 80, 0.3); /* Darker on locked */
+}
+
+#scratchpad {
+    background: rgba(44, 62, 80, 0.3); /* Transparent dark navy */
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    background-color: #1a242d; /* Default background */
+    color: #ecf0f1;
+}
+
+#privacy-item.screenshare {
+    background-color: #d35400; /* Orange for screenshare */
+}
+
+#privacy-item.audio-in {
+    background-color: #27ae60; /* Green for audio in */
+}
+
+#privacy-item.audio-out {
+    background-color: #2980b9; /* Blue for audio out */
+}
