@@ -29,9 +29,6 @@ else
   # This section can be safely removed at any time if needed.
   [[ ! -r '/Users/alex/.opam/opam-init/init.zsh' ]] || source '/Users/alex/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
   # END opam configuration
-
-  # Since zsh isn't installed with brew, need this for pure prompt
-  fpath+=("$(brew --prefix)/share/zsh/site-functions")
 fi
 
 alias vi="nvim"
@@ -48,5 +45,4 @@ if command -v zoxide &>/dev/null; then
   alias cd="z"
 fi
 
-autoload -U promptinit; promptinit
-prompt pure
+eval "$(starship init zsh)"
