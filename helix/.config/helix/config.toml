@@ -1,5 +1,5 @@
 # controlled by scripts/toggle-theme.sh
-theme = "gruvbox"
+theme = "nightfox"
 
 [editor]
 line-number = "relative"

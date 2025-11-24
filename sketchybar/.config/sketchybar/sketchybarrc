@@ -17,7 +17,6 @@ bar=(
     padding_left=4
     padding_right=4
     notch_offset=4
-    y_offset=-1
 )
 sketchybar --bar "${bar[@]}"
 
@@ -43,14 +42,14 @@ default=(
   label.padding_right=8
 
   background.height=24
-  background.corner_radius=5
-  background.border_width=2
+  background.corner_radius=2
+  background.border_width=1
 )
 sketchybar --default "${default[@]}"
 
 # left
-source "$ITEM_DIR/front_app.sh"
 source "$ITEM_DIR/aerospace.sh"
+source "$ITEM_DIR/front_app.sh"
 
 # right
 source "$ITEM_DIR/calendar.sh"

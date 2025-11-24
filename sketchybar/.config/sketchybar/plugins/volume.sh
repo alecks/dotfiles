@@ -5,6 +5,6 @@ if [ "$SENDER" = "volume_change" ]; then
   if [ "$VOLUME" == 0 ]; then
     VOLUME="muted"
   fi
-  sketchybar --set "$NAME" label="V ⋮ $VOLUME"
+  sketchybar --set "$NAME" label="AUX $VOLUME%"
 fi
 

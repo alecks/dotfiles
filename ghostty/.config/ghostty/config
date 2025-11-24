@@ -1,13 +1,16 @@
-font-family = Berkeley Mono
+font-family = MonoLisa
 font-size = 17
+font-feature = "liga"
+font-feature = "ss11"
+font-thicken = true
 
 # Controlled by scripts/toggle-theme.sh
-theme = Gruvbox Material
+theme = Nightfox
 
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
 
-window-decoration = false
+window-decoration = true
 gtk-single-instance = true
 
 # Poimandres theme

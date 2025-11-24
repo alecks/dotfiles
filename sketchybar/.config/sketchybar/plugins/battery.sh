@@ -27,4 +27,4 @@ if [[ "$CHARGING" != "" ]]; then
   OUTPUT="${PERCENTAGE}^"
 fi
 
-sketchybar --set "$NAME" label="B ⋮ $OUTPUT" "label.color=$COLOR"
+sketchybar --set "$NAME" label="BAT $OUTPUT" "label.color=$COLOR"
