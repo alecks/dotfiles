@@ -23,9 +23,7 @@ See `stowlist-shared`.
 - [SketchyBar](https://github.com/FelixKratz/SketchyBar) status bar
 - [Karabiner Elements](http://karabiner-elements.pqrs.org/) for hyperkey with CapsLock
 
-<div align="center">
-  <img src="./screenshots/mac.jpg" alt="image of macos setup" width="50%">
-</div>
+![image of macos setup](./screenshots/mac.jpg)
 
 See `stowlist-mac`.
 
