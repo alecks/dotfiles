@@ -24,8 +24,7 @@ See `stowlist-shared`.
 - [Karabiner Elements](http://karabiner-elements.pqrs.org/) for hyperkey with CapsLock
 
 <div align="center">
-  <img src="./screenshots/mac.png" alt="image of macos setup" width="45%">
-  <img src="./screenshots/mac-light.png" alt="image of macos setup in light mode" width="45%">
+  <img src="./screenshots/mac.jpg" alt="image of macos setup" width="50%">
 </div>
 
 See `stowlist-mac`.
