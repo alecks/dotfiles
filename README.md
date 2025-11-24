@@ -1,18 +1,18 @@
 # dotfiles
 
-Dotfiles for my personal Mac and my university's DICE computers. 
+Dotfiles for my personal Mac and my university's DICE computers. Aims to have as little config as possible to make everything as efficient as possible.
 
 ## Installation with stow-all
 
-This repository has a `stow-all.sh` script which can be used to install all packages from a `stowlist`. For example, `./stow-all.sh stowlist-dice` will install everything used for DICE.
+Stow is a GNU tool that can be used to symlink your config from one main folder to the actual locations expected by programs. In other words, it's a way to have one configuration folder with everything in it, and have the ability to pick and choose which configurations to actually use.
+
+This repository has a `stow-all.sh` script which can be used to install configurations from a `stowlist`. For example, `./stow-all.sh stowlist-dice` will install all configurations relevant for DICE.
 
 ## Shared
 
-- [Helix](https://helix-editor.com) code editor (attempt 2 at swtiching from nvim)
+- [Helix](https://helix-editor.com) code editor
 - [Ghostty](https://ghostty.org) terminal
 - [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
-- [Poimandres](https://github.com/drcmda/poimandres-theme) colourscheme for dark mode, ported for many things
-- Gruvbox colourscheme for light mode (use `scripts/toggle-theme.sh` to switch)
 
 See `stowlist-shared`.
 
@@ -20,6 +20,7 @@ See `stowlist-shared`.
 
 - [Aerospace](https://github.com/nikitabobko/AeroSpace) tiling window manager
 - [SketchyBar](https://github.com/FelixKratz/SketchyBar) status bar
+- [JankyBorders](https://github.com/FelixKratz/JankyBorders) for borders between windows
 - [Karabiner Elements](http://karabiner-elements.pqrs.org/) for hyperkey with CapsLock
 
 ![image of macos setup](./screenshots/mac.jpg)
