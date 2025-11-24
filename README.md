@@ -27,7 +27,19 @@ See `stowlist-shared`.
 
 See `stowlist-mac`.
 
+## Fedora
+
+Using Parallels, I also have a Fedora Workstation VM which acts as an environment for work and testing.
+
+- [sway](https://swaywm.org/) tiling window manager
+- [waybar](https://github.com/Alexays/Waybar) Wayland status bar
+- [foot](https://codeberg.org/dnkl/foot) super fast terminal
+
+![image of fedora setup](./screenshots/fedora.png)
+
 ## DICE
+
+DICE (Distributed Informatics Computing Environment) is the University of Edinburgh's School of Informatics computer system. It can be configured extensibly despite being an operating system for students on shared computers. 
 
 - [i3](https://i3wm.org) window manager, with i3status and [picom](https://picom.app)
 - [infpi](https://github.com/alecks/infpi) for local package management, with the ability to use Nix (see dice-login)
