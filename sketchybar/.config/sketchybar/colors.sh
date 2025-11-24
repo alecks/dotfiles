@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Background: #32374A (Your desktop and primary bar background)
-# Goal: Maximum readability with white text, on darker navy module backgrounds.
-#       Overall theme remains deep and desaturated.
+# AI-generated colour palette to go with desktop background
+# Names of variables aren't accurate.
 
+# Background: #32374A (Your desktop and primary bar background)
 # --- High Contrast, Dark Navy Palette ---
 # Almost-white foregrounds, deep navy module backgrounds.
 
