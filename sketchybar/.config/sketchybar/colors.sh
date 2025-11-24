@@ -4,6 +4,7 @@
 # Names of variables aren't accurate.
 
 # Background: #32374A (Your desktop and primary bar background)
+#
 # --- High Contrast, Dark Navy Palette ---
 # Almost-white foregrounds, deep navy module backgrounds.
 
@@ -11,13 +12,19 @@ export RED=0xfff0a5ad      # Soft, desaturated light red for critical alerts
 export YELLOW=0xffebdc9a    # Muted, light golden yellow for warnings
 export ORANGE=0xffa6c1e1    # Lighter, desaturated blue for general accents
 export GREEN=0xffa5ccb3    # Lighter, desaturated mint green
-export GREEN_BG=0x552c3342 # Deep dark navy with a hint of green (more opaque)
+
+# Significantly darker and more opaque module backgrounds for clear distinction
+export MODULE_BACKGROUND=0x881a202d # Very dark, almost black navy (50% opaque)
+
+export GREEN_BG=$MODULE_BACKGROUND # Consistent deep dark navy for module backgrounds
 export LAVENDER=0xffc0d8f0 # Light, desaturated cool blue/lavender
-export LAVENDER_BG=0x552c3342 # Deep dark navy (more opaque)
+export LAVENDER_BG=$MODULE_BACKGROUND # Consistent deep dark navy for module backgrounds
 export FLAMINGO=0xffadc6e9  # Lighter, desaturated slate blue
-export FLAMINGO_BG=0x552c3342 # Deep dark navy (more opaque)
-export PINK=0xffb6c4da      # Lighter, desaturated grey-blue/plum
-export PINK_BG=0x552c3342   # Deep dark navy (more opaque)
+export FLAMINGO_BG=$MODULE_BACKGROUND # Consistent deep dark navy for module backgrounds
+
+# Revised PINK: More distinct deep muted violet/amethyst
+export PINK=0xffb1a6e0      # Deep muted violet/amethyst, distinct from text
+export PINK_BG=$MODULE_BACKGROUND # Consistent deep dark navy for module backgrounds
 
 
 # Primary text color: very light, almost pure white
@@ -33,21 +40,23 @@ export POPUP_BACKGROUND_COLOR=0xF02e3243 # Maintain a dark but distinct popup bg
 # --- Items (high contrast, white text on dark navy) ---
 # White text on a consistent dark navy background for all modules
 
+# Selected space background now uses the very dark MODULE_BACKGROUND
 export SPACE_SELECTED=$LAVENDER # Active space text color
-export SPACE_SELECTED_BACKGROUND=$LAVENDER_BG # Consistent dark navy background
+export SPACE_SELECTED_BACKGROUND=$MODULE_BACKGROUND # Very dark navy for active space
+
 export SPACE=$OVERLAY1          # Unselected space text color (near-white)
 export SPACE_BACKGROUND=0x00000000 # Keep unselected space background transparent
 
 export CALENDAR=$LAVENDER
-export CALENDAR_BACKGROUND=$LAVENDER_BG
+export CALENDAR_BACKGROUND=$MODULE_BACKGROUND
 
 export BATTERY=$GREEN
 export BATTERY_WARNING=$YELLOW
 export BATTERY_CRITICAL=$RED
-export BATTERY_BACKGROUND=$GREEN_BG
+export BATTERY_BACKGROUND=$MODULE_BACKGROUND
 
 export WIFI=$FLAMINGO
-export WIFI_BACKGROUND=$FLAMINGO_BG
+export WIFI_BACKGROUND=$MODULE_BACKGROUND
 
 export VOLUME=$PINK
-export VOLUME_BACKGROUND=$PINK_BG
+export VOLUME_BACKGROUND=$MODULE_BACKGROUND
