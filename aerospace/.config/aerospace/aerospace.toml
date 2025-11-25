@@ -10,7 +10,7 @@ after-login-command = []
 # Sketchybar and JankyBorders
 after-startup-command = [
 	"exec-and-forget sketchybar", 
-	"exec-and-forget borders active_color=0xffc0d8f0 inactive_color=0x662d4a4d background_color=0xff32374A width=3"
+	"exec-and-forget borders active_color=0xffc0d8f0 inactive_color=0x662d4a4d background_color=0xff32374A width=4"
 ]
 exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']
 
@@ -63,7 +63,7 @@ inner.horizontal = 6
 inner.vertical = 6
 outer.left = 4
 outer.bottom = 4
-outer.top = [{ monitor."built-in" = 4 }, 4]
+outer.top = [{ monitor."built-in" = 4 }, 29] # 25 + 4 = 29 since bar height is 25
 outer.right = 4
 
 # Workspaces 1 and 2 are Sidecar if connected, otherwise main monitor.
