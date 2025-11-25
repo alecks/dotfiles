@@ -1,8 +1,8 @@
-font-family = MonoLisa
+font-family = MonoLisa Medium
 font-size = 17
 font-feature = "liga"
 font-feature = "ss11"
-font-thicken = true
+window-colorspace = "display-p3"
 
 # Controlled by scripts/toggle-theme.sh
 theme = Nightfox
