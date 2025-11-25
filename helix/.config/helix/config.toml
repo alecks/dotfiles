@@ -1,4 +1,3 @@
-# controlled by scripts/toggle-theme.sh
 theme = "nightfox"
 
 [editor]

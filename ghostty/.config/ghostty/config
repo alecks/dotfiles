@@ -4,7 +4,6 @@ font-feature = "liga"
 font-feature = "ss11"
 window-colorspace = "display-p3"
 
-# Controlled by scripts/toggle-theme.sh
 theme = Nightfox
 
 # Don't dim unfocused windows.
