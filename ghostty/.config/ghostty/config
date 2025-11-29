@@ -4,7 +4,7 @@ font-feature = "liga"
 font-feature = "ss11"
 window-colorspace = "display-p3"
 
-theme = Nightfox
+theme = Argonaut
 
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
