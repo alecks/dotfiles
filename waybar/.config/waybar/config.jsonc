@@ -18,13 +18,11 @@
         "idle_inhibitor",
         "pulseaudio",
         "network",
-        "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
-        "backlight",
-        "sway/language",
         "battery",
+        "power-profiles-daemon",
         "clock",
         "tray"
     ],
@@ -108,7 +106,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%d-%m-%Y}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -201,14 +199,14 @@
     },
     "custom/power": {
         "format" : "⏻ ",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+    		"tooltip": false,
+    		"menu": "on-click",
+    		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    		"menu-actions": {
+    			"shutdown": "shutdown",
+    			"reboot": "reboot",
+    			"suspend": "systemctl suspend",
+    			"hibernate": "systemctl hibernate"
+    		}
     }
 }
