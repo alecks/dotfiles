@@ -1,7 +1,3 @@
-/*
- * Kanagawa Waybar Style
- */
-
 * {
     font-family: 'Berkeley Mono', 'Font Awesome 6 Free',
         'Font Awesome 6 Brands', monospace;
@@ -36,7 +32,7 @@ button:hover {
 /* --- Workspaces --- */
 #workspaces button {
     padding: 0 8px;
-    background-color: transparent;
+    background-color: transparent; /* Transparent as workspace buttons sit directly on window#waybar */
     color: #6a9588; /* Kanagawa Aqua Green for inactive workspaces */
 }
 
@@ -46,7 +42,7 @@ button:hover {
 
 #workspaces button.focused {
     background-color: #3b3b55; /* Kanagawa Special Background */
-    box-shadow: inset 0 -2px #a8c8e1; /* Light blue underline (kept for visibility) */
+    box-shadow: inset 0 -2px #a8c8e1; /* Light blue underline for focused */
     color: #c8c093; /* Kanagawa Foreground for focused */
 }
 
@@ -55,9 +51,10 @@ button:hover {
     color: #ffffff;
 }
 
+/* --- Mode Module --- */
 #mode {
     background-color: #7e9cd8; /* Kanagawa Blue for mode indicator */
-    box-shadow: inset 0 -2px #a8c8e1; /* Light blue underline (kept for visibility) */
+    box-shadow: inset 0 -2px #a8c8e1;
     color: #1f1f28; /* Dark text for mode */
 }
 
@@ -81,41 +78,41 @@ button:hover {
 #mpd,
 #language,
 #keyboard-state,
-#privacy-item {
+#privacy-item,
+#custom-power {
     padding: 0 10px;
-    color: #c8c093; /* Kanagawa Foreground for modules */
-    background-color: #2a2a37; /* Kanagawa Potion Background */
+    color: #c8c093; /* Kanagawa Foreground for default text */
+    background-color: #2a2a37; /* Kanagawa Potion Background for most modules */
     margin: 0 2px; /* Slight spacing between modules */
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 0 4px; /* Specific margin for these */
 }
 
-/* If workspaces is the leftmost module, omit left margin */
+/* Ensure no left/right margin if workspaces is first/last module on its side */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
-
-/* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
 }
 
 /* --- Individual Module Styling (Kanagawa Palette) --- */
+
 #clock {
-    background-color: #3b3b55; /* Kanagawa Special Background for clock */
+    background-color: #3b3b55; /* Slightly different dark background for clock */
 }
 
 #battery {
-    background-color: #2a2a37;
+    background-color: #2a2a37; /* Default module background */
 }
 
 #battery.charging,
 #battery.plugged {
-    color: #1f1f28;
-    background-color: #6a9588; /* Kanagawa Aqua Green for charging */
+    color: #1f1f28; /* Dark text for contrast */
+    background-color: #6a9588; /* Kanagawa Aqua Green */
 }
 
 @keyframes blink {
@@ -126,7 +123,7 @@ button:hover {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #ff5555; /* Kanagawa Red for critical */
+    background-color: #ff5555; /* Kanagawa Red */
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -137,65 +134,40 @@ button:hover {
 
 #power-profiles-daemon.performance {
     background-color: #7e9cd8; /* Kanagawa Blue for performance */
-    color: #1f1f28;
+    color: #1f1f28; /* Dark text for contrast */
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2a2a37; /* Kanagawa Potion Background for balanced */
-    color: #c8c093; /* Light text for visibility */
+    background-color: #2a2a37; /* Kanagawa Potion Background (neutral) */
+    color: #c8c093; /* Kanagawa Foreground */
 }
 
 #power-profiles-daemon.power-saver {
     background-color: #6a9588; /* Kanagawa Aqua Green for power-saver */
-    color: #1f1f28; /* Dark text for visibility */
+    color: #1f1f28; /* Dark text for contrast */
 }
 
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    background-color: #2a2a37;
-}
-
-#memory {
-    background-color: #2a2a37;
-}
-
-#disk {
-    background-color: #2a2a37;
-}
-
-#backlight {
-    background-color: #2a2a37;
-}
-
-#network {
-    background-color: #2a2a37;
-}
+#cpu { background-color: #2a2a37; }
+#memory { background-color: #2a2a37; }
+#disk { background-color: #2a2a37; }
+#backlight { background-color: #2a2a37; }
+#network { background-color: #2a2a37; }
 
 #network.disconnected {
-    background-color: #ff5555; /* Kanagawa Red for disconnected */
+    background-color: #ff5555; /* Kanagawa Red */
     color: #ffffff;
 }
 
-#pulseaudio {
-    background-color: #2a2a37;
-}
-
+#pulseaudio { background-color: #2a2a37; }
 #pulseaudio:hover {
-    background-color: #3b3b55; /* Kanagawa Special Background on hover */
+    background-color: #3b3b55; /* Darker on hover */
 }
-
 #pulseaudio.muted {
-    background-color: #3b3b55; /* Kanagawa Special Background for muted audio */
+    background-color: #3b3b55; /* Kanagawa Special Background */
     color: #6a9588; /* Kanagawa Aqua Green for muted text */
 }
 
-#wireplumber {
-    background-color: #2a2a37;
-}
-
+#wireplumber { background-color: #2a2a37; }
 #wireplumber.muted {
     background-color: #ff5555; /* Kanagawa Red for muted WirePlumber */
 }
@@ -204,70 +176,51 @@ label:focus {
     background-color: #2a2a37;
     min-width: 100px;
 }
-
 #custom-media.custom-spotify {
     background-color: #6a9588; /* Kanagawa Aqua Green */
     color: #1f1f28; /* Dark text for contrast */
 }
-
 #custom-media.custom-vlc {
     background-color: #ff9e3b; /* Kanagawa Orange */
     color: #1f1f28; /* Dark text for contrast */
 }
 
-#temperature {
-    background-color: #2a2a37;
-}
-
+#temperature { background-color: #2a2a37; }
 #temperature.critical {
-    background-color: #ff5555; /* Kanagawa Red for critical temp */
+    background-color: #ff5555; /* Kanagawa Red */
     color: #ffffff;
 }
 
-#tray {
-    background-color: #2a2a37;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
+#tray { background-color: #2a2a37; }
+#tray > .passive { -gtk-icon-effect: dim; }
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #ff5555; /* Kanagawa Red for attention needed */
+    background-color: #ff5555; /* Kanagawa Red */
 }
 
-#idle_inhibitor {
-    background-color: #2a2a37;
-}
-
+#idle_inhibitor { background-color: #2a2a37; }
 #idle_inhibitor.activated {
-    background-color: #3b3b55; /* Kanagawa Special Background when activated */
+    background-color: #3b3b55; /* Kanagawa Special Background */
     color: #c8c093;
 }
 
-#mpd {
-    background-color: #2a2a37;
-}
-
+#mpd { background-color: #2a2a37; }
 #mpd.disconnected {
     background-color: #ff5555;
     color: #ffffff;
 }
-
 #mpd.stopped {
-    background-color: #3b3b55; /* Kanagawa Special Background when stopped */
+    background-color: #3b3b55; /* Kanagawa Special Background */
     color: #6a9588; /* Kanagawa Aqua Green for muted text */
 }
-
 #mpd.paused {
-    background-color: #7e9cd8; /* Kanagawa Blue when paused */
+    background-color: #7e9cd8; /* Kanagawa Blue */
     color: #1f1f28; /* Dark text for contrast */
 }
 
 #language {
     background: #2a2a37;
-    color: #8c734b; /* Kanagawa Yellow-Brown for language */
+    color: #8c734b; /* Kanagawa Yellow-Brown */
     padding: 0 5px;
     margin: 0 2px;
     min-width: 16px;
@@ -275,16 +228,14 @@ label:focus {
 
 #keyboard-state {
     background: #2a2a37;
-    color: #8c734b; /* Kanagawa Yellow-Brown for keyboard state */
+    color: #8c734b; /* Kanagawa Yellow-Brown */
     padding: 0 0px;
     margin: 0 2px;
     min-width: 16px;
 }
-
 #keyboard-state > label {
     padding: 0 5px;
 }
-
 #keyboard-state > label.locked {
     background: rgba(43, 44, 53, 0.3); /* Darker on locked */
 }
@@ -292,28 +243,25 @@ label:focus {
 #scratchpad {
     background: rgba(43, 44, 53, 0.3); /* Transparent dark Kanagawa background */
 }
-
 #scratchpad.empty {
     background-color: transparent;
 }
 
-#privacy {
-    padding: 0;
-}
-
+#privacy { padding: 0; } /* Privacy parent container */
 #privacy-item {
     background-color: #2a2a37; /* Default background */
     color: #c8c093;
 }
+#privacy-item.screenshare { background-color: #ff9e3b; } /* Kanagawa Orange */
+#privacy-item.audio-in { background-color: #6a9588; } /* Kanagawa Aqua Green */
+#privacy-item.audio-out { background-color: #7e9cd8; } /* Kanagawa Blue */
 
-#privacy-item.screenshare {
-    background-color: #ff9e3b; /* Kanagawa Orange for screenshare */
+#custom-power {
+    background-color: #3b3b55; /* Kanagawa Special Background, slightly different for distinction */
+    color: #c8c093; /* Kanagawa Foreground */
 }
 
-#privacy-item.audio-in {
-    background-color: #6a9588; /* Kanagawa Aqua Green for audio in */
-}
-
-#privacy-item.audio-out {
-    background-color: #7e9cd8; /* Kanagawa Blue for audio out */
+#custom-power:hover {
+    background-color: #ff5555; /* Kanagawa Red on hover for an "off" or "warning" indication */
+    color: #ffffff; /* White text on red hover for contrast */
 }
