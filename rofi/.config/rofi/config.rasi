@@ -1,0 +1,59 @@
+* {
+    kanagawa-bg-main:         #1f1f28; /* Main Dark Background */
+    kanagawa-bg-lighter:      #2a2a37; /* Slightly Lighter Dark (Potion Background, for alternate rows) */
+    kanagawa-bg-selected:     #3b3b55; /* Special Background, slightly brighter for selection background */
+    kanagawa-fg-main:         #c8c093; /* Main Light Foreground (normal text) */
+    kanagawa-fg-lighter:      #dcd7ba; /* Brighter Foreground (for selected text on darker selection) */
+
+    kanagawa-accent-red:      #ff5555; /* Red (urgent background, for active elements) */
+    kanagawa-accent-green:    #6a9588; /* Aqua Green (normal accents, selection borders, active foreground) */
+    kanagawa-accent-yellow:   #8c734b; /* Yellow-Brown (subtle accents, prompts) */
+    kanagawa-accent-blue:     #7e9cd8; /* Blue (active backgrounds, scrollbar) */
+    kanagawa-accent-orange:   #ff9e3b; /* Orange (used for yellow-like highlight) */
+    kanagawa-accent-magenta:  #957fb8; /* Plum/Magenta */
+    kanagawa-text-on-accent:  #1f1f28; /* Dark Text for high contrast on bright/accent backgrounds */
+
+
+    background:                  @kanagawa-bg-main;
+    background-color:            @background;
+    foreground:                  @kanagawa-fg-main;
+    border-color:                @kanagawa-accent-green; /* Green border for the window */
+    separatorcolor:              @kanagawa-accent-yellow; /* Subtle yellow separator */
+    scrollbar-handle:            @kanagawa-accent-blue; /* Blue scrollbar handle */
+
+    normal-background:           @background; /* Main background for normal items */
+    normal-foreground:           @foreground; /* Main foreground for normal items */
+
+    alternate-normal-background: @kanagawa-bg-lighter; /* Lighter dark for alternate rows */
+    alternate-normal-foreground: @foreground; /* Main foreground for alternate items */
+
+    selected-normal-background:  @kanagawa-accent-green; /* Aqua Green background for selected item */
+    selected-normal-foreground:  @kanagawa-text-on-accent; /* Dark text on accent green for contrast */
+
+    active-background:           @kanagawa-accent-blue; /* Blue background for active items */
+    active-foreground:           @kanagawa-text-on-accent; /* Dark text on blue */
+    alternate-active-background: @active-background; /* Same as active for alternate active */
+    alternate-active-foreground: @active-foreground; /* Same as active foreground */
+    selected-active-background:  @kanagawa-accent-blue; /* Same as active for selected active */
+    selected-active-foreground:  @kanagawa-text-on-accent; /* Same as active foreground */
+
+    urgent-background:           @kanagawa-accent-red; /* Red background for urgent items */
+    urgent-foreground:           @kanagawa-text-on-accent; /* Dark text on red */
+    alternate-urgent-background: @urgent-background; /* Same as urgent for alternate urgent */
+    alternate-urgent-foreground: @urgent-foreground; /* Same as urgent foreground */
+    selected-urgent-background:  @kanagawa-accent-red; /* Same as urgent for selected urgent */
+    selected-urgent-foreground:  @urgent-foreground; /* Same as urgent foreground */
+}
+
+configuration {
+  font: "Berkeley Mono Semibold 14";
+}
+
+window {
+    padding: 4px;
+    width: 540px;
+}
+
+prompt {
+    text-color: @kanagawa-accent-green;
+}
