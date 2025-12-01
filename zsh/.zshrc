@@ -14,6 +14,8 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   fi
 
   echo "Welcome back to $(hostname)."
+elif [[ "$(hostname)" == "fedora" ]]; then
+  # On ThinkPad running Fedora.
 else
   # Personal
   export PATH=$PATH:$(go env GOPATH)/bin
@@ -30,8 +32,6 @@ else
   [[ ! -r '/Users/alex/.opam/opam-init/init.zsh' ]] || source '/Users/alex/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
   # END opam configuration
 fi
-
-alias vi="nvim"
 
 autoload -Uz compinit && compinit -C
 
