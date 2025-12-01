@@ -31,7 +31,7 @@ process_stowlist() {
         [[ -z "$line" ]] && continue  # Skip empty lines
 
         if [[ "$line" == include* ]]; then
-            included_file="${line#include }"
+            included_file="${line#include}"
             if [[ -z "${processed[$included_file]}" ]]; then
                 processed[$included_file]=1
                 process_stowlist "$included_file"
