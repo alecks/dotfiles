@@ -1,6 +1,6 @@
 # dotfiles
 
-Dotfiles for my personal Mac and my university's DICE computers. Aims to have as little config as possible to make everything as efficient as possible.
+Dotfiles for my Mac, ThinkPad and my university's DICE computers. Aims to have as little config as possible to make everything as efficient as possible.
 
 ## Installation with stow-all
 
@@ -11,33 +11,34 @@ This repository has a `stow-all.sh` script which can be used to install configur
 ## Shared
 
 - [Helix](https://helix-editor.com) code editor
-- [Ghostty](https://ghostty.org) terminal
 - [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
 
 See `stowlist-shared`.
 
-## Mac
+## Mac (macOS Tahoe)
 
 - [Aerospace](https://github.com/nikitabobko/AeroSpace) tiling window manager
 - [SketchyBar](https://github.com/FelixKratz/SketchyBar) status bar
 - [JankyBorders](https://github.com/FelixKratz/JankyBorders) for borders between windows
+- [Ghostty](https://ghostty.org) terminal
 - [Karabiner Elements](http://karabiner-elements.pqrs.org/) for hyperkey with CapsLock
 
 ![image of macos setup](./screenshots/mac.jpg)
 
 See `stowlist-mac`.
 
-## Fedora
+## ThinkPad (Fedora)
 
-Using Parallels, I also have a Fedora Workstation VM which acts as an environment for work and testing.
+ThinkPad T480s running Fedora 43 Sway Spin, but configured a little bit.
 
 - [sway](https://swaywm.org/) tiling window manager
-- [waybar](https://github.com/Alexays/Waybar) Wayland status bar
+- [waybar](https://github.com/Alexays/Waybar) status bar
 - [foot](https://codeberg.org/dnkl/foot) super fast terminal
+- [rofi](https://github.com/davatorium/rofi) application launcher
 
-![image of fedora setup](./screenshots/fedora.png)
+![image of thinkpad setup](./screenshots/thinkpad.png)
 
-## DICE
+## DICE (University)
 
 DICE (Distributed Informatics Computing Environment) is the University of Edinburgh's School of Informatics computer system. It can be configured extensibly despite being an operating system for students on shared computers. 
 
