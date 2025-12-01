@@ -1,7 +1,5 @@
 if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   # We're on a uni machine.
-
-  export PATH="$HOME/.local/bin:$PATH"
   export BYPASS_NIX_CHECK_NORMAL=1
   # If we haven't already asked to enter nix, ask.
   if [[ -z "$DONE_NIX_CHECK" ]]; then
@@ -32,6 +30,8 @@ else
   [[ ! -r '/Users/alex/.opam/opam-init/init.zsh' ]] || source '/Users/alex/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
   # END opam configuration
 fi
+
+export PATH="$HOME/.local/bin:$PATH"
 
 autoload -Uz compinit && compinit -C
 
