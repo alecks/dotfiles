@@ -3,9 +3,10 @@
  */
 
 * {
-    font-family: 'MonoLisa', 'Font Awesome 6 Free',
+    font-family: 'Berkeley Mono', 'Font Awesome 6 Free',
         'Font Awesome 6 Brands', monospace;
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 /* --- Base Waybar Window Style --- */
@@ -113,7 +114,7 @@ button:hover {
 
 #battery.charging,
 #battery.plugged {
-    color: #c8c093;
+    color: #1f1f28;
     background-color: #6a9588; /* Kanagawa Aqua Green for charging */
 }
 
@@ -135,13 +136,13 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-    background-color: #ff5555; /* Kanagawa Red for performance */
-    color: #ffffff;
+    background-color: #7e9cd8; /* Kanagawa Blue for performance */
+    color: #1f1f28;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #7e9cd8; /* Kanagawa Blue for balanced */
-    color: #1f1f28; /* Dark text for visibility */
+    background-color: #2a2a37; /* Kanagawa Potion Background for balanced */
+    color: #c8c093; /* Light text for visibility */
 }
 
 #power-profiles-daemon.power-saver {
