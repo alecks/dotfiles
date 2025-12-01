@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 
 INTERNAL_KB="1:1:AT_Translated_Set_2_keyboard"
 BT_KB="HHKB-Hybrid_2"
