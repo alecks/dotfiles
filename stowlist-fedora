@@ -2,6 +2,7 @@ include stowlist-shared
 
 sway
 waybar
+rofi
 foot
 keyboard-toggle
 
