@@ -3,3 +3,5 @@ include stowlist-shared
 sway
 waybar
 foot
+keyboard-toggle
+

@@ -1,0 +1,12 @@
+[Unit]
+Description=Toggle internal keyboard on/off based on whether HHKB is connected.
+After=bluetooth.target
+
+[Service]
+ExecStart=%h/.local/bin/keyboard-toggle.sh
+Restart=always
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
