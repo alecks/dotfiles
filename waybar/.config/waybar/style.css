@@ -87,7 +87,6 @@ button:hover {
 #mpd,
 #language,
 #keyboard-state,
-#custom-tomat,
 #privacy-item {
     padding: 0 10px;
     color: #ecf0f1; /* Default text color for modules */
@@ -209,10 +208,6 @@ label:focus {
 
 #wireplumber.muted {
     background-color: #e74c3c; /* Red for muted WirePlumber */
-}
-
-#custom-tomat {
-    background-color: #1a242d;
 }
 
 #custom-media {
