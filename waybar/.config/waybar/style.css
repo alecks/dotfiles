@@ -7,14 +7,14 @@
 
 /* --- Base Waybar Window Style --- */
 window#waybar {
-    background-color: rgba(21, 22, 29, 0.9); /* Kanagawa Background, slightly transparent */
+    background-color: #15161D; /* Kanagawa Background (solid, no transparency) */
     color: #c8c093; /* Kanagawa Foreground */
     transition-property: background-color;
     transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
-    opacity: 0; /* Fully hidden when not in use */
+    opacity: 0;
 }
 
 /* --- Module Button Styles --- */
@@ -32,12 +32,12 @@ button:hover {
 /* --- Workspaces --- */
 #workspaces button {
     padding: 0 8px;
-    background-color: transparent; /* Transparent as workspace buttons sit directly on window#waybar */
+    background-color: #15161D; /* Solid Kanagawa Background to match window */
     color: #6a9588; /* Kanagawa Aqua Green for inactive workspaces */
 }
 
 #workspaces button:hover {
-    background: rgba(43, 44, 53, 0.3); /* Darker Kanagawa background on hover */
+    background: #2B2C35; /* Darker Kanagawa background (solid equivalent of 0.3 opacity) */
 }
 
 #workspaces button.focused {
@@ -237,14 +237,14 @@ button:hover {
     padding: 0 5px;
 }
 #keyboard-state > label.locked {
-    background: rgba(43, 44, 53, 0.3); /* Darker on locked */
+    background: #2B2C35; /* Darker solid background for locked state */
 }
 
 #scratchpad {
-    background: rgba(43, 44, 53, 0.3); /* Transparent dark Kanagawa background */
+    background: #2B2C35; /* Darker solid Kanagawa background */
 }
 #scratchpad.empty {
-    background-color: transparent;
+    background-color: #15161D; /* Kanagawa Background when empty */
 }
 
 #privacy { padding: 0; } /* Privacy parent container */
