@@ -1,0 +1,31 @@
+[global]
+# Kanagawa Default Dark Palette:
+# k_background:         #1f1f28 (Main Dark Background)
+# k_foreground:         #c8c093 (Main Light Foreground)
+# k_darker_element:     #2a2a37 (Potion Background - for message backgrounds)
+# k_accent_green:       #6a9588 (Aqua Green - for normal accents/highlights)
+# k_accent_blue:        #7e9cd8 (Blue - for frame color, highlights)
+# k_accent_red:         #ff5555 (Red - for urgent backgrounds/frames)
+# k_accent_yellow:      #8c734b (Yellow-Brown - for subtle accents)
+# k_accent_orange:      #ff9e3b (Orange - for critical accents)
+# k_dark_text_on_light: #1f1f28 (Dark Text for contrast on bright backgrounds)
+# k_bright_white:       #dcd7ba (Brighter White, if needed)
+
+frame_color = "#7e9cd8"       # Kanagawa Blue for general frame highlight
+separator_color = frame       # Same as frame color for separator
+highlight = "#6a9588"         # Kanagawa Aqua Green for highlight text in notifications
+
+[urgency_low]
+background = "#2a2a37"        # Kanagawa Potion Background (slightly lighter than main)
+foreground = "#c8c093"        # Kanagawa Foreground (light text)
+frame_color = "#2a2a37"       # Frame matches background for low urgency (optional)
+
+[urgency_normal]
+background = "#2a2a37"        # Kanagawa Potion Background
+foreground = "#c8c093"        # Kanagawa Foreground
+frame_color = "#6a9588"       # Kanagawa Aqua Green frame for normal urgency
+
+[urgency_critical]
+background = "#ff5555"        # Kanagawa Red for critical background (high contrast)
+foreground = "#1f1f28"        # Dark text for high contrast on red background
+frame_color = "#ff9e3b"       # Kanagawa Orange frame for critical urgency (warning)
