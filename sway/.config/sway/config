@@ -52,6 +52,9 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to log out from this ThinkPad? This will end your Wayland session.' -B 'Yes, end session' 'swaymsg exit'
     bindsym $mod+Shift+q exec swaylock
+
+    # Pop the notification history
+    bindsym $mod+Shift+p exec dunstctl history-pop
 #
 # Moving around:
 #
