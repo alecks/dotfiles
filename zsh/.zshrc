@@ -14,6 +14,13 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   echo "Welcome back to $(hostname)."
 elif [[ "$(hostname)" == "fedora" ]]; then
   # On ThinkPad running Fedora.
+  function y() {
+  	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  	yazi "$@" --cwd-file="$tmp"
+  	IFS= read -r -d '' cwd < "$tmp"
+  	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+  	rm -f -- "$tmp"
+  }
 else
   # Personal
   export PATH=$PATH:$(go env GOPATH)/bin
