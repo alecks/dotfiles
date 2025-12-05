@@ -1,6 +1,13 @@
 [[language]]
 name = "markdown"
+auto-format = true
 soft-wrap.enable = true
+language-servers = ["markdown-oxide", "mpls"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "markdown"]}
+
+[language-server.mpls]
+command = "mpls"
+args = ["--dark-mode", "--enable-emoji", "--enable-wikilinks"]
 
 [language-server.texlab]
 command = "texlab"
