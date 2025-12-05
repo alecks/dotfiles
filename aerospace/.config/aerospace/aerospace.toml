@@ -59,27 +59,24 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 8
-inner.vertical = 8
-outer.left = 6
-outer.bottom = 6
-outer.top = [{ monitor."built-in" = 4 }, 29] # 25 + 4 = 29 since bar height is 25
-outer.right = 6
+inner.horizontal = 6
+inner.vertical = 6
+outer.left = 4
+outer.bottom = 4
+outer.top = [{ monitor."built-in" = 4 }, 36] # 32 + 4 since bar height is 32
+outer.right = 4
 
-# Workspaces 1 and 2 are Sidecar if connected, otherwise main monitor.
-# 3, 4, 5, 6 are always main monitor.
-# 7, 8, 9 are always built-in MacBook display.
-# If using MacBook standalone, all workspaces are built-in display, other than 1 and 2 with Sidecar.
 [workspace-to-monitor-force-assignment]
-1 = ["sidecar", "VY249HGE"]
-2 = ["sidecar", "VY249HGE"]
-3 = "VY249HGE"
-4 = "VY249HGE"
-5 = "VY249HGE"
-6 = "VY249HGE"
-7 = "built-in"
-8 = "built-in"
-9 = "built-in"
+1 = "main"
+2 = "main"
+3 = "main"
+4 = "main"
+5 = "main"
+6 = "secondary"
+7 = "secondary"
+8 = "secondary"
+9 = "secondary"
+10 = "secondary"
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -153,6 +150,7 @@ cmd-6 = 'workspace 6'
 cmd-7 = 'workspace 7'
 cmd-8 = 'workspace 8'
 cmd-9 = 'workspace 9'
+cmd-0 = 'workspace 10'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 cmd-shift-1 = 'move-node-to-workspace 1'
@@ -164,6 +162,7 @@ cmd-shift-6 = 'move-node-to-workspace 6'
 cmd-shift-7 = 'move-node-to-workspace 7'
 cmd-shift-8 = 'move-node-to-workspace 8'
 cmd-shift-9 = 'move-node-to-workspace 9'
+cmd-shift-0 = 'move-node-to-workspace 10'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'

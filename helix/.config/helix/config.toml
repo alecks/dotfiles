@@ -1,4 +1,4 @@
-theme = "kanagawa"
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "relative"

@@ -1,51 +1,64 @@
 #!/bin/bash
 
-# AI-generated colour palette to go with desktop background
-# Names of variables aren't accurate.
+# Catppuccin Mocha theme for sketchybar
 
-# Background: #32374A (Your desktop and primary bar background)
-#
-# --- High Contrast, Dark Navy Palette ---
-# Almost-white foregrounds, deep navy module backgrounds.
+# Base Colors
+export BASE=0xff1e1e2e
+export MANTLE=0xff181825 # Used for the main bar background
+export CRUST=0xff11111b # Used for module backgrounds (darker)
 
-export RED=0xfff0a5ad      # Soft, desaturated light red for critical alerts
-export YELLOW=0xffebdc9a    # Muted, light golden yellow for warnings
-export ORANGE=0xffa6c1e1    # Lighter, desaturated blue for general accents
-export GREEN=0xffa5ccb3    # Lighter, desaturated mint green
+# Text Colors
+export TEXT=0xffcdd6f4
+export SUBTEXT0=0xffa6adc8
+export SUBTEXT1=0xffbac2de
 
-# Significantly darker and more opaque module backgrounds for clear distinction
-export MODULE_BACKGROUND=0x881a202d # Very dark, almost black navy (50% opaque)
+# Accent Colors
+export ROSEWATER=0xfff5e0dc
+export FLAMINGO=0xfff2cdcd
+export PINK=0xfff5c2e7
+export MAUVE=0xffcba6f7
+export RED=0xfff38ba8
+export MAROON=0xffeba0ac
+export PEACH=0xfffab387
+export YELLOW=0xfff9e2af
+export GREEN=0xffa6e3a1
+export TEAL=0xff94e2d5
+export SKY=0xff89dceb
+export SAPPHIRE=0xff74c7ec
+export BLUE=0xff89b4fa
+export LAVENDER=0xffb4befe
 
-export GREEN_BG=$MODULE_BACKGROUND # Consistent deep dark navy for module backgrounds
-export LAVENDER=0xffc0d8f0 # Light, desaturated cool blue/lavender
-export LAVENDER_BG=$MODULE_BACKGROUND # Consistent deep dark navy for module backgrounds
-export FLAMINGO=0xffadc6e9  # Lighter, desaturated slate blue
-export FLAMINGO_BG=$MODULE_BACKGROUND # Consistent deep dark navy for module backgrounds
+# Your sketchybar variable mapping to Catppuccin Mocha
+export RED=$RED           # Catppuccin Red for critical alerts
+export YELLOW=$YELLOW         # Catppuccin Yellow for warnings
+export ORANGE=$PEACH          # Catppuccin Peach for general accents (closest vibrant match)
+export GREEN=$GREEN           # Catppuccin Green
 
-# Revised PINK: More distinct deep muted violet/amethyst
-export PINK=0xffb1a6e0      # Deep muted violet/amethyst, distinct from text
-export PINK_BG=$MODULE_BACKGROUND # Consistent deep dark navy for module backgrounds
+# Module backgrounds - now opaque, using the CRUST color for distinction
+export MODULE_BACKGROUND=$CRUST # Opaque darker background for modules
 
+export GREEN_BG=$MODULE_BACKGROUND
+export LAVENDER=$LAVENDER     # Catppuccin Lavender
+export LAVENDER_BG=$MODULE_BACKGROUND
+export FLAMINGO=$FLAMINGO     # Catppuccin Flamingo
+export FLAMINGO_BG=$MODULE_BACKGROUND
 
-# Primary text color: very light, almost pure white
-export OVERLAY1=0xfff0f2f7 # Near-white, very subtle cool tint
+export PINK=$PINK             # Catppuccin Pink
+export PINK_BG=$MODULE_BACKGROUND
 
+export OVERLAY1=$TEXT         # Catppuccin TEXT for primary text/foreground
 
-# --- General bar colors ---
-export BAR_COLOR=0x00000000 # Transparent (maintains current behavior)
-export LABEL_COLOR=$OVERLAY1 # Use near-white for general labels for readability
-# Popup background: slightly lighter than #32374A for subtle distinction
-export POPUP_BACKGROUND_COLOR=0xF02e3243 # Maintain a dark but distinct popup bg
+# General bar colors - now opaque, using the MANTLE color
+export BAR_COLOR=$MANTLE      # Opaque main bar background
+export LABEL_COLOR=$TEXT      # Catppuccin TEXT for general labels
+export POPUP_BACKGROUND_COLOR=$CRUST # Catppuccin CRUST for popup bg (consistent with modules)
 
-# --- Items (high contrast, white text on dark navy) ---
-# White text on a consistent dark navy background for all modules
+# Items (Catppuccin colors on opaque module background)
+export SPACE_SELECTED=$MAUVE  # Active space text color (Catppuccin Mauve)
+export SPACE_SELECTED_BACKGROUND=$CRUST # Opaque module background for active space
 
-# Selected space background now uses the very dark MODULE_BACKGROUND
-export SPACE_SELECTED=$LAVENDER # Active space text color
-export SPACE_SELECTED_BACKGROUND=$MODULE_BACKGROUND # Very dark navy for active space
-
-export SPACE=$OVERLAY1          # Unselected space text color (near-white)
-export SPACE_BACKGROUND=0x00000000 # Keep unselected space background transparent
+export SPACE=$SUBTEXT1        # Unselected space text color (Catppuccin SUBTEXT1)
+export SPACE_BACKGROUND=$MANTLE # Opaque darker background for unselected spaces
 
 export CALENDAR=$LAVENDER
 export CALENDAR_BACKGROUND=$MODULE_BACKGROUND
@@ -55,8 +68,8 @@ export BATTERY_WARNING=$YELLOW
 export BATTERY_CRITICAL=$RED
 export BATTERY_BACKGROUND=$MODULE_BACKGROUND
 
-export WIFI=$FLAMINGO
+export WIFI=$SKY              # Catppuccin Sky for WIFI
 export WIFI_BACKGROUND=$MODULE_BACKGROUND
 
-export VOLUME=$PINK
+export VOLUME=$BLUE           # Catppuccin Blue for VOLUME
 export VOLUME_BACKGROUND=$MODULE_BACKGROUND

@@ -11,12 +11,12 @@ source "$CONFIG_DIR/colors.sh"
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
 bar=(
-    height=25
+    height=32
     color=$BAR_COLOR
     position=top
     padding_left=4
     padding_right=4
-    notch_offset=4
+    notch_offset=0
 )
 sketchybar --bar "${bar[@]}"
 
