@@ -12,8 +12,8 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   fi
 
   echo "Welcome back to $(hostname)."
-elif [[ "$(hostname)" == "fedora" ]]; then
-  # On ThinkPad running Fedora.
+elif [[ "$(hostname)" == "thinkpad" ]]; then
+  # On ThinkPad/Arch.
   function y() {
   	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   	yazi "$@" --cwd-file="$tmp"
@@ -21,21 +21,13 @@ elif [[ "$(hostname)" == "fedora" ]]; then
   	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
   	rm -f -- "$tmp"
   }
+
+  alias hx="helix"
 else
-  # Personal
+  # Mac
   export PATH=$PATH:$(go env GOPATH)/bin
   export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
   export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-  [ -f "/Users/alex/.ghcup/env" ] && . "/Users/alex/.ghcup/env" # ghcup-env
-
-  # BEGIN opam configuration
-  # This is useful if you're using opam as it adds:
-  #   - the correct directories to the PATH
-  #   - auto-completion for the opam binary
-  # This section can be safely removed at any time if needed.
-  [[ ! -r '/Users/alex/.opam/opam-init/init.zsh' ]] || source '/Users/alex/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-  # END opam configuration
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
