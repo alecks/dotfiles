@@ -1,8 +1,0 @@
-include stowlist-shared
-
-sway
-waybar
-rofi
-foot
-dunst
-
