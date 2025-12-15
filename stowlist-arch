@@ -1,3 +1,6 @@
 include stowlist-shared
 
 waybar
+mako
+wofi
+hypr
