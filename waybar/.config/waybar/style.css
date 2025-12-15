@@ -1,267 +1,105 @@
 * {
-    font-family: 'Berkeley Mono', 'Font Awesome 6 Free',
-        'Font Awesome 6 Brands', monospace;
-    font-size: 18px;
+    font-family: 'Berkeley Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-size: 13px;
     font-weight: 500;
+    min-height: 0;
 }
 
-/* --- Base Waybar Window Style --- */
 window#waybar {
-    background-color: #15161D; /* Kanagawa Background (solid, no transparency) */
-    color: #c8c093; /* Kanagawa Foreground */
-    transition-property: background-color;
-    transition-duration: 0.5s;
+    background-color: #1f1f28;
+    color: #dcd7ba;
 }
 
-window#waybar.hidden {
-    opacity: 0;
+tooltip {
+    background: #1f1f28;
+    border: 1px solid #54546d;
+    border-radius: 8px;
+    padding: 8px;
 }
 
-/* --- Module Button Styles --- */
+tooltip label {
+    color: #dcd7ba;
+}
+
 button {
-    box-shadow: inset 0 -2px transparent; /* Subtle bottom shadow */
+    box-shadow: none;
     border: none;
-    border-radius: 0;
+    border-radius: 8px;
 }
 
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -2px #6a9588; /* Kanagawa Aqua Green on hover */
+#workspaces {
+    margin: 4px 8px;
 }
 
-/* --- Workspaces --- */
 #workspaces button {
-    padding: 0 8px;
-    background-color: #15161D; /* Solid Kanagawa Background to match window */
-    color: #6a9588; /* Kanagawa Aqua Green for inactive workspaces */
+    padding: 4px 12px;
+    margin: 0 2px;
+    background: #c8c093;
+    color: #1f1f28;
+    border-radius: 8px;
+}
+
+#workspaces button.active {
+    background: #7e9cd8;
+    color: #1f1f28;
+    font-weight: 600;
 }
 
 #workspaces button:hover {
-    background: #2B2C35; /* Darker Kanagawa background (solid equivalent of 0.3 opacity) */
+    background: #dcd7ba;
 }
 
-#workspaces button.focused {
-    background-color: #3b3b55; /* Kanagawa Special Background */
-    box-shadow: inset 0 -2px #a8c8e1; /* Light blue underline for focused */
-    color: #c8c093; /* Kanagawa Foreground for focused */
-}
-
-#workspaces button.urgent {
-    background-color: #ff5555; /* Kanagawa Red for urgent */
-    color: #ffffff;
-}
-
-/* --- Mode Module --- */
-#mode {
-    background-color: #7e9cd8; /* Kanagawa Blue for mode indicator */
-    box-shadow: inset 0 -2px #a8c8e1;
-    color: #1f1f28; /* Dark text for mode */
-}
-
-/* --- Generic Module Spacing & Color --- */
-#clock,
 #battery,
 #cpu,
 #memory,
-#disk,
 #temperature,
-#backlight,
 #network,
 #pulseaudio,
-#wireplumber,
-#custom-media,
+#power-profiles-daemon {
+    padding: 4px 8px;
+    background: transparent;
+    color: #c8c093;
+}
+
+#clock,
 #tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#mpd,
-#language,
-#keyboard-state,
-#privacy-item,
 #custom-power {
-    padding: 0 10px;
-    color: #c8c093; /* Kanagawa Foreground for default text */
-    background-color: #2a2a37; /* Kanagawa Potion Background for most modules */
-    margin: 0 2px; /* Slight spacing between modules */
-}
-
-#window,
-#workspaces {
-    margin: 0 4px; /* Specific margin for these */
-}
-
-/* Ensure no left/right margin if workspaces is first/last module on its side */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
-/* --- Individual Module Styling (Kanagawa Palette) --- */
-
-#clock {
-    background-color: #3b3b55; /* Slightly different dark background for clock */
-}
-
-#battery {
-    background-color: #2a2a37; /* Default module background */
+    padding: 4px 12px;
+    margin: 4px 2px;
+    background: #c8c093;
+    color: #1f1f28;
+    border-radius: 8px;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: #1f1f28; /* Dark text for contrast */
-    background-color: #6a9588; /* Kanagawa Aqua Green */
+    color: #76946a;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ff5555; /* Kanagawa Red for critical battery */
-        color: #ffffff;
-    }
+#battery.warning:not(.charging) {
+    color: #c0a36e;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #ff5555; /* Kanagawa Red */
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    color: #c34043;
 }
-
-#power-profiles-daemon.performance {
-    background-color: #7e9cd8; /* Kanagawa Blue for performance */
-    color: #1f1f28; /* Dark text for contrast */
-}
-
-#power-profiles-daemon.balanced {
-    background-color: #2a2a37; /* Kanagawa Potion Background (neutral) */
-    color: #c8c093; /* Kanagawa Foreground */
-}
-
-#power-profiles-daemon.power-saver {
-    background-color: #6a9588; /* Kanagawa Aqua Green for power-saver */
-    color: #1f1f28; /* Dark text for contrast */
-}
-
-#cpu { background-color: #2a2a37; }
-#memory { background-color: #2a2a37; }
-#disk { background-color: #2a2a37; }
-#backlight { background-color: #2a2a37; }
-#network { background-color: #2a2a37; }
 
 #network.disconnected {
-    background-color: #ff5555; /* Kanagawa Red */
-    color: #ffffff;
+    color: #c34043;
 }
 
-#pulseaudio { background-color: #2a2a37; }
-#pulseaudio:hover {
-    background-color: #3b3b55; /* Darker on hover */
-}
 #pulseaudio.muted {
-    background-color: #3b3b55; /* Kanagawa Special Background */
-    color: #6a9588; /* Kanagawa Aqua Green for muted text */
+    color: #54546d;
 }
 
-#wireplumber { background-color: #2a2a37; }
-#wireplumber.muted {
-    background-color: #ff5555; /* Kanagawa Red for muted WirePlumber */
-}
-
-#custom-media {
-    background-color: #2a2a37;
-    min-width: 100px;
-}
-#custom-media.custom-spotify {
-    background-color: #6a9588; /* Kanagawa Aqua Green */
-    color: #1f1f28; /* Dark text for contrast */
-}
-#custom-media.custom-vlc {
-    background-color: #ff9e3b; /* Kanagawa Orange */
-    color: #1f1f28; /* Dark text for contrast */
-}
-
-#temperature { background-color: #2a2a37; }
 #temperature.critical {
-    background-color: #ff5555; /* Kanagawa Red */
-    color: #ffffff;
+    color: #c34043;
 }
 
-#tray { background-color: #2a2a37; }
-#tray > .passive { -gtk-icon-effect: dim; }
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #ff5555; /* Kanagawa Red */
-}
-
-#idle_inhibitor { background-color: #2a2a37; }
-#idle_inhibitor.activated {
-    background-color: #3b3b55; /* Kanagawa Special Background */
-    color: #c8c093;
-}
-
-#mpd { background-color: #2a2a37; }
-#mpd.disconnected {
-    background-color: #ff5555;
-    color: #ffffff;
-}
-#mpd.stopped {
-    background-color: #3b3b55; /* Kanagawa Special Background */
-    color: #6a9588; /* Kanagawa Aqua Green for muted text */
-}
-#mpd.paused {
-    background-color: #7e9cd8; /* Kanagawa Blue */
-    color: #1f1f28; /* Dark text for contrast */
-}
-
-#language {
-    background: #2a2a37;
-    color: #8c734b; /* Kanagawa Yellow-Brown */
-    padding: 0 5px;
-    margin: 0 2px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #2a2a37;
-    color: #8c734b; /* Kanagawa Yellow-Brown */
-    padding: 0 0px;
-    margin: 0 2px;
-    min-width: 16px;
-}
-#keyboard-state > label {
-    padding: 0 5px;
-}
-#keyboard-state > label.locked {
-    background: #2B2C35; /* Darker solid background for locked state */
-}
-
-#scratchpad {
-    background: #2B2C35; /* Darker solid Kanagawa background */
-}
-#scratchpad.empty {
-    background-color: #15161D; /* Kanagawa Background when empty */
-}
-
-#privacy { padding: 0; } /* Privacy parent container */
-#privacy-item {
-    background-color: #2a2a37; /* Default background */
-    color: #c8c093;
-}
-#privacy-item.screenshare { background-color: #ff9e3b; } /* Kanagawa Orange */
-#privacy-item.audio-in { background-color: #6a9588; } /* Kanagawa Aqua Green */
-#privacy-item.audio-out { background-color: #7e9cd8; } /* Kanagawa Blue */
-
-#custom-power {
-    background-color: #3b3b55; /* Kanagawa Special Background, slightly different for distinction */
-    color: #c8c093; /* Kanagawa Foreground */
-}
-
-#custom-power:hover {
-    background-color: #ff5555; /* Kanagawa Red on hover for an "off" or "warning" indication */
-    color: #ffffff; /* White text on red hover for contrast */
 }
