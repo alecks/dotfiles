@@ -36,6 +36,8 @@ ThinkPad T480s running [Arch](https://archlinux.org/).
 - [Wofi](https://hg.sr.ht/~scoopta/wofi) application launcher
 - [Mako](https://github.com/emersion/mako) notification daemon
 
+https://raw.githubusercontent.com/alecks/dotfiles/refs/heads/main/screenshots/thinkpad.mp4
+
 ## DICE (University)
 
 DICE (Distributed Informatics Computing Environment) is the University of Edinburgh's School of Informatics computer system. It can be configured extensibly despite being an operating system for students on shared computers.
