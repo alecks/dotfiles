@@ -1,0 +1,5 @@
+allow_images=true
+term=ghostty
+no_actions=true
+insensitive=true
+matching=fuzzy
