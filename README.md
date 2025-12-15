@@ -11,6 +11,7 @@ This repository has a `stow-all.sh` script which can be used to install configur
 ## Shared
 
 - [Helix](https://helix-editor.com) code editor
+- [Ghostty](https://ghostty.org) terminal
 - [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface
 
 See `stowlist-shared`.
@@ -20,7 +21,6 @@ See `stowlist-shared`.
 - [Aerospace](https://github.com/nikitabobko/AeroSpace) tiling window manager
 - [SketchyBar](https://github.com/FelixKratz/SketchyBar) status bar
 - [JankyBorders](https://github.com/FelixKratz/JankyBorders) for borders between windows
-- [Ghostty](https://ghostty.org) terminal
 - [Karabiner Elements](http://karabiner-elements.pqrs.org/) for hyperkey with CapsLock
 
 ![image of macos setup](./screenshots/mac.jpg)
@@ -29,18 +29,16 @@ See `stowlist-mac`.
 
 ## ThinkPad (Fedora)
 
-ThinkPad T480s running Fedora 43 Sway Spin, but configured a little bit.
+ThinkPad T480s running [Arch](https://archlinux.org/).
 
-- [sway](https://swaywm.org/) tiling window manager
-- [waybar](https://github.com/Alexays/Waybar) status bar
-- [foot](https://codeberg.org/dnkl/foot) super fast terminal
-- [rofi](https://github.com/davatorium/rofi) application launcher
-
-![image of thinkpad setup](./screenshots/thinkpad.png)
+- [Hyprland](https://hypr.land/) tiling window manager
+- [Waybar](https://github.com/Alexays/Waybar) status bar
+- [Wofi](https://hg.sr.ht/~scoopta/wofi) application launcher
+- [Mako](https://github.com/emersion/mako) notification daemon
 
 ## DICE (University)
 
-DICE (Distributed Informatics Computing Environment) is the University of Edinburgh's School of Informatics computer system. It can be configured extensibly despite being an operating system for students on shared computers. 
+DICE (Distributed Informatics Computing Environment) is the University of Edinburgh's School of Informatics computer system. It can be configured extensibly despite being an operating system for students on shared computers.
 
 - [i3](https://i3wm.org) window manager, with i3status and [picom](https://picom.app)
 - [infpi](https://github.com/alecks/infpi) for local package management, with the ability to use Nix (see dice-login)
