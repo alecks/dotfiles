@@ -36,7 +36,7 @@ ThinkPad T480s running [Arch](https://archlinux.org/).
 - [Wofi](https://hg.sr.ht/~scoopta/wofi) application launcher
 - [Mako](https://github.com/emersion/mako) notification daemon
 
-https://raw.githubusercontent.com/alecks/dotfiles/refs/heads/main/screenshots/thinkpad.mp4
+<video src="https://raw.githubusercontent.com/alecks/dotfiles/refs/heads/main/screenshots/thinkpad.mp4" height="720"></video>
 
 ## DICE (University)
 
