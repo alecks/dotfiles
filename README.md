@@ -27,7 +27,7 @@ See `stowlist-shared`.
 
 See `stowlist-mac`.
 
-## ThinkPad (Fedora)
+## ThinkPad (Arch)
 
 ThinkPad T480s running [Arch](https://archlinux.org/).
 
