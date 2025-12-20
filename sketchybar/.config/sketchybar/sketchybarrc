@@ -12,7 +12,7 @@ source "$CONFIG_DIR/colors.sh"
 
 bar=(
     height=32
-    color=$BAR_COLOR
+    color=transparent
     position=top
     padding_left=4
     padding_right=4
@@ -42,7 +42,7 @@ default=(
   label.padding_right=8
 
   background.height=24
-  background.corner_radius=2
+  background.corner_radius=8
   background.border_width=1
 )
 sketchybar --default "${default[@]}"
