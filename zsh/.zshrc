@@ -28,10 +28,7 @@ else
   export PATH=$PATH:$(go env GOPATH)/bin
   export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
   export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-<<<<<<< HEAD
-=======
   export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
->>>>>>> 5fca143 (add postgres to path, remove opam/ghcup)
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
