@@ -59,12 +59,12 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 6
-inner.vertical = 6
-outer.left = 4
-outer.bottom = 4
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.bottom = 8
 outer.top = [{ monitor."built-in" = 4 }, 36] # 32 + 4 since bar height is 32
-outer.right = 4
+outer.right = 8
 
 [workspace-to-monitor-force-assignment]
 1 = "main"
