@@ -1,30 +1,31 @@
+exec dbus-update-activation-environment --all
+exec eval $(gnome-keyring-daemon --start --components=secrets)
+exec /usr/libexec/polkit-gnome-authentication-agent-1
 
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
+exec pipewire
+exec waybar
+exec wl-paste --watch cliphist store
+exec blueman-applet
+exec nm-applet
+
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 600 'loginctl suspend' \
+    before-sleep 'swaylock -f'
+
+seat seat0 xcursor_theme Adwaita 24
 
 ### Variables
 #
-# Logo key. Use Mod1 for Alt.
+# Super. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-# Recommends: foot
+
 set $term foot
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# Recommends: rofi-wayland
-set $rofi_cmd rofi -terminal '$term'
-# Shows a combined list of the applications with desktop files and
-# executables from PATH.
-set $menu $rofi_cmd -show combi -combi-modes drun#run
+set $drun tofi-drun | xargs swaymsg exec --
 
 ### Key bindings
 #
@@ -37,7 +38,7 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec $drun
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -50,11 +51,20 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to log out from this ThinkPad? This will end your Wayland session.' -B 'Yes, end session' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit void?' -B 'Yes, end session' 'swaymsg exit'
     bindsym $mod+Shift+q exec swaylock
 
     # Pop the notification history
-    bindsym $mod+Shift+p exec dunstctl history-pop
+    bindsym $mod+Shift+p exec makoctl restore
+
+    # Volume keys
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+    # Clipboard history
+    bindsym $mod+shift+v exec cliphist list | tofi --prompt-text 'cliphist: ' | cliphist decode | wl-copy
 #
 # Moving around:
 #
@@ -168,25 +178,27 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Include configs from 3 locations:
-#  - /usr/share/sway/config.d
-#  - /etc/sway/config.d
-#  - $XDG_CONFIG_HOME/sway/config.d ($HOME/.config/sway/config.d)
-#
-# If multiple directories contain the files with the same name, the later
-# directory takes precedence; `$XDG_CONFIG_HOME/sway/config.d/20-swayidle.conf`
-# will always be loaded instead of `/usr/share/sway/config.d/20-swayidle.conf`
-# or `/etc/sway/config.d/20-swayidle.conf`
-#
-# This mechanism permits overriding our default configuration per-system
-# (/etc) or per-user ($XDG_CONFIG_HOME) basis. Just create the file you
-# want to modify/override in the higher-level directory.
-#
-# For example, to disable the default bar from Fedora configs, you'll need to
-#     $ echo -n > "$HOME/.config/sway/config.d/90-bar.conf"
-#
-# Note the quoting, the $() and the arguments quoting. All the parts are equally
-# important to make the magic work. And if you want to learn the secret behind
-# the trick, it's all in the `wordexp(3)`.
-#
-include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+input "type:touchpad" {
+	natural_scroll enabled yes
+}
+
+set $internal_keyboard_id "1:1:AT_Translated_Set_2_keyboard"
+bindsym $mod+Shift+i exec swaymsg input "$internal_keyboard_id" events disabled
+bindsym $mod+i exec swaymsg input "$internal_keyboard_id" events enabled
+
+font pango:Hack Nerd Font 12
+output * bg ~/.local/share/wallpapers/ah.png fill
+
+client.focused #6a9588 #7e9cd8 #1f1f28 #8c734b #6a9588
+
+# Focused but inactive window
+client.focused_inactive #3b3b55 #2a2a37 #c8c093 #8c734b #3b3b55
+
+# Unfocused window (not active, in the background)
+client.unfocused #2a2a37 #2a2a37 #6a9588 #8c734b #2a2a37
+
+# Urgent window
+client.urgent #ff5555 #ff5555 #ffffff #ff9e3b #ff5555
+
+# Placeholder (for empty areas or transient states)
+client.placeholder #1f1f28 #1f1f28 #c8c093 #c8c093 #1f1f28
