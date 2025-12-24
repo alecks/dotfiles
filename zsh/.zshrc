@@ -12,17 +12,15 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   fi
 
   echo "Welcome back to $(hostname)."
-elif [[ "$(hostname)" == "thinkpad" ]]; then
-  # On ThinkPad/Arch.
-  function y() {
-  	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  	yazi "$@" --cwd-file="$tmp"
-  	IFS= read -r -d '' cwd < "$tmp"
-  	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-  	rm -f -- "$tmp"
-  }
-
-  alias hx="helix"
+elif [[ "$(hostname)" == "void" ]]; then
+  # On ThinkPad/Void.
+  # function y() {
+  # 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  # 	yazi "$@" --cwd-file="$tmp"
+  # 	IFS= read -r -d '' cwd < "$tmp"
+  # 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+  # 	rm -f -- "$tmp"
+  # }
 else
   # Mac
   export PATH=$PATH:$(go env GOPATH)/bin
