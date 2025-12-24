@@ -21,6 +21,7 @@ elif [[ "$(hostname)" == "void" ]]; then
   # 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
   # 	rm -f -- "$tmp"
   # }
+  export GPG_TTY=$(tty)
 else
   # Mac
   export PATH=$PATH:$(go env GOPATH)/bin
