@@ -2,5 +2,7 @@ include stowlist-shared
 
 waybar
 mako
-wofi
-hypr
+tofi
+sway
+foot
+-ghostty
