@@ -1,104 +1,171 @@
-// -*- mode: jsonc -*-
 {
+  "height": 34,
+  "spacing": 0,
+
   "modules-left": [
-    "hyprland/workspaces"
+    "group/workspaces",
+    "sway/mode",
+    "sway/scratchpad"
   ],
   "modules-center": [
-    "hyprland/window"
+    "group/window"
   ],
   "modules-right": [
-    "pulseaudio",
-    "cpu",
-    "memory",
-    "temperature",
-    "battery",
-    "power-profiles-daemon",
-    "tray",
-    "clock",
-    "custom/power"
+    "group/hardware",
+    "group/system",
+    "group/info"
   ],
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 8
-    // "icons": {
-    //   "blueman": "bluetooth",
-    // }
-  },
-  "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%d-%m-%Y}"
-  },
-  "cpu": {
-    "format": "{usage}% ",
+
+  "custom/left": {
+    "format": "[",
     "tooltip": false
   },
+  "custom/right": {
+    "format": "]",
+    "tooltip": false
+  },
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false
+  },
+
+  "group/workspaces": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/left",
+      "sway/workspaces",
+      "custom/right"
+    ]
+  },
+
+  "sway/workspaces": {
+    "format": "{name}",
+    "disable-scroll": false,
+    "all-outputs": false
+  },
+
+  "sway/mode": {
+    "format": "[ {} ]"
+  },
+
+  "sway/scratchpad": {
+    "format": "[ {count} ]",
+    "show-empty": false
+  },
+
+  "group/window": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/left",
+      "sway/window",
+      "custom/right"
+    ]
+  },
+
+  "sway/window": {
+    "format": "{title}",
+    "min-length": 50,
+    "max-length": 50
+  },
+
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/left",
+      "cpu",
+      "custom/sep",
+      "memory",
+      "custom/sep",
+      "temperature",
+      "custom/right"
+    ]
+  },
+
+  "cpu": {
+    "format": "CPU: {usage}%",
+  },
+
   "memory": {
-    "format": "{}% "
+    "format": "RAM: {}%"
   },
+
   "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": ["", "", ""]
+    "format": "{temperatureC}°C",
   },
+
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/left",
+      "pulseaudio",
+      "custom/sep",
+      "battery",
+      "custom/sep",
+      "power-profiles-daemon",
+      "custom/right"
+    ]
+  },
+
+  "group/info": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/left",
+      "clock",
+      "custom/sep",
+      "tray",
+      "custom/sep",
+      "custom/power",
+      "custom/right"
+    ]
+  },
+
+  "pulseaudio": {
+    "format": "AUX: {volume}%",
+    "format-bluetooth": "AUX: {volume}% (BT)",
+    "format-muted": "AUX: muted",
+    "format-bluetooth-muted": "AUX: muted (BT)",
+    "on-click": "pavucontrol"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{profile}",
+  },
+
   "battery": {
     "states": {
-      // "good": 95,
       "warning": 30,
       "critical": 15
     },
-    "format": "{capacity}% {icon}",
-    "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
+    "format": "BAT: {capacity}%",
+    "format-charging": "BAT: ^{capacity}%",
+    "format-plugged": "BAT: ~{capacity}%",
   },
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    }
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%d/%m/%Y}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
   },
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-bluetooth-muted": " {icon}",
-    "format-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
-    },
-    "on-click": "pavucontrol"
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
   },
+
   "custom/power": {
     "format": "",
     "tooltip": false,
     "menu": "on-click",
     "menu-file": "$HOME/.config/waybar/power_menu.xml",
     "menu-actions": {
-      "logout": "loginctl kill-session $XDG_SESSION_ID",
-      "shutdown": "shutdown now",
-      "reboot": "shutdown -r now",
+      "logout": "swaymsg exit",
+      "shutdown": "loginctl poweroff",
+      "reboot": "loginctl reboot",
       "suspend": "loginctl suspend",
       "hibernate": "loginctl hibernate",
-      "enable-internal-keyboard": "hyprctl -r -- keyword device[keyd-virtual-keyboard]:enabled 1",
-      "disable-internal-keyboard": "hyprctl -r -- keyword device[keyd-virtual-keyboard]:enabled 0"
+      "enable-internal-keyboard": "swaymsg input 1:1:AT_Translated_Set_2_keyboard events enabled",
+      "disable-internal-keyboard": "swaymsg input 1:1:AT_Translated_Set_2_keyboard events disabled"
     }
   }
 }
