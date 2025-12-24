@@ -15,7 +15,7 @@ if [[ ! -f "$STOWLIST" ]]; then
 fi
 
 stow_dirs=()
-
+declare -A excluded
 declare -A processed
 
 process_stowlist() {
@@ -36,6 +36,9 @@ process_stowlist() {
                 processed[$included_file]=1
                 process_stowlist "$included_file"
             fi
+        elif [[ "$line" == -* ]]; then
+            # Add to exclusion list (removing the leading -)
+            excluded["${line#-}"]=1
         else
             stow_dirs+=("$line")
         fi
@@ -45,6 +48,10 @@ process_stowlist() {
 process_stowlist "$STOWLIST"
 
 for dir in "${stow_dirs[@]}"; do
-    echo "Stowing: $dir"
-    stow -v --target="$HOME" "$dir"
+    if [[ -z "${excluded[$dir]}" ]]; then
+        echo "Stowing: $dir"
+        stow -v --target="$HOME" "$dir"
+    else
+        echo "Excluding: $dir"
+    fi
 done
