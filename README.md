@@ -27,16 +27,14 @@ See `stowlist-shared`.
 
 See `stowlist-mac`.
 
-## ThinkPad (Arch)
+## ThinkPad (Void Linux)
 
-ThinkPad T480s running [Arch](https://archlinux.org/).
+ThinkPad T480s running [Void](https://voidlinux.org/).
 
-- [Hyprland](https://hypr.land/) tiling window manager
+- [Sway](https://swaywm.org/) tiling window manager
 - [Waybar](https://github.com/Alexays/Waybar) status bar
-- [Wofi](https://hg.sr.ht/~scoopta/wofi) application launcher
+- [Tofi](https://github.com/philj56/tofi) application launcher
 - [Mako](https://github.com/emersion/mako) notification daemon
-
-![image of arch setup](./screenshots/thinkpad.png)
 
 ## DICE (University)
 
