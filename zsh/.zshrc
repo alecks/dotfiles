@@ -32,6 +32,7 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 alias ls='ls --color=auto'
+alias hxf='hx $(fzf)'
 
 autoload -Uz compinit && compinit -C
 
