@@ -11,22 +11,20 @@ progress-color=over #54546D
 
 font=Hack Nerd Font 10
 
-default-timeout=5000
-
 [urgency=low]
 background-color=#1F1F28
 text-color=#DCD7BA
 border-color=#54546D
-timeout=3000
+default-timeout=3000
 
 [urgency=normal]
 background-color=#1F1F28
 text-color=#DCD7BA
 border-color=#7E9CD8
-timeout=6000
+default-timeout=6000
 
 [urgency=critical]
 background-color=#1F1F28
 text-color=#E82424
 border-color=#E82424
-timeout=0
+default-timeout=0
