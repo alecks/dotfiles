@@ -201,3 +201,14 @@ client.urgent #ff5555 #ff5555 #ffffff #ff9e3b #ff5555
 
 # Placeholder (for empty areas or transient states)
 client.placeholder #1f1f28 #1f1f28 #c8c093 #c8c093 #1f1f28
+
+workspace 1 output HDMI-A-2
+workspace 2 output HDMI-A-2
+workspace 3 output HDMI-A-2
+workspace 4 output HDMI-A-2
+workspace 5 output HDMI-A-2
+workspace 6 output eDP-1
+workspace 7 output eDP-1
+workspace 8 output eDP-1
+workspace 9 output eDP-1
+workspace 10 output eDP-1
