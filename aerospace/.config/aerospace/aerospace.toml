@@ -7,10 +7,9 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 
-# Sketchybar and JankyBorders
+# Sketchybar
 after-startup-command = [
 	"exec-and-forget sketchybar", 
-	"exec-and-forget borders active_color=0xff89b4fa inactive_color=0x441e1e2e background_color=0x00000000 width=4"
 ]
 exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']
 
