@@ -75,3 +75,7 @@ auto-format = true
 name = "go"
 formatter = { command = "golines", args = ["--max-len=100", "--base-formatter=gofumpt"] }
 auto-format = true
+
+[[language]]
+name = "common-lisp"
+file-types = ["pddl"]
