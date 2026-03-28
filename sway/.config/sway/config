@@ -1,18 +1,20 @@
-exec dbus-update-activation-environment --all
-exec /usr/libexec/polkit-gnome-authentication-agent-1
-
-exec pipewire
-exec waybar
-exec wl-paste --watch cliphist store
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK
+exec gnome-keyring-daemon --start --components=ssh
+exec /bin/sh -c 'SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/keyring/ssh dbus-update-activation-environment --systemd SSH_AUTH_SOCK'
+exec /usr/libexec/polkit-mate-authentication-agent-1
 exec blueman-applet
 exec nm-applet
+exec waybar
+exec mako
+exec wl-paste --watch cliphist store
 
 exec swayidle -w \
-    timeout 300 'swaylock -f' \
-    timeout 600 'loginctl suspend' \
+    timeout 600 'swaylock -f' \
+    timeout 900 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f'
 
-seat seat0 xcursor_theme Adwaita 24
+# seat seat0 xcursor_theme Adwaita 24
 
 ### Variables
 #
@@ -50,17 +52,17 @@ set $drun tofi-drun | xargs swaymsg exec --
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit void?' -B 'Yes, end session' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Log out?' -B 'Yes, end session' 'swaymsg exit'
     bindsym $mod+Shift+q exec swaylock
 
     # Pop the notification history
     bindsym $mod+Shift+p exec makoctl restore
 
-    # Volume keys
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    # Wireplumber audio controls
+    bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
     # Clipboard history
     bindsym $mod+shift+v exec cliphist list | tofi --prompt-text 'cliphist: ' | cliphist decode | wl-copy
@@ -181,12 +183,8 @@ input "type:touchpad" {
 	natural_scroll enabled yes
 }
 
-set $internal_keyboard_id "1:1:AT_Translated_Set_2_keyboard"
-bindsym $mod+Shift+i exec swaymsg input "$internal_keyboard_id" events disabled
-bindsym $mod+i exec swaymsg input "$internal_keyboard_id" events enabled
-
 font pango:Hack Nerd Font 12
-output * bg ~/.local/share/wallpapers/ah.png fill
+output * bg ~/.local/share/backgrounds/F42-01-day.jpg fill
 
 client.focused #6a9588 #7e9cd8 #1f1f28 #8c734b #6a9588
 
@@ -202,15 +200,15 @@ client.urgent #ff5555 #ff5555 #ffffff #ff9e3b #ff5555
 # Placeholder (for empty areas or transient states)
 client.placeholder #1f1f28 #1f1f28 #c8c093 #c8c093 #1f1f28
 
-workspace 1 output HDMI-A-2
-workspace 2 output HDMI-A-2
-workspace 3 output HDMI-A-2
-workspace 4 output HDMI-A-2
-workspace 5 output HDMI-A-2
-workspace 6 output eDP-1
-workspace 7 output eDP-1
-workspace 8 output eDP-1
-workspace 9 output eDP-1
-workspace 10 output eDP-1
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 4 output HDMI-A-1
+workspace 5 output HDMI-A-1
+workspace 6 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 9 output HDMI-A-1
+workspace 10 output HDMI-A-1
 
-output HDMI-A-2 mode 1920x1080@144Hz
+output HDMI-A-1 mode 1920x1080@144Hz

@@ -98,9 +98,7 @@
     "orientation": "horizontal",
     "modules": [
       "custom/left",
-      "pulseaudio",
-      "custom/sep",
-      "battery",
+      "wireplumber",
       "custom/sep",
       "power-profiles-daemon",
       "custom/right"
@@ -120,26 +118,14 @@
     ]
   },
 
-  "pulseaudio": {
+  "wireplumber": {
     "format": "AUX: {volume}%",
-    "format-bluetooth": "AUX: {volume}% (BT)",
     "format-muted": "AUX: muted",
-    "format-bluetooth-muted": "AUX: muted (BT)",
     "on-click": "pavucontrol"
   },
 
   "power-profiles-daemon": {
     "format": "{profile}",
-  },
-
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "BAT: {capacity}%",
-    "format-charging": "BAT: ^{capacity}%",
-    "format-plugged": "BAT: ~{capacity}%",
   },
 
   "clock": {
@@ -160,12 +146,10 @@
     "menu-file": "$HOME/.config/waybar/power_menu.xml",
     "menu-actions": {
       "logout": "swaymsg exit",
-      "shutdown": "loginctl poweroff",
-      "reboot": "loginctl reboot",
-      "suspend": "loginctl suspend",
-      "hibernate": "loginctl hibernate",
-      "enable-internal-keyboard": "swaymsg input 1:1:AT_Translated_Set_2_keyboard events enabled",
-      "disable-internal-keyboard": "swaymsg input 1:1:AT_Translated_Set_2_keyboard events disabled"
+      "shutdown": "systemctl poweroff",
+      "reboot": "systemctl reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate",
     }
   }
 }

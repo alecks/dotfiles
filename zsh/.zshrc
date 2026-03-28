@@ -12,16 +12,10 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   fi
 
   echo "Welcome back to $(hostname)."
-elif [[ "$(hostname)" == "void" ]]; then
-  # On ThinkPad/Void.
-  # function y() {
-  # 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  # 	yazi "$@" --cwd-file="$tmp"
-  # 	IFS= read -r -d '' cwd < "$tmp"
-  # 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-  # 	rm -f -- "$tmp"
-  # }
-  export GPG_TTY=$(tty)
+elif [[ "$(hostname)" == "pleemcentre" ]]; then
+  # Fedora PC
+  export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/keyring/ssh  
+  alias bw="flatpak run --command=bw com.bitwarden.desktop"
 else
   # Mac
   export PATH=$PATH:$(go env GOPATH)/bin
@@ -30,7 +24,6 @@ else
   export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 fi
 
-export PATH="$HOME/.local/bin:$PATH"
 alias ls='ls --color=auto'
 alias hxf='hx $(fzf)'
 
@@ -46,4 +39,4 @@ if command -v zoxide &>/dev/null; then
   alias cd="z"
 fi
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"

@@ -11,6 +11,8 @@ progress-color=over #54546D
 
 font=Hack Nerd Font 10
 
+on-button-left=exec makoctl menu tofi
+
 [urgency=low]
 background-color=#1F1F28
 text-color=#DCD7BA

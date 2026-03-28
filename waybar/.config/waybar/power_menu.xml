@@ -32,20 +32,5 @@
   			<property name="label">Reboot</property>
   		</object>
     </child>
-
-    <child>
-      <object class="GtkSeparatorMenuItem" id="delimiter1"/>
-    </child>
-
-    <child>
-  		<object class="GtkMenuItem" id="enable-internal-keyboard">
-  			<property name="label">Enable Internal Keyboard</property>
-  		</object>
-    </child>
-    <child>
-  		<object class="GtkMenuItem" id="disable-internal-keyboard">
-  			<property name="label">Disable Internal Keyboard</property>
-  		</object>
-    </child>
   </object>
 </interface>

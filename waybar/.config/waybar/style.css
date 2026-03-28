@@ -1,4 +1,3 @@
-
 * {
   border: none;
   border-radius: 0;
@@ -80,9 +79,8 @@ tooltip {
 #cpu,
 #memory,
 #temperature,
-#pulseaudio,
+#wireplumber,
 #power-profiles-daemon,
-#battery,
 #clock,
 #tray,
 #custom-power {
@@ -94,33 +92,15 @@ tooltip {
 #cpu:hover,
 #memory:hover,
 #temperature:hover,
-#pulseaudio:hover,
-#battery:hover,
+#wireplumber:hover,
 #clock:hover,
 #power-profiles-daemon:hover,
 #custom-power:hover {
   color: #DCA561;
 }
 
-/* Battery states */
-#battery.charging {
-  background: #E6C384;
-  color: #1F1F28;
-  padding: 0 8px;
-}
-
-#battery.warning:not(.charging) {
-  color: #FFA066;
-}
-
-#battery.critical:not(.charging) {
-  background: #E82424;
-  color: #DCD7BA;
-  padding: 0 8px;
-}
-
 /* Audio */
-#pulseaudio.muted {
+#wireplumber.muted {
   color: #E82424;
 }
 
