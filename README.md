@@ -1,6 +1,6 @@
 # dotfiles
 
-Dotfiles for my Mac, ThinkPad and my university's DICE computers. Aims to have as little config as possible to make everything as efficient as possible.
+Dotfiles for my Mac, PC and my university's DICE computers. Aims to have as little config as possible to make everything as efficient as possible.
 
 ## Installation with stow-all
 
@@ -27,14 +27,16 @@ See `stowlist-shared`.
 
 See `stowlist-mac`.
 
-## ThinkPad (Void Linux)
+## PC (Fedora Workstation)
 
-ThinkPad T480s running [Void](https://voidlinux.org/).
+RTX 5070 / Intel Core Ultra 7 running [Fedora Workstation](https://fedoraproject.org/workstation/). GNOME apps are kept, aiming to use as many as possible through sway to minimise faff.
 
 - [Sway](https://swaywm.org/) tiling window manager
 - [Waybar](https://github.com/Alexays/Waybar) status bar
 - [Tofi](https://github.com/philj56/tofi) application launcher
 - [Mako](https://github.com/emersion/mako) notification daemon
+
+![image of fedora setup](./screenshots/fedora.png)
 
 ## DICE (University)
 

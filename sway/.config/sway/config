@@ -66,6 +66,12 @@ set $drun tofi-drun | xargs swaymsg exec --
 
     # Clipboard history
     bindsym $mod+shift+v exec cliphist list | tofi --prompt-text 'cliphist: ' | cliphist decode | wl-copy
+
+    # Take a screenshot with area selection
+    bindsym Print exec grimshot save area
+    # Take a screenshot of the active window
+    bindsym Alt+Print exec grimshot save active
+
 #
 # Moving around:
 #
