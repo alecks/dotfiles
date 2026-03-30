@@ -15,9 +15,9 @@ command = "texlab"
 # onSave doesn't seem to work with Helix. Use C-b in config.toml instead.
 [language-server.texlab.config.build]
 executable = "pdflatex"
-args = ["-interaction=nonstopmode", "-output-directory=output", "%f"]
+args = ["-interaction=nonstopmode", "-output-directory=out", "%f"]
 onSave = false
-auxDirectory = "output"
+auxDirectory = "out"
 
 [language-server.texlab.config.chktex]
 onOpenAndSave = true
