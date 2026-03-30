@@ -1,3 +1,4 @@
+
 * {
   border: none;
   border-radius: 0;
@@ -7,21 +8,21 @@
 }
 
 window#waybar {
-  background: #1F1F28;
-  color: #DCD7BA;
+  background: #2D353B;
+  color: #D3C6AA;
 }
 
 tooltip {
-  background: #1F1F28;
-  border: 2px solid #FFA066;
+  background: #2D353B;
+  border: 2px solid #A7C080;
 }
 
 /* Main containers */
 .modules-left,
-.modules-center, 
+.modules-center,
 .modules-right {
-  background: #1F1F28;
-  border: 2px solid #FFA066;
+  background: #2D353B;
+  border: 2px solid #A7C080;
   margin: 8px;
   padding: 2px 4px;
 }
@@ -29,49 +30,49 @@ tooltip {
 /* Brackets and separators */
 #custom-left,
 #custom-right {
-  color: #FFA066;
+  color: #A7C080;
   font-weight: bold;
   padding: 0 4px;
 }
 
 #custom-sep {
-  color: #54546D;
+  color: #5C6A72;
   padding: 0 6px;
 }
 
 /* Workspaces */
 #workspaces button {
-  color: #C8C093;
+  color: #859289;
   padding: 0 8px;
   background: transparent;
 }
 
 #workspaces button:hover {
-  background: #2A2A37;
-  color: #DCA561;
+  background: #3D484D;
+  color: #DBBC7F;
 }
 
 #workspaces button.focused {
-  background: #2A2A37;
-  color: #FFA066;
+  background: #3D484D;
+  color: #A7C080;
   font-weight: bold;
 }
 
 #workspaces button.urgent {
-  background: #E82424;
-  color: #DCD7BA;
+  background: #E67E80;
+  color: #D3C6AA;
 }
 
 /* Mode and scratchpad */
 #mode,
 #scratchpad {
-  background: #98BB6C;
-  color: #1F1F28;
+  background: #A7C080;
+  color: #2D353B;
 }
 
 /* Window title */
 #window {
-  color: #DCD7BA;
+  color: #D3C6AA;
   padding: 0 8px;
 }
 
@@ -84,7 +85,7 @@ tooltip {
 #clock,
 #tray,
 #custom-power {
-  color: #DCD7BA;
+  color: #D3C6AA;
   padding: 0 6px;
 }
 
@@ -96,15 +97,15 @@ tooltip {
 #clock:hover,
 #power-profiles-daemon:hover,
 #custom-power:hover {
-  color: #DCA561;
+  color: #DBBC7F;
 }
 
 /* Audio */
 #wireplumber.muted {
-  color: #E82424;
+  color: #E67E80;
 }
 
 /* Temperature */
 #temperature.critical {
-  color: #E82424;
+  color: #E67E80;
 }

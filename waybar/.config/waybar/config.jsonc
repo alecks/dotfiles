@@ -1,11 +1,11 @@
 {
-  "height": 34,
+  "height": 42,
   "spacing": 0,
 
   "modules-left": [
     "group/workspaces",
     "sway/mode",
-    "sway/scratchpad"
+    "sway/scratchpad",
   ],
   "modules-center": [
     "group/window"
@@ -57,9 +57,20 @@
     "orientation": "horizontal",
     "modules": [
       "custom/left",
-      "sway/window",
+      "mpris",
       "custom/right"
     ]
+  },
+
+  "mpris": {
+    "format": "{status_icon} {dynamic}",
+    "format-paused": "⏸ {dynamic}",
+    "format-playing": "▶ {dynamic}",
+    "dynamic-order": ["artist", "title"],
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
   },
 
   "sway/window": {

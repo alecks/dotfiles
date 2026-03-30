@@ -7,6 +7,6 @@ result-spacing = 10
 font = Hack Nerd Font
 
 background-color = #000A
-text-color = #dcd7ba
-prompt-color = #c34043
-selection-color = #dca561
+text-color = #d3c6aa
+prompt-color = #e67e80
+selection-color = #dbbc7f

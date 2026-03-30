@@ -4,29 +4,29 @@ border-size=2
 border-radius=8
 width=350
 
-background-color=#1F1F28
-text-color=#DCD7BA
-border-color=#7E9CD8
-progress-color=over #54546D
+background-color=#2D353B
+text-color=#D3C6AA
+border-color=#7FBBB3
+progress-color=over #5C6A72
 
 font=Hack Nerd Font 10
 
 on-button-left=exec makoctl menu tofi
 
 [urgency=low]
-background-color=#1F1F28
-text-color=#DCD7BA
-border-color=#54546D
+background-color=#2D353B
+text-color=#D3C6AA
+border-color=#5C6A72
 default-timeout=3000
 
 [urgency=normal]
-background-color=#1F1F28
-text-color=#DCD7BA
-border-color=#7E9CD8
+background-color=#2D353B
+text-color=#D3C6AA
+border-color=#7FBBB3
 default-timeout=6000
 
 [urgency=critical]
-background-color=#1F1F28
-text-color=#E82424
-border-color=#E82424
+background-color=#2D353B
+text-color=#E67E80
+border-color=#E67E80
 default-timeout=0

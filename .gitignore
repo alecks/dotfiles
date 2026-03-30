@@ -3,3 +3,4 @@ lazy-lock.json
 karabiner/.config/karabiner/automatic_backups
 *.bak
 .DS_Store
+*.old
