@@ -16,6 +16,10 @@ elif [[ "$(hostname)" == "pleemcentre" ]]; then
   # Fedora PC
   export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/keyring/ssh  
   alias bw="flatpak run --command=bw com.bitwarden.desktop"
+  . "$HOME/.cargo/env"
+
+  # similar to macOS open -- just xdg-open and disown
+  open() { xdg-open "$1" > /dev/null 2>&1 & disown }
 else
   # Mac
   export PATH=$PATH:$(go env GOPATH)/bin
