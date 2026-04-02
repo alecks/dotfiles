@@ -1,13 +1,16 @@
 font-family = MonoLisa Medium
 font-size = 17
-font-feature = "liga"
-font-feature = "ss11"
 window-colorspace = "display-p3"
 
-theme = Kanagawa Wave
+font-feature = "liga"
+font-feature = "ss01"
+
+theme = Catppuccin Mocha
 
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
 
 window-decoration = true
 gtk-single-instance = true
+
+keybind = global:cmd+enter=new_window
