@@ -1,5 +1,7 @@
 # dotfiles
 
+[Codeberg](https://codeberg.org/x/dotfiles)
+
 Dotfiles for my Mac, PC and my university's DICE computers. Aims to have as little config as possible to make everything as efficient as possible.
 
 ## Installation with stow-all
