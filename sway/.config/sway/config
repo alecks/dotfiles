@@ -193,7 +193,7 @@ input "type:touchpad" {
 	natural_scroll enabled yes
 }
 
-font pango:Hack Nerd Font 12
+font pango:Berkeley Mono Bold 12
 output * bg ~/.local/share/backgrounds/waves_2.png fill
 
 # Focused window

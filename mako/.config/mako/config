@@ -9,7 +9,7 @@ text-color=#D3C6AA
 border-color=#7FBBB3
 progress-color=over #5C6A72
 
-font=Hack Nerd Font 10
+font=Berkeley Mono 10
 
 on-button-left=exec makoctl menu tofi
 

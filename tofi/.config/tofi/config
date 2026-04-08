@@ -4,7 +4,7 @@ padding-top = 4%
 border-width = 2
 outline-width = 0
 result-spacing = 15
-font = Hack Nerd Font 11
+font = Berkeley Mono 12
 
 background-color = #2d353baa
 text-color = #d3c6aa
