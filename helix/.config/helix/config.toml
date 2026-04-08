@@ -1,4 +1,4 @@
-theme = "everforest_dark"
+theme = "terafox"
 
 [editor]
 line-number = "relative"
@@ -10,7 +10,7 @@ color-modes = true
 hidden = false
 
 [keys.normal]
-"C-b" = ":sh pdflatex -interaction=nonstopmode -output-directory=out main.tex"
+"C-b" = ":sh latexmk -pdf -interaction=nonstopmode -outdir=out main.tex"
 # inc included files, stderr > stdout, last line to ignore warnings
 "C-c" = ":sh sh -c 'texcount -total -inc -brief -quiet main.tex 2>&1 | tail -n 1'"
 "C-p" = ":sh xdg-open out/main.pdf"

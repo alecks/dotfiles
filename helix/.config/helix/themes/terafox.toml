@@ -1,0 +1,238 @@
+# Terafox theme for Helix
+# Ported from nightfox.nvim by EdenEast
+# https://github.com/EdenEast/nightfox.nvim
+
+# ── Syntax ────────────────────────────────────────────────────────────────────
+
+"attribute"                    = { fg = "cyan" }
+
+"type"                         = { fg = "yellow" }
+"type.builtin"                 = { fg = "cyan_bright" }
+"type.parameter"               = { fg = "yellow" }
+"type.enum.variant"            = { fg = "yellow" }
+
+"constructor"                  = { fg = "cyan_bright" }
+
+"constant"                     = { fg = "orange_bright" }
+"constant.builtin"             = { fg = "orange_bright" }
+"constant.builtin.boolean"     = { fg = "orange_bright" }
+"constant.character"           = { fg = "green" }
+"constant.character.escape"    = { fg = "magenta_bright" }
+"constant.numeric"             = { fg = "orange" }
+"constant.numeric.integer"     = { fg = "orange" }
+"constant.numeric.float"       = { fg = "orange" }
+
+"string"                       = { fg = "green" }
+"string.regexp"                = { fg = "yellow_bright" }
+"string.special"               = { fg = "magenta_bright" }
+"string.special.path"          = { fg = "magenta_bright" }
+"string.special.url"           = { fg = "cyan", modifiers = ["underlined"] }
+"string.special.symbol"        = { fg = "magenta_bright" }
+
+"comment"                      = { fg = "comment", modifiers = ["italic"] }
+"comment.line"                 = { fg = "comment", modifiers = ["italic"] }
+"comment.block"                = { fg = "comment", modifiers = ["italic"] }
+"comment.block.documentation"  = { fg = "comment", modifiers = ["italic"] }
+
+"variable"                     = { fg = "white" }
+"variable.builtin"             = { fg = "red" }
+"variable.parameter"           = { fg = "white" }
+"variable.other.member"        = { fg = "blue" }
+
+"label"                        = { fg = "blue" }
+
+"punctuation"                  = { fg = "fg2" }
+"punctuation.delimiter"        = { fg = "fg2" }
+"punctuation.bracket"          = { fg = "fg2" }
+"punctuation.special"          = { fg = "magenta_bright" }
+
+"keyword"                      = { fg = "magenta" }
+"keyword.control"              = { fg = "magenta_bright" }
+"keyword.control.conditional"  = { fg = "magenta_bright" }
+"keyword.control.repeat"       = { fg = "magenta_bright" }
+"keyword.control.import"       = { fg = "magenta_bright" }
+"keyword.control.return"       = { fg = "magenta_bright" }
+"keyword.control.exception"    = { fg = "magenta_bright" }
+"keyword.operator"             = { fg = "magenta" }
+"keyword.directive"            = { fg = "pink_bright" }
+"keyword.function"             = { fg = "magenta" }
+"keyword.storage"              = { fg = "magenta" }
+"keyword.storage.type"         = { fg = "magenta" }
+"keyword.storage.modifier"     = { fg = "magenta" }
+
+"operator"                     = { fg = "fg2" }
+
+"function"                     = { fg = "blue_bright" }
+"function.builtin"             = { fg = "red" }
+"function.method"              = { fg = "blue_bright" }
+"function.macro"               = { fg = "blue_bright" }
+"function.special"             = { fg = "pink_bright" }
+
+"tag"                          = { fg = "red" }
+"tag.builtin"                  = { fg = "red_bright" }
+
+"namespace"                    = { fg = "cyan" }
+"namespace.special"            = { fg = "orange_bright" }
+
+# ── Markup ────────────────────────────────────────────────────────────────────
+
+"markup.heading"               = { fg = "blue_bright", modifiers = ["bold"] }
+"markup.heading.marker"        = { fg = "fg3" }
+"markup.heading.1"             = { fg = "red", modifiers = ["bold"] }
+"markup.heading.2"             = { fg = "orange", modifiers = ["bold"] }
+"markup.heading.3"             = { fg = "yellow", modifiers = ["bold"] }
+"markup.heading.4"             = { fg = "green", modifiers = ["bold"] }
+"markup.heading.5"             = { fg = "cyan", modifiers = ["bold"] }
+"markup.heading.6"             = { fg = "blue", modifiers = ["bold"] }
+"markup.list"                  = { fg = "red" }
+"markup.bold"                  = { modifiers = ["bold"] }
+"markup.italic"                = { modifiers = ["italic"] }
+"markup.strikethrough"         = { modifiers = ["crossed_out"] }
+"markup.link"                  = { fg = "cyan" }
+"markup.link.url"              = { fg = "cyan", modifiers = ["underlined"] }
+"markup.link.label"            = { fg = "magenta_bright" }
+"markup.link.text"             = { fg = "green" }
+"markup.quote"                 = { fg = "comment", modifiers = ["italic"] }
+"markup.raw.inline"            = { fg = "cyan_bright" }
+"markup.raw.block"             = { fg = "fg1" }
+
+# ── Diff ──────────────────────────────────────────────────────────────────────
+
+"diff.plus"                    = { fg = "green" }
+"diff.minus"                   = { fg = "red" }
+"diff.delta"                   = { fg = "cyan" }
+"diff.delta.moved"             = { fg = "yellow" }
+"diff.delta.conflict"          = { fg = "orange" }
+
+# ── Interface ─────────────────────────────────────────────────────────────────
+
+"ui.background"                = { fg = "fg1", bg = "bg1" }
+"ui.background.separator"      = { fg = "fg3" }
+
+"ui.cursor"                    = { fg = "bg1", bg = "fg1" }
+"ui.cursor.normal"             = { fg = "bg1", bg = "fg1" }
+"ui.cursor.insert"             = { fg = "bg1", bg = "cyan" }
+"ui.cursor.select"             = { fg = "bg1", bg = "blue" }
+"ui.cursor.match"              = { fg = "orange", bg = "sel1", modifiers = ["bold"] }
+"ui.cursor.primary"            = { fg = "bg1", bg = "fg1" }
+"ui.cursor.primary.normal"     = { fg = "bg1", bg = "fg1" }
+"ui.cursor.primary.insert"     = { fg = "bg1", bg = "cyan" }
+"ui.cursor.primary.select"     = { fg = "bg1", bg = "blue" }
+
+"ui.gutter"                    = { bg = "bg1" }
+"ui.gutter.selected"           = { bg = "bg3" }
+
+"ui.linenr"                    = { fg = "fg3" }
+"ui.linenr.selected"           = { fg = "fg1", modifiers = ["bold"] }
+
+"ui.statusline"                = { fg = "fg2", bg = "bg0" }
+"ui.statusline.inactive"       = { fg = "fg3", bg = "bg0" }
+"ui.statusline.normal"         = { fg = "bg0", bg = "blue", modifiers = ["bold"] }
+"ui.statusline.insert"         = { fg = "bg0", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select"         = { fg = "bg0", bg = "magenta", modifiers = ["bold"] }
+"ui.statusline.separator"      = { fg = "fg3" }
+
+"ui.bufferline"                = { fg = "fg2", bg = "bg0" }
+"ui.bufferline.active"         = { fg = "fg1", bg = "bg3", modifiers = ["bold"] }
+"ui.bufferline.background"     = { bg = "bg0" }
+
+"ui.popup"                     = { fg = "fg1", bg = "bg0" }
+"ui.popup.info"                = { fg = "fg1", bg = "bg2" }
+
+"ui.window"                    = { fg = "bg4" }
+
+"ui.help"                      = { fg = "fg1", bg = "bg0" }
+
+"ui.text"                      = { fg = "fg1" }
+"ui.text.focus"                = { fg = "fg0", bg = "sel0", modifiers = ["bold"] }
+"ui.text.inactive"             = { fg = "fg3" }
+"ui.text.info"                 = { fg = "cyan" }
+"ui.text.directory"            = { fg = "blue_bright" }
+
+"ui.virtual.ruler"             = { bg = "bg2" }
+"ui.virtual.whitespace"        = { fg = "bg4" }
+"ui.virtual.indent-guide"      = { fg = "bg4" }
+"ui.virtual.inlay-hint"        = { fg = "fg3", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.parameter" = { fg = "blue", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.type"   = { fg = "yellow", modifiers = ["italic"] }
+"ui.virtual.wrap"              = { fg = "fg3" }
+"ui.virtual.jump-label"        = { fg = "orange", modifiers = ["bold"] }
+
+"ui.menu"                      = { fg = "fg1", bg = "bg0" }
+"ui.menu.selected"             = { fg = "fg0", bg = "sel1", modifiers = ["bold"] }
+"ui.menu.scroll"               = { fg = "fg3", bg = "bg2" }
+
+"ui.selection"                 = { bg = "sel0" }
+"ui.selection.primary"         = { bg = "sel0" }
+
+"ui.highlight"                 = { bg = "sel1" }
+"ui.highlight.frameline"       = { bg = "bg3" }
+
+"ui.cursorline.primary"        = { bg = "bg3" }
+"ui.cursorline.secondary"      = { bg = "bg2" }
+
+"ui.picker.header"             = { bg = "bg2" }
+"ui.picker.header.column"      = { fg = "fg2", bg = "bg2" }
+"ui.picker.header.column.active" = { fg = "cyan", bg = "bg2", modifiers = ["bold"] }
+
+# ── Diagnostics ───────────────────────────────────────────────────────────────
+
+"warning"                      = { fg = "yellow" }
+"error"                        = { fg = "red" }
+"info"                         = { fg = "blue" }
+"hint"                         = { fg = "green" }
+
+"diagnostic"                   = { underline = { style = "curl" } }
+"diagnostic.hint"              = { fg = "green",  underline = { color = "green",  style = "curl" } }
+"diagnostic.info"              = { fg = "blue",   underline = { color = "blue",   style = "curl" } }
+"diagnostic.warning"           = { fg = "yellow", underline = { color = "yellow", style = "curl" } }
+"diagnostic.error"             = { fg = "red",    underline = { color = "red",    style = "curl" } }
+"diagnostic.unnecessary"       = { fg = "fg3",    modifiers = ["dim"] }
+"diagnostic.deprecated"        = { fg = "fg3",    modifiers = ["crossed_out"] }
+
+# ── Palette ───────────────────────────────────────────────────────────────────
+
+[palette]
+# Backgrounds
+bg0 = "#0f1c1e"   # dark bg — floats, status line
+bg1 = "#152528"   # default bg
+bg2 = "#1d3337"   # lighter bg — folds, colorcolumn
+bg3 = "#254147"   # lighter bg — cursor line
+bg4 = "#2d4f56"   # conceal, border fg
+
+# Foregrounds
+fg0 = "#eaeeee"   # lighter fg
+fg1 = "#e6eaea"   # default fg
+fg2 = "#cbd9d8"   # darker fg — status line
+fg3 = "#587b7b"   # darker fg — line numbers, folds
+
+# Selections
+sel0 = "#293e40"  # visual selection, popup bg
+sel1 = "#425e5e"  # search bg, popup sel bg
+
+# Comment
+comment = "#6d7f8b"
+
+# ANSI / syntax colors (base)
+black    = "#2f3239"
+red      = "#e85c51"
+green    = "#7aa4a1"
+yellow   = "#fda47f"
+blue     = "#5a93aa"
+magenta  = "#ad5c7c"
+cyan     = "#a1cdd8"
+white    = "#ebebeb"
+orange   = "#ff8349"
+pink     = "#cb7985"
+
+# Brights
+black_bright   = "#4e5157"
+red_bright     = "#eb746b"
+green_bright   = "#8eb2af"
+yellow_bright  = "#fdb292"
+blue_bright    = "#73a3b7"
+magenta_bright = "#b97490"
+cyan_bright    = "#afd4de"
+white_bright   = "#eeeeee"
+orange_bright  = "#ff9664"
+pink_bright    = "#d38d97"
