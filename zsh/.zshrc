@@ -28,6 +28,11 @@ else
   export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 fi
 
+export OLLAMA_HOST="http://localhost:11434"
+export PATH="$HOME/.local/bin:$PATH"
+export UID=$(id -u)
+export GID=$(id -g)
+
 alias ls='ls --color=auto'
 alias hxf='hx $(fzf)'
 
@@ -44,6 +49,3 @@ if command -v zoxide &>/dev/null; then
 fi
 
 eval "$(starship init zsh 2>/dev/null || echo '')"
-
-export OLLAMA_HOST="http://localhost:11434"
-export PATH="$HOME/.local/bin:$PATH"
