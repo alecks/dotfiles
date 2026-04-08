@@ -43,4 +43,7 @@ if command -v zoxide &>/dev/null; then
   alias cd="z"
 fi
 
-# eval "$(starship init zsh)"
+eval "$(starship init zsh 2>/dev/null || echo '')"
+
+export OLLAMA_HOST="http://localhost:11434"
+export PATH="$HOME/.local/bin:$PATH"
