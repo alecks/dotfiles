@@ -1,11 +1,8 @@
-font-family = MonoLisa Medium
+font-family = Berkeley Mono
 font-size = 17
 window-colorspace = "display-p3"
 
-font-feature = "liga"
-font-feature = "ss01"
-
-theme = Catppuccin Mocha
+theme = Terafox
 
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
