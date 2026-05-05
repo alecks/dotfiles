@@ -3,5 +3,5 @@ include stowlist-shared
 waybar
 mako
 tofi
-sway
-foot
+hypr
+fish-fedora
