@@ -1,4 +1,4 @@
-theme = "terafox"
+theme = "kanagawa-dragon"
 
 [editor]
 line-number = "relative"
@@ -14,3 +14,6 @@ hidden = false
 # inc included files, stderr > stdout, last line to ignore warnings
 "C-c" = ":sh sh -c 'texcount -total -inc -brief -quiet main.tex 2>&1 | tail -n 1'"
 "C-p" = ":sh xdg-open out/main.pdf"
+
+[editor.lsp]
+display-inlay-hints = true
