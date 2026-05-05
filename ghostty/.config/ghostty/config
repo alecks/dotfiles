@@ -1,8 +1,8 @@
-font-family = Berkeley Mono
-font-size = 17
+font-family = IosevkaTerm NF
+font-size = 18
 window-colorspace = "display-p3"
 
-theme = Terafox
+theme = Kanagawa Dragon
 
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
