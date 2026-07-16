@@ -14,7 +14,6 @@ if [[ "$(hostname)" == *ed.ac.uk* ]]; then
   echo "Welcome back to $(hostname)."
 elif [[ "$(hostname)" == "pleemcentre" ]]; then
   # Fedora PC
-  export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/keyring/ssh  
   alias bw="flatpak run --command=bw com.bitwarden.desktop"
   . "$HOME/.cargo/env"
 
