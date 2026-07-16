@@ -35,9 +35,46 @@ tooltip {
   padding: 0 4px;
 }
 
+<<<<<<< HEAD
 #custom-sep {
   color: #5C6A72;
   padding: 0 6px;
+=======
+/* Each group/module becomes a floating pill */
+#workspaces,
+#mpris,
+#window,
+#hardware,
+#system,
+#info {
+  background: #2D353B;
+  border: 2px solid #3D484D;
+  border-radius: 14px;
+  margin: 6px 4px;
+  padding: 0 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  transition: border-color 0.2s ease;
+}
+
+#workspaces:hover,
+#mpris:hover,
+#window:hover,
+#hardware:hover,
+#system:hover,
+#info:hover {
+  border-color: #475258;
+}
+
+/* Submap sits beside the workspaces pill */
+#submap {
+  background: #A7C080;
+  color: #2D353B;
+  border-radius: 14px;
+  margin: 6px 4px;
+  padding: 0 10px;
+  font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+>>>>>>> e6e8f00 (update waybar styling)
 }
 
 /* Workspaces */
@@ -70,8 +107,77 @@ tooltip {
   color: #2D353B;
 }
 
+<<<<<<< HEAD
 /* Window title */
 #window {
+=======
+/* ── Window / media ──────────────────────────────── */
+#mpris {
+  color: #7A8478;
+  padding: 0 12px;
+  transition: color 0.2s ease;
+}
+
+#mpris.playing {
+  color: #A7C080;
+}
+
+#mpris.paused {
+  color: #7A8478;
+}
+
+#window {
+  color: #859289;
+  padding: 0 12px;
+  transition: color 0.2s ease;
+}
+
+/* ── Hardware modules ──────────────────────────────── */
+#cpu,
+#memory,
+#temperature {
+  font-feature-settings: "tnum";
+  transition: color 0.15s ease;
+}
+
+#cpu {
+  color: #A7C080;
+  padding: 0 8px;
+  border-right: 1px solid #3D484D;
+}
+
+#memory {
+  color: #83C092;
+  padding: 0 8px;
+  border-right: 1px solid #3D484D;
+}
+
+#temperature {
+  color: #DBBC7F;
+  padding: 0 8px;
+  border-right: 1px solid #3D484D;
+}
+
+#custom-gpu-temp {
+  color: #7FBBB3;
+  padding: 0 8px;
+  font-feature-settings: "tnum";
+  transition: color 0.15s ease;
+}
+
+#temperature.critical {
+  color: #E67E80;
+  animation: heat-pulse 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes heat-pulse {
+  from { color: #E67E80; }
+  to   { color: #F4A8AA; }
+}
+
+/* ── System modules ──────────────────────────────── */
+#wireplumber {
+>>>>>>> e6e8f00 (update waybar styling)
   color: #D3C6AA;
   padding: 0 8px;
 }
@@ -105,7 +211,65 @@ tooltip {
   color: #E67E80;
 }
 
+<<<<<<< HEAD
 /* Temperature */
 #temperature.critical {
   color: #E67E80;
 }
+=======
+#power-profiles-daemon {
+  padding: 0 8px;
+  border-right: 1px solid #3D484D;
+  transition: color 0.2s ease;
+}
+
+#power-profiles-daemon.performance {
+  color: #E67E80;
+}
+
+#power-profiles-daemon.balanced {
+  color: #DBBC7F;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #A7C080;
+}
+
+#idle_inhibitor {
+  padding: 0 8px;
+  color: #5C6A72;
+  transition: color 0.2s ease;
+}
+
+#idle_inhibitor.activated {
+  color: #A7C080;
+}
+
+/* ── Info modules ──────────────────────────────── */
+#clock {
+  color: #D3C6AA;
+  padding: 0 8px;
+  font-feature-settings: "tnum";
+  letter-spacing: 0.03em;
+  border-right: 1px solid #3D484D;
+  transition: color 0.15s ease;
+}
+
+#clock:hover {
+  color: #DBBC7F;
+}
+
+#tray {
+  padding: 0 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: rgba(230, 126, 128, 0.2);
+  border-radius: 6px;
+}
+>>>>>>> e6e8f00 (update waybar styling)

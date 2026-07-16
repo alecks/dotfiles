@@ -8,7 +8,8 @@
     "sway/scratchpad",
   ],
   "modules-center": [
-    "group/window"
+    "mpris",
+    "hyprland/window"
   ],
   "modules-right": [
     "group/hardware",
@@ -48,6 +49,7 @@
     "format": "[ {} ]"
   },
 
+<<<<<<< HEAD
   "sway/scratchpad": {
     "format": "[ {count} ]",
     "show-empty": false
@@ -66,6 +68,13 @@
     "format": "{status_icon} {dynamic}",
     "format-paused": "⏸ {dynamic}",
     "format-playing": "▶ {dynamic}",
+=======
+  "mpris": {
+    "format": "{status_icon}  {dynamic}",
+    "format-paused": "󰏤  {dynamic}",
+    "format-playing": "󰝚  {dynamic}",
+    "format-stopped": "",
+>>>>>>> e6e8f00 (update waybar styling)
     "dynamic-order": ["artist", "title"],
     "max-length": 40,
     "on-click": "playerctl play-pause",
@@ -73,10 +82,20 @@
     "on-scroll-down": "playerctl previous"
   },
 
+<<<<<<< HEAD
   "sway/window": {
     "format": "{title}",
     "min-length": 50,
     "max-length": 50
+=======
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 60,
+    "separate-outputs": false,
+    "rewrite": {
+      "^$": "pleemcentre"
+    }
+>>>>>>> e6e8f00 (update waybar styling)
   },
 
   "group/hardware": {
@@ -110,9 +129,14 @@
     "modules": [
       "custom/left",
       "wireplumber",
+<<<<<<< HEAD
       "custom/sep",
       "power-profiles-daemon",
       "custom/right"
+=======
+      "power-profiles-daemon",
+      "idle_inhibitor"
+>>>>>>> e6e8f00 (update waybar styling)
     ]
   },
 
@@ -139,10 +163,26 @@
     "format": "{profile}",
   },
 
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰛨",
+      "deactivated": "󰒲"
+    },
+    "tooltip-format-activated": "Caffeine: on",
+    "tooltip-format-deactivated": "Caffeine: off"
+  },
+
   "clock": {
     "format": "{:%H:%M}",
+<<<<<<< HEAD
     "format-alt": "{:%d/%m/%Y}",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+=======
+    "format-alt": "{:%a %d %b}",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
+    "on-click-right": "gnome-calendar"
+>>>>>>> e6e8f00 (update waybar styling)
   },
 
   "tray": {
