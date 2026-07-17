@@ -1,4 +1,3 @@
-
 * {
   border: none;
   border-radius: 0;
@@ -8,7 +7,7 @@
 }
 
 window#waybar {
-  background: #2D353B;
+  background: transparent;
   color: #D3C6AA;
 }
 
@@ -17,29 +16,21 @@ tooltip {
   border: 2px solid #A7C080;
 }
 
-/* Main containers */
+/* Main containers - transparent, pills do the visual work */
 .modules-left,
 .modules-center,
 .modules-right {
-  background: #2D353B;
-  border: 2px solid #A7C080;
-  margin: 8px;
-  padding: 2px 4px;
+  background: transparent;
+  margin: 0;
+  padding: 0;
 }
 
-/* Brackets and separators */
-#custom-left,
-#custom-right {
-  color: #A7C080;
-  font-weight: bold;
+/* Separators between modules inside a pill */
+#custom-sep {
+  color: #5C6A72;
   padding: 0 4px;
 }
 
-<<<<<<< HEAD
-#custom-sep {
-  color: #5C6A72;
-  padding: 0 6px;
-=======
 /* Each group/module becomes a floating pill */
 #workspaces,
 #mpris,
@@ -51,7 +42,7 @@ tooltip {
   border: 2px solid #3D484D;
   border-radius: 14px;
   margin: 6px 4px;
-  padding: 0 2px;
+  padding: 0 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
   transition: border-color 0.2s ease;
 }
@@ -65,6 +56,37 @@ tooltip {
   border-color: #475258;
 }
 
+/* Workspaces */
+#workspaces {
+  padding: 0 2px;
+}
+
+#workspaces button {
+  color: #859289;
+  background: transparent;
+  padding: 0 10px;
+  margin: 6px 2px;
+  border-radius: 10px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+#workspaces button:hover {
+  background: #3D484D;
+  color: #DBBC7F;
+}
+
+#workspaces button.active {
+  background: #A7C080;
+  color: #2D353B;
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  background: #E67E80;
+  color: #2D353B;
+  font-weight: bold;
+}
+
 /* Submap sits beside the workspaces pill */
 #submap {
   background: #A7C080;
@@ -74,44 +96,9 @@ tooltip {
   padding: 0 10px;
   font-weight: bold;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
->>>>>>> e6e8f00 (update waybar styling)
 }
 
-/* Workspaces */
-#workspaces button {
-  color: #859289;
-  padding: 0 8px;
-  background: transparent;
-}
-
-#workspaces button:hover {
-  background: #3D484D;
-  color: #DBBC7F;
-}
-
-#workspaces button.focused {
-  background: #3D484D;
-  color: #A7C080;
-  font-weight: bold;
-}
-
-#workspaces button.urgent {
-  background: #E67E80;
-  color: #D3C6AA;
-}
-
-/* Mode and scratchpad */
-#mode,
-#scratchpad {
-  background: #A7C080;
-  color: #2D353B;
-}
-
-<<<<<<< HEAD
-/* Window title */
-#window {
-=======
-/* ── Window / media ──────────────────────────────── */
+/* Window / media */
 #mpris {
   color: #7A8478;
   padding: 0 12px;
@@ -132,37 +119,25 @@ tooltip {
   transition: color 0.2s ease;
 }
 
-/* ── Hardware modules ──────────────────────────────── */
+/* Hardware modules */
 #cpu,
 #memory,
 #temperature {
+  padding: 0 8px;
   font-feature-settings: "tnum";
   transition: color 0.15s ease;
 }
 
 #cpu {
   color: #A7C080;
-  padding: 0 8px;
-  border-right: 1px solid #3D484D;
 }
 
 #memory {
   color: #83C092;
-  padding: 0 8px;
-  border-right: 1px solid #3D484D;
 }
 
 #temperature {
   color: #DBBC7F;
-  padding: 0 8px;
-  border-right: 1px solid #3D484D;
-}
-
-#custom-gpu-temp {
-  color: #7FBBB3;
-  padding: 0 8px;
-  font-feature-settings: "tnum";
-  transition: color 0.15s ease;
 }
 
 #temperature.critical {
@@ -175,51 +150,19 @@ tooltip {
   to   { color: #F4A8AA; }
 }
 
-/* ── System modules ──────────────────────────────── */
+/* System modules */
 #wireplumber {
->>>>>>> e6e8f00 (update waybar styling)
   color: #D3C6AA;
   padding: 0 8px;
+  transition: color 0.2s ease;
 }
 
-/* All info modules */
-#cpu,
-#memory,
-#temperature,
-#wireplumber,
-#power-profiles-daemon,
-#clock,
-#tray,
-#custom-power {
-  color: #D3C6AA;
-  padding: 0 6px;
-}
-
-/* Hover effects */
-#cpu:hover,
-#memory:hover,
-#temperature:hover,
-#wireplumber:hover,
-#clock:hover,
-#power-profiles-daemon:hover,
-#custom-power:hover {
-  color: #DBBC7F;
-}
-
-/* Audio */
 #wireplumber.muted {
   color: #E67E80;
 }
 
-<<<<<<< HEAD
-/* Temperature */
-#temperature.critical {
-  color: #E67E80;
-}
-=======
 #power-profiles-daemon {
   padding: 0 8px;
-  border-right: 1px solid #3D484D;
   transition: color 0.2s ease;
 }
 
@@ -245,13 +188,12 @@ tooltip {
   color: #A7C080;
 }
 
-/* ── Info modules ──────────────────────────────── */
+/* Info modules */
 #clock {
   color: #D3C6AA;
   padding: 0 8px;
   font-feature-settings: "tnum";
   letter-spacing: 0.03em;
-  border-right: 1px solid #3D484D;
   transition: color 0.15s ease;
 }
 
@@ -272,4 +214,14 @@ tooltip {
   background-color: rgba(230, 126, 128, 0.2);
   border-radius: 6px;
 }
->>>>>>> e6e8f00 (update waybar styling)
+
+#custom-power {
+  color: #E67E80;
+  padding: 0 8px;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+#custom-power:hover {
+  color: #F4A8AA;
+}

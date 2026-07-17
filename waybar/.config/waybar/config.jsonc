@@ -1,11 +1,9 @@
 {
   "height": 42,
   "spacing": 0,
-
   "modules-left": [
-    "group/workspaces",
-    "sway/mode",
-    "sway/scratchpad",
+    "hyprland/workspaces",
+    "hyprland/submap"
   ],
   "modules-center": [
     "mpris",
@@ -16,78 +14,31 @@
     "group/system",
     "group/info"
   ],
-
-  "custom/left": {
-    "format": "[",
-    "tooltip": false
-  },
-  "custom/right": {
-    "format": "]",
-    "tooltip": false
-  },
   "custom/sep": {
     "format": "|",
     "tooltip": false
   },
-
-  "group/workspaces": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/left",
-      "sway/workspaces",
-      "custom/right"
-    ]
-  },
-
-  "sway/workspaces": {
+  "hyprland/workspaces": {
     "format": "{name}",
     "disable-scroll": false,
-    "all-outputs": false
+    "all-outputs": false,
+    "show-special": true
   },
-
-  "sway/mode": {
-    "format": "[ {} ]"
+  "hyprland/submap": {
+    "format": "{}",
+    "tooltip": false
   },
-
-<<<<<<< HEAD
-  "sway/scratchpad": {
-    "format": "[ {count} ]",
-    "show-empty": false
-  },
-
-  "group/window": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/left",
-      "mpris",
-      "custom/right"
-    ]
-  },
-
-  "mpris": {
-    "format": "{status_icon} {dynamic}",
-    "format-paused": "⏸ {dynamic}",
-    "format-playing": "▶ {dynamic}",
-=======
   "mpris": {
     "format": "{status_icon}  {dynamic}",
     "format-paused": "󰏤  {dynamic}",
     "format-playing": "󰝚  {dynamic}",
     "format-stopped": "",
->>>>>>> e6e8f00 (update waybar styling)
     "dynamic-order": ["artist", "title"],
     "max-length": 40,
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous"
   },
-
-<<<<<<< HEAD
-  "sway/window": {
-    "format": "{title}",
-    "min-length": 50,
-    "max-length": 50
-=======
   "hyprland/window": {
     "format": "{}",
     "max-length": 60,
@@ -95,74 +46,63 @@
     "rewrite": {
       "^$": "pleemcentre"
     }
->>>>>>> e6e8f00 (update waybar styling)
   },
-
   "group/hardware": {
     "orientation": "horizontal",
     "modules": [
-      "custom/left",
       "cpu",
       "custom/sep",
       "memory",
       "custom/sep",
-      "temperature",
-      "custom/right"
+      "temperature"
     ]
   },
-
   "cpu": {
-    "format": "CPU: {usage}%",
+    "format": "󰻠 {usage}%",
+    "tooltip": true
   },
-
   "memory": {
-    "format": "RAM: {}%"
+    "format": "󰍛 {}%"
   },
-
   "temperature": {
     "critical-threshold": 80,
-    "format": "{temperatureC}°C",
+    "format": "󰔏 {temperatureC}°C"
   },
-
   "group/system": {
     "orientation": "horizontal",
     "modules": [
-      "custom/left",
       "wireplumber",
-<<<<<<< HEAD
       "custom/sep",
       "power-profiles-daemon",
-      "custom/right"
-=======
-      "power-profiles-daemon",
+      "custom/sep",
       "idle_inhibitor"
->>>>>>> e6e8f00 (update waybar styling)
     ]
   },
-
   "group/info": {
     "orientation": "horizontal",
     "modules": [
-      "custom/left",
       "clock",
       "custom/sep",
       "tray",
       "custom/sep",
-      "custom/power",
-      "custom/right"
+      "custom/power"
     ]
   },
-
   "wireplumber": {
-    "format": "AUX: {volume}%",
-    "format-muted": "AUX: muted",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
     "on-click": "pavucontrol"
   },
-
   "power-profiles-daemon": {
-    "format": "{profile}",
+    "format": "{icon}",
+    "format-icons": {
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰾆"
+    },
+    "tooltip-format": "Power profile: {profile}"
   },
-
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -172,26 +112,18 @@
     "tooltip-format-activated": "Caffeine: on",
     "tooltip-format-deactivated": "Caffeine: off"
   },
-
   "clock": {
     "format": "{:%H:%M}",
-<<<<<<< HEAD
-    "format-alt": "{:%d/%m/%Y}",
-    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
-=======
     "format-alt": "{:%a %d %b}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "on-click-right": "gnome-calendar"
->>>>>>> e6e8f00 (update waybar styling)
   },
-
   "tray": {
     "icon-size": 16,
     "spacing": 8
   },
-
   "custom/power": {
-    "format": "",
+    "format": "",
     "tooltip": false,
     "menu": "on-click",
     "menu-file": "$HOME/.config/waybar/power_menu.xml",
@@ -200,7 +132,7 @@
       "shutdown": "systemctl poweroff",
       "reboot": "systemctl reboot",
       "suspend": "systemctl suspend",
-      "hibernate": "systemctl hibernate",
+      "hibernate": "systemctl hibernate"
     }
   }
 }
