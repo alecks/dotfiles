@@ -75,7 +75,13 @@ auto-format = true
 name = "go"
 formatter = { command = "golines", args = ["--max-len=100", "--base-formatter=gofumpt"] }
 auto-format = true
+language-servers = ["relay"]
 
 [[language]]
 name = "common-lisp"
 file-types = ["pddl"]
+
+# RELAY
+[language-server.relay]
+command = "relay"
+args = ["lsp"]
