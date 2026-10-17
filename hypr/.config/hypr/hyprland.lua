@@ -3,28 +3,29 @@
 -- Monitors
 hl.monitor({
     output   = "DP-1",
-    mode     = "2560x1440@180",
-    position = "0x0",
-    scale    = 1.25,
+    mode     = "3440x1440@180",
+    position = "2560x0",
+    scale    = 1,
 })
 
 -- 2560 / 1.25 = 2048 — no left/right position option, so stack horizontally
+-- hl.monitor({
+--     output   = "HDMI-A-1",
+--     mode     = "1920x1080@144",
+--     position = "2048x0",
+--     scale    = 1,
+-- })
+--
 hl.monitor({
-    output   = "HDMI-A-1",
-    mode     = "1920x1080@144",
-    position = "2048x0",
-    scale    = 1,
+    output = "HDMI-A-1",
+    mode = "2560x1440@144",
+    position = "0x0"
 })
 
 -- Programs
 local terminal = "ghostty"
 local fileManager = "nautilus"
-
--- Environment
-hl.env("LIBVA_DRIVER_NAME", "nvidia")
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-hl.env("XCURSOR_SIZE", 24)
-hl.env("HYPRCURSOR_SIZE", 24)
+local browser = "firefox"
 
 -- Look and feel
 hl.config({
@@ -91,6 +92,8 @@ hl.config({
     misc = {
         force_default_wallpaper = -1,
         disable_hyprland_logo = true,
+        disable_splash_rendering = true,
+        vrr = false,
     },
 })
 
@@ -117,14 +120,15 @@ end
 
 -- Essentials
 hl.bind(key(mainMod, "Q"), hl.dsp.window.close())
-hl.bind(key(mainMod, "SHIFT", "E"), hl.dsp.exec_cmd("hyprshutdown"))
+-- uwsm stop ends the whole session deliberately instead of uwsm noticing the compositor died
+hl.bind(key(mainMod, "SHIFT", "E"), hl.dsp.exec_cmd("uwsm stop"))
 hl.bind(key(mainMod, "SHIFT", "Q"), hl.dsp.exec_cmd("hyprlock"))
 
 -- Launchers
-hl.bind(key(mainMod, "return"), hl.dsp.exec_cmd(terminal))
-hl.bind(key(mainMod, "B"), hl.dsp.exec_cmd("flatpak run app.zen_browser.zen"))
-hl.bind(key(mainMod, "E"), hl.dsp.exec_cmd(fileManager))
-hl.bind(key(mainMod, "D"), hl.dsp.exec_cmd([[app=$(tofi-drun) && [ -n "$app" ] && sh -c "$app"]]))
+hl.bind(key(mainMod, "return"), hl.dsp.exec_cmd("uwsm app -- " .. terminal))
+hl.bind(key(mainMod, "B"), hl.dsp.exec_cmd("uwsm app -- " .. browser))
+hl.bind(key(mainMod, "E"), hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
+hl.bind(key(mainMod, "D"), hl.dsp.exec_cmd([[app=$(tofi-drun) && [ -n "$app" ] && uwsm app -- sh -c "$app"]]))
 
 -- Clipboard & screenshots
 hl.bind(key(mainMod, "V"), hl.dsp.exec_cmd("~/go/bin/cliphist list | tofi --prompt-text 'cliphist: ' | ~/go/bin/cliphist decode | wl-copy"))
@@ -227,13 +231,12 @@ for ws = 6, 10 do
 end
 
 -- Autostart
+-- uwsm handles dbus/systemd environment propagation itself; don't duplicate it here
 hl.on("hyprland.start", function()
-    hl.exec_cmd("dbus-update-activation-environment --systemd --all")
-    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE DISPLAY XAUTHORITY")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
-    hl.exec_cmd("hypridle")
-    hl.exec_cmd("nm-applet & blueman-applet &")
-    hl.exec_cmd("waybar & hyprpaper &")
+    hl.exec_cmd("uwsm app -- hypridle")
+    hl.exec_cmd("uwsm app -- nm-applet & uwsm app -- blueman-applet & uwsm app -- tailscale systray &")
+    hl.exec_cmd("uwsm app -- waybar & uwsm app -- hyprpaper &")
     hl.exec_cmd("wl-paste --type text --watch ~/go/bin/cliphist store")
     hl.exec_cmd("wl-paste --type image --watch ~/go/bin/cliphist store")
 end)
