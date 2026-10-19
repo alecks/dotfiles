@@ -2,12 +2,8 @@
 name = "markdown"
 auto-format = true
 soft-wrap.enable = true
-language-servers = ["markdown-oxide", "mpls"]
+language-servers = ["markdown-oxide"]
 formatter = { command = "npx", args = ["--no-install", "prettier", "--stdin-filepath", "%{buffer_name}"] }
-
-[language-server.mpls]
-command = "mpls"
-args = ["--dark-mode", "--enable-emoji", "--enable-wikilinks"]
 
 [language-server.texlab]
 command = "texlab"
