@@ -3,7 +3,7 @@ name = "markdown"
 auto-format = true
 soft-wrap.enable = true
 language-servers = ["markdown-oxide", "mpls"]
-formatter = { command = "dprint", args = ["fmt", "--stdin", "markdown"]}
+formatter = { command = "npx", args = ["--no-install", "prettier", "--stdin-filepath", "%{buffer_name}"] }
 
 [language-server.mpls]
 command = "mpls"
@@ -34,37 +34,37 @@ auto-format = true
 
 [[language]]
 name = "html"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "html"]}
+formatter = { command = "npx", args = ["--no-install", "prettier", "--stdin-filepath", "%{buffer_name}"] }
 auto-format = true
 
 [[language]]
 name = "nunjucks"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "html"]}
+formatter = { command = "dprint", args = ["fmt", "--stdin", "html"] }
 auto-format = true
 
 [[language]]
 name = "json"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "json"]}
+formatter = { command = "npx", args = ["--no-install", "prettier", "--stdin-filepath", "%{buffer_name}"] }
 auto-format = true
 
 [[language]]
 name = "jsonc"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "json"]}
+formatter = { command = "npx", args = ["--no-install", "prettier", "--stdin-filepath", "%{buffer_name}"] }
 auto-format = true
 
 [[language]]
 name = "javascript"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "javascript"]}
+formatter = { command = "npx", args = ["--no-install", "prettier", "--stdin-filepath", "%{buffer_name}"] }
 auto-format = true
 
 [[language]]
 name = "typescript"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "typescript"]}
+formatter = { command = "npx", args = ["--no-install", "prettier", "--stdin-filepath", "%{buffer_name}"] }
 auto-format = true
 
 [[language]]
 name = "tsx"
-formatter = { command = "dprint", args = ["fmt", "--stdin", "typescript"]}
+formatter = { command = "npx", args = ["--no-install", "prettier", "--stdin-filepath", "%{buffer_name}"] }
 auto-format = true
 
 [[language]]
@@ -75,6 +75,7 @@ auto-format = true
 name = "go"
 formatter = { command = "golines", args = ["--max-len=100", "--base-formatter=gofumpt"] }
 auto-format = true
+language-servers = ["gopls"]
 
 [[language]]
 name = "common-lisp"
