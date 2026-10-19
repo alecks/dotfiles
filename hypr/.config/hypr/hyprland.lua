@@ -8,14 +8,6 @@ hl.monitor({
     scale    = 1,
 })
 
--- 2560 / 1.25 = 2048 — no left/right position option, so stack horizontally
--- hl.monitor({
---     output   = "HDMI-A-1",
---     mode     = "1920x1080@144",
---     position = "2048x0",
---     scale    = 1,
--- })
---
 hl.monitor({
     output = "HDMI-A-1",
     mode = "1920x1080@144",
