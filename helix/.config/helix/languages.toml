@@ -76,3 +76,7 @@ language-servers = ["gopls"]
 [[language]]
 name = "common-lisp"
 file-types = ["pddl"]
+
+[[language]]
+name = "typst"
+soft-wrap.enable = true
