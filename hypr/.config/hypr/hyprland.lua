@@ -5,13 +5,13 @@ hl.monitor({
     output   = "DP-1",
     mode     = "2560x1440@180",
     position = "0x0",
-    scale    = 1,
+    scale    = 1.25,
 })
 
 hl.monitor({
     output = "HDMI-A-1",
     mode = "1920x1080@144",
-    position = "2560x0"
+    position = "2048x0"
 })
 
 -- Programs
@@ -98,6 +98,12 @@ hl.config({
         sensitivity = 0,
         touchpad = { natural_scroll = true },
     },
+})
+
+hl.config({
+    cursor = {
+        no_hardware_cursors = true,
+    }
 })
 
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
