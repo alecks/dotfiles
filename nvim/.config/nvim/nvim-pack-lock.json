@@ -5,12 +5,8 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "9d23575513f1d934c28b9f933b9dd680c0dcd9e3",
+      "rev": "85094f832cd711e1c6a97d2bde81cf43e4137b29",
       "src": "https://github.com/zbirenbaum/copilot.lua"
-    },
-    "flexoki-neovim": {
-      "rev": "c3e2251e813d29d885a7cbbe9808a7af234d845d",
-      "src": "https://github.com/nuvic/flexoki-neovim"
     },
     "flexoki-nvim": {
       "rev": "079554c242a86be5d1a95598c7c6368d6eedd7a3",
@@ -24,16 +20,8 @@
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
     },
-    "mini.completion": {
-      "rev": "ace27587795b84ae6a83b9bc7ff63aec0eebc252",
-      "src": "https://github.com/nvim-mini/mini.completion"
-    },
-    "mini.notify": {
-      "rev": "04dae72c012de9db45c4250645170f78f826731e",
-      "src": "https://github.com/nvim-mini/mini.notify"
-    },
     "mini.nvim": {
-      "rev": "a6e23131010b800ecbab85fa6adc0ff38eae2c2d",
+      "rev": "acfc3b2702126209201ca8b38a105294fa2c1ddd",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lspconfig": {
