@@ -1,23 +1,17 @@
 {
-  "height": 42,
+  "height": 34,
   "spacing": 0,
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/submap"
+    "hyprland/submap",
+    "mpris"
   ],
   "modules-center": [
-    "mpris",
-    "hyprland/window"
+    "group/datetime"
   ],
   "modules-right": [
-    "group/hardware",
-    "group/system",
-    "group/info"
+    "group/controls"
   ],
-  "custom/sep": {
-    "format": "|",
-    "tooltip": false
-  },
   "hyprland/workspaces": {
     "format": "{name}",
     "disable-scroll": false,
@@ -33,94 +27,68 @@
     "format-paused": "󰏤  {dynamic}",
     "format-playing": "󰝚  {dynamic}",
     "format-stopped": "",
-    "dynamic-order": ["artist", "title"],
-    "max-length": 40,
+    "dynamic-order": [
+      "artist",
+      "title"
+    ],
+    "max-length": 36,
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous"
   },
-  "hyprland/window": {
-    "format": "{}",
-    "max-length": 60,
-    "separate-outputs": false,
-    "rewrite": {
-      "^$": "pleemcentre"
-    }
-  },
   "group/hardware": {
     "orientation": "horizontal",
     "modules": [
+      "custom/hardware",
       "cpu",
-      "custom/sep",
       "memory",
-      "custom/sep",
-      "temperature"
-    ]
+      "temperature",
+      "power-profiles-daemon",
+      "idle_inhibitor"
+    ],
+    "drawer": {
+      "transition-duration": 180,
+      "children-class": "hardware-reading",
+      "transition-left-to-right": false
+    }
   },
   "cpu": {
-    "format": "󰻠 {usage}%",
+    "format": "cpu {usage}%",
     "tooltip": true
   },
   "memory": {
-    "format": "󰍛 {}%"
+    "format": "mem {}%"
   },
   "temperature": {
     "critical-threshold": 80,
-    "format": "󰔏 {temperatureC}°C"
-  },
-  "group/system": {
-    "orientation": "horizontal",
-    "modules": [
-      "wireplumber",
-      "custom/sep",
-      "power-profiles-daemon",
-      "custom/sep",
-      "idle_inhibitor"
-    ]
-  },
-  "group/info": {
-    "orientation": "horizontal",
-    "modules": [
-      "clock",
-      "custom/sep",
-      "tray",
-      "custom/sep",
-      "custom/power"
-    ]
+    "format": "{temperatureC}°C"
   },
   "wireplumber": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟 muted",
-    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format": "vol <span font_family=\"Berkeley Mono\">{volume}%</span>",
+    "format-muted": "muted",
     "on-click": "pavucontrol"
   },
   "power-profiles-daemon": {
-    "format": "{icon}",
-    "format-icons": {
-      "performance": "󰓅",
-      "balanced": "󰾅",
-      "power-saver": "󰾆"
-    },
+    "format": "{profile}",
     "tooltip-format": "Power profile: {profile}"
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "󰛨",
-      "deactivated": "󰒲"
+      "activated": "awake",
+      "deactivated": "auto"
     },
-    "tooltip-format-activated": "Caffeine: on",
-    "tooltip-format-deactivated": "Caffeine: off"
+    "tooltip-format-activated": "Sleep inhibited · click to allow sleep",
+    "tooltip-format-deactivated": "Automatic sleep · click to keep awake"
   },
   "clock": {
     "format": "{:%H:%M}",
-    "format-alt": "{:%a %d %b}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "on-click-right": "gnome-calendar"
   },
   "tray": {
     "icon-size": 16,
-    "spacing": 8
+    "spacing": 12
   },
   "custom/power": {
     "format": "",
@@ -128,11 +96,56 @@
     "menu": "on-click",
     "menu-file": "$HOME/.config/waybar/power_menu.xml",
     "menu-actions": {
-      "logout": "swaymsg exit",
+      "logout": "uwsm stop",
       "shutdown": "systemctl poweroff",
       "reboot": "systemctl reboot",
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate"
     }
+  },
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "fixed-center": true,
+  "custom/hardware": {
+    "format": "system",
+    "tooltip": false
+  },
+  "custom/tray": {
+    "format": "apps",
+    "tooltip": false
+  },
+  "group/tray-drawer": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 180,
+      "children-class": "tray-reveal",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/tray",
+      "tray"
+    ]
+  },
+  "group/datetime": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/date",
+      "clock"
+    ]
+  },
+  "custom/date": {
+    "exec": "python3 \"$HOME/.config/waybar/scripts/date.py\"",
+    "interval": 60,
+    "tooltip": false
+  },
+  "group/controls": {
+    "orientation": "horizontal",
+    "modules": [
+      "wireplumber",
+      "group/hardware",
+      "group/tray-drawer",
+      "custom/power"
+    ]
   }
 }

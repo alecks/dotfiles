@@ -2,16 +2,16 @@
 
 -- Monitors
 hl.monitor({
-    output   = "DP-1",
-    mode     = "2560x1440@180",
-    position = "0x0",
-    scale    = 1.25,
+	output = "DP-1",
+	mode = "2560x1440@180",
+	position = "0x0",
+	scale = 1.25,
 })
 
 hl.monitor({
-    output = "HDMI-A-1",
-    mode = "1920x1080@144",
-    position = "2048x0"
+	output = "HDMI-A-1",
+	mode = "1920x1080@144",
+	position = "2048x0",
 })
 
 -- Programs
@@ -19,91 +19,107 @@ local terminal = "ghostty"
 local fileManager = "nautilus"
 local browser = "firefox"
 
--- Look and feel
+-- Kanso Ink (https://github.com/webhooked/kanso.nvim)
 hl.config({
-    general = {
-        gaps_in = 4,
-        gaps_out = 8,
-        border_size = 3,
-        resize_on_border = true,
-        allow_tearing = false,
-        layout = "dwindle",
-        col = {
-            active_border = { colors = { "rgba(A7C080ee)", "rgba(7FBBB3ee)" }, angle = 45 },
-            inactive_border = "rgba(475258aa)",
-        },
-    },
+	general = {
+		gaps_in = 4,
+		gaps_out = 8,
+		border_size = 3,
+		resize_on_border = true,
+		allow_tearing = false,
+		layout = "dwindle",
+		col = {
+			active_border = { colors = { "rgba(8BA4B0ee)", "rgba(8EA4A2ee)" }, angle = 45 },
+			inactive_border = "rgba(393B44aa)",
+		},
+	},
 })
 
 hl.config({
-    decoration = {
-        rounding = 8,
-        rounding_power = 2,
-        active_opacity = 1.0,
-        inactive_opacity = 1.0,
-        shadow = {
-            enabled = true,
-            range = 4,
-            render_power = 3,
-            color = "rgba(1a1a1aee)",
-        },
-        blur = {
-            enabled = true,
-            size = 3,
-            passes = 1,
-            vibrancy = 0.1696,
-        },
-    },
+	decoration = {
+		rounding = 8,
+		rounding_power = 3,
+		active_opacity = 1.0,
+		inactive_opacity = 1.0,
+		dim_inactive = true,
+		dim_strength = 0.06,
+		shadow = {
+			enabled = true,
+			range = 20,
+			render_power = 3,
+			color = "rgba(14171Dbb)",
+			offset = { 0, 4 },
+		},
+		blur = {
+			enabled = true,
+			size = 3,
+			passes = 1,
+			vibrancy = 0.1696,
+		},
+	},
 })
 
 -- Animations
 hl.config({ animations = { enabled = true } })
 
-hl.curve("snap",   { type = "bezier", points = { {0.19, 1},    {0.22, 1}    } }) -- fast ease-out, snappy decel
-hl.curve("spring", { type = "bezier", points = { {0.05, 0.9},  {0.1, 1.05}  } }) -- gentle overshoot then settle
-hl.curve("linear", { type = "bezier", points = { {1, 1},       {0, 0}       } }) -- constant rate (border rotation)
+hl.curve("enter", { type = "bezier", points = { { 0.16, 1 }, { 0.3, 1 } } }) -- responsive start, gentle deceleration
+hl.curve("exit", { type = "bezier", points = { { 0.4, 0 }, { 1, 1 } } }) -- accelerate away cleanly
+hl.curve("settle", { type = "bezier", points = { { 0.22, 0.61 }, { 0.36, 1 } } }) -- controlled motion without overshoot
 
-hl.animation({ leaf = "windowsIn",        enabled = true, speed = 2.5, bezier = "spring", style = "popin 85%" })
-hl.animation({ leaf = "windowsOut",       enabled = true, speed = 2,   bezier = "snap",   style = "popin 85%" })
-hl.animation({ leaf = "windowsMove",      enabled = true, speed = 2,   bezier = "snap" })
-hl.animation({ leaf = "border",           enabled = true, speed = 3,   bezier = "default" })
-hl.animation({ leaf = "borderangle",      enabled = true, speed = 40,  bezier = "linear", style = "loop" })
-hl.animation({ leaf = "fade",             enabled = true, speed = 2.5, bezier = "snap" })
-hl.animation({ leaf = "fadeDim",          enabled = true, speed = 2.5, bezier = "snap" })
-hl.animation({ leaf = "workspaces",       enabled = true, speed = 3,   bezier = "spring", style = "slide" })
-hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3,   bezier = "spring", style = "slidevert" })
-hl.animation({ leaf = "layers",           enabled = true, speed = 2,   bezier = "snap",   style = "slide" })
+-- Speed is in deciseconds: 2.2 = 220 ms. Parents provide quiet defaults.
+hl.animation({ leaf = "global", enabled = true, speed = 2.2, bezier = "settle" })
+hl.animation({ leaf = "windows", enabled = true, speed = 2.4, bezier = "settle" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 2.4, bezier = "settle", style = "popin 92%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.6, bezier = "exit", style = "popin 98%" })
+
+-- Focus fades inherit this timing; opening opacity settles quickly to limit wallpaper exposure.
+hl.animation({ leaf = "fade", enabled = true, speed = 1.8, bezier = "settle" })
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 0.8, bezier = "enter" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.6, bezier = "exit" })
+hl.animation({ leaf = "border", enabled = true, speed = 1.8, bezier = "settle" })
+hl.animation({ leaf = "borderangle", enabled = false })
+
+-- Percentages limit travel to a small portion of the screen.
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "enter", style = "slidefade 12%" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2.8, bezier = "enter", style = "slidefadevert 8%" })
+
+-- Panels and launchers appear in place; opacity and geometry share timings.
+hl.animation({ leaf = "layers", enabled = true, speed = 2.2, bezier = "settle", style = "fade" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = 1.8, bezier = "enter" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 1.4, bezier = "exit" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.8, bezier = "enter" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.4, bezier = "exit" })
 
 -- Layouts
 hl.config({
-    dwindle = { preserve_split = true },
-    master = { new_status = "master" },
+	dwindle = { preserve_split = true },
+	master = { new_status = "master" },
 })
 
 hl.config({
-    misc = {
-        force_default_wallpaper = -1,
-        disable_hyprland_logo = true,
-        disable_splash_rendering = true,
-        vrr = false,
-    },
+	misc = {
+		force_default_wallpaper = -1,
+		disable_hyprland_logo = true,
+		disable_splash_rendering = true,
+		vrr = false,
+	},
 })
 
 -- Input
 hl.config({
-    input = {
-        kb_layout = "us",
-        kb_options = "ctrl:nocaps",
-        follow_mouse = 1,
-        sensitivity = 0,
-        touchpad = { natural_scroll = true },
-    },
+	input = {
+		kb_layout = "us",
+		kb_options = "ctrl:nocaps",
+		follow_mouse = 1,
+		sensitivity = 0,
+		touchpad = { natural_scroll = true },
+	},
 })
 
 hl.config({
-    cursor = {
-        no_hardware_cursors = true,
-    }
+	cursor = {
+		no_hardware_cursors = true,
+	},
 })
 
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
@@ -113,7 +129,7 @@ local mainMod = "SUPER"
 local altMod = "ALT"
 
 local function key(...)
-    return table.concat({ ... }, " + ")
+	return table.concat({ ... }, " + ")
 end
 
 -- Essentials
@@ -129,10 +145,16 @@ hl.bind(key(mainMod, "E"), hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
 hl.bind(key(mainMod, "D"), hl.dsp.exec_cmd([[app=$(tofi-drun) && [ -n "$app" ] && uwsm app -- sh -c "$app"]]))
 
 -- Clipboard & screenshots
-hl.bind(key(mainMod, "V"), hl.dsp.exec_cmd("~/go/bin/cliphist list | tofi --prompt-text 'cliphist: ' | ~/go/bin/cliphist decode | wl-copy"))
+hl.bind(
+	key(mainMod, "V"),
+	hl.dsp.exec_cmd("~/go/bin/cliphist list | tofi --prompt-text 'cliphist: ' | ~/go/bin/cliphist decode | wl-copy")
+)
 hl.bind("Print", hl.dsp.exec_cmd("grimblast copy area"))
 hl.bind(key(mainMod, "Print"), hl.dsp.exec_cmd("grimblast copy active"))
 hl.bind(key(altMod, "Print"), hl.dsp.exec_cmd("grimblast save area"))
+
+-- Restore the most recently dismissed or expired notification.
+hl.bind(key(mainMod, "N"), hl.dsp.exec_cmd("makoctl restore"))
 
 -- Window state
 hl.bind(key(mainMod, "F"), hl.dsp.window.float())
@@ -159,13 +181,13 @@ hl.bind(key(altMod, "SHIFT", "J"), hl.dsp.window.move({ direction = "down" }))
 
 -- Switch workspace
 for ws = 1, 9 do
-    hl.bind(key(mainMod, ws), hl.dsp.focus({ workspace = ws }))
+	hl.bind(key(mainMod, ws), hl.dsp.focus({ workspace = ws }))
 end
 hl.bind(key(mainMod, 0), hl.dsp.focus({ workspace = 10 }))
 
 -- Move active window to workspace
 for ws = 1, 9 do
-    hl.bind(key(mainMod, "SHIFT", ws), hl.dsp.window.move({ workspace = ws }))
+	hl.bind(key(mainMod, "SHIFT", ws), hl.dsp.window.move({ workspace = ws }))
 end
 hl.bind(key(mainMod, "SHIFT", 0), hl.dsp.window.move({ workspace = 10 }))
 
@@ -194,47 +216,54 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- Window rules
+-- Keep tiled edges clean; floating windows retain the soft shadow.
 hl.window_rule({
-    name = "suppress-maximize-events",
-    match = { class = ".*" },
-    suppress_event = "maximize",
+	name = "tiled-no-shadow",
+	match = { float = false },
+	no_shadow = true,
 })
 
 hl.window_rule({
-    name = "fix-xwayland-drags",
-    match = {
-        class = "^$",
-        title = "^$",
-        xwayland = true,
-        float = true,
-        fullscreen = false,
-        pin = false,
-    },
-    no_focus = true,
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
+	suppress_event = "maximize",
 })
 
 hl.window_rule({
-    name = "move-hyprland-run",
-    match = { class = "hyprland-run" },
-    move = { 20, "monitor_h-120" },
-    float = true,
+	name = "fix-xwayland-drags",
+	match = {
+		class = "^$",
+		title = "^$",
+		xwayland = true,
+		float = true,
+		fullscreen = false,
+		pin = false,
+	},
+	no_focus = true,
+})
+
+hl.window_rule({
+	name = "move-hyprland-run",
+	match = { class = "hyprland-run" },
+	move = { 20, "monitor_h-120" },
+	float = true,
 })
 
 -- Workspace rules
 for ws = 1, 5 do
-    hl.workspace_rule({ workspace = ws, monitor = "DP-1" })
+	hl.workspace_rule({ workspace = ws, monitor = "DP-1" })
 end
 for ws = 6, 10 do
-    hl.workspace_rule({ workspace = ws, monitor = "HDMI-A-1" })
+	hl.workspace_rule({ workspace = ws, monitor = "HDMI-A-1" })
 end
 
 -- Autostart
 -- uwsm handles dbus/systemd environment propagation itself; don't duplicate it here
 hl.on("hyprland.start", function()
-    hl.exec_cmd("systemctl --user start hyprpolkitagent")
-    hl.exec_cmd("uwsm app -- hypridle")
-    hl.exec_cmd("uwsm app -- nm-applet & uwsm app -- blueman-applet & uwsm app -- tailscale systray &")
-    hl.exec_cmd("uwsm app -- waybar & uwsm app -- hyprpaper &")
-    hl.exec_cmd("wl-paste --type text --watch ~/go/bin/cliphist store")
-    hl.exec_cmd("wl-paste --type image --watch ~/go/bin/cliphist store")
+	hl.exec_cmd("systemctl --user start hyprpolkitagent")
+	hl.exec_cmd("uwsm app -- hypridle")
+	hl.exec_cmd("uwsm app -- nm-applet & uwsm app -- blueman-applet & uwsm app -- tailscale systray &")
+	hl.exec_cmd("uwsm app -- waybar & uwsm app -- hyprpaper &")
+	hl.exec_cmd("wl-paste --type text --watch ~/go/bin/cliphist store")
+	hl.exec_cmd("wl-paste --type image --watch ~/go/bin/cliphist store")
 end)

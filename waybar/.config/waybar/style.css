@@ -1,227 +1,172 @@
+/* Kanso Ink. https://github.com/webhooked/kanso.nvim
+ * One quiet surface; blue marks focus, colour marks state.
+ */
+@define-color bg #1f1f26;
+@define-color surface #22262d;
+@define-color edge #393b44;
+@define-color fg #c5c9c7;
+@define-color muted #a4a7a4;
+@define-color blue #8ba4b0;
+@define-color green #8a9a7b;
+@define-color yellow #e6c384;
+@define-color red #c4746e;
+
 * {
   border: none;
   border-radius: 0;
-  font-family: 'Berkeley Mono';
-  font-size: 14px;
   min-height: 0;
+  font-family: "IBM Plex Sans", "Hack Nerd Font", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 window#waybar {
-  background: transparent;
-  color: #D3C6AA;
+  background: @bg;
+  color: @fg;
+  border-radius: 0;
 }
 
-tooltip {
-  background: #2D353B;
-  border: 2px solid #A7C080;
-}
+.modules-left { padding-left: 12px; }
+.modules-right { padding-right: 12px; }
 
-/* Main containers - transparent, pills do the visual work */
-.modules-left,
-.modules-center,
-.modules-right {
-  background: transparent;
-  margin: 0;
-  padding: 0;
-}
-
-/* Separators between modules inside a pill */
-#custom-sep {
-  color: #5C6A72;
-  padding: 0 4px;
-}
-
-/* Each group/module becomes a floating pill */
-#workspaces,
-#mpris,
-#window,
-#hardware,
-#system,
-#info {
-  background: #2D353B;
-  border: 2px solid #3D484D;
-  border-radius: 14px;
-  margin: 6px 4px;
-  padding: 0 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
-  transition: border-color 0.2s ease;
-}
-
-#workspaces:hover,
-#mpris:hover,
-#window:hover,
-#hardware:hover,
-#system:hover,
-#info:hover {
-  border-color: #475258;
-}
-
-/* Workspaces */
-#workspaces {
-  padding: 0 2px;
-}
-
+/* Workspace numbers stay in place as focus moves. */
 #workspaces button {
-  color: #859289;
   background: transparent;
-  padding: 0 10px;
-  margin: 6px 2px;
-  border-radius: 10px;
-  transition: background 0.15s ease, color 0.15s ease;
+  background-image: none;
+  color: @muted;
+  font-family: "Berkeley Mono", "Hack Nerd Font Mono", monospace;
+  font-size: 13px;
+  min-width: 24px;
+  padding: 0 5px;
+  margin: 5px 2px;
+  border-radius: 4px;
+  box-shadow: none;
+  text-shadow: none;
+  transition: background-color 120ms ease, color 120ms ease;
 }
 
 #workspaces button:hover {
-  background: #3D484D;
-  color: #DBBC7F;
+  background: @surface;
+  color: @fg;
+  box-shadow: none;
 }
 
 #workspaces button.active {
-  background: #A7C080;
-  color: #2D353B;
-  font-weight: bold;
+  color: @blue;
+  background: alpha(@blue, 0.12);
+  box-shadow: inset 0 -1px alpha(@blue, 0.65);
 }
 
 #workspaces button.urgent {
-  background: #E67E80;
-  color: #2D353B;
-  font-weight: bold;
+  color: @red;
+  box-shadow: inset 0 -2px @red;
 }
 
-/* Submap sits beside the workspaces pill */
 #submap {
-  background: #A7C080;
-  color: #2D353B;
-  border-radius: 14px;
-  margin: 6px 4px;
-  padding: 0 10px;
-  font-weight: bold;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+  background: @blue;
+  color: @bg;
+  border-radius: 4px;
+  margin: 5px 6px;
+  padding: 0 8px;
 }
 
-/* Window / media */
 #mpris {
-  color: #7A8478;
-  padding: 0 12px;
-  transition: color 0.2s ease;
+  margin: 0 10px;
+  color: @muted;
 }
 
-#mpris.playing {
-  color: #A7C080;
+#mpris.playing { color: @blue; }
+#mpris.paused { color: @muted; }
+
+/* A single compact control strip. Details open towards the centre. */
+#controls {
+  background: @surface;
+  border-radius: 5px;
+  margin: 4px 0;
+  padding: 0 3px;
 }
 
-#mpris.paused {
-  color: #7A8478;
+#custom-hardware, #wireplumber, #custom-tray, #custom-power,
+#cpu, #memory, #temperature, #power-profiles-daemon, #idle_inhibitor {
+  padding: 0 10px;
+  margin: 0;
+  border-radius: 3px;
+  color: @muted;
+  font-size: 13px;
+  transition: color 120ms ease, background-color 120ms ease;
 }
 
-#window {
-  color: #859289;
-  padding: 0 12px;
-  transition: color 0.2s ease;
+#custom-hardware, #custom-tray {
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
-/* Hardware modules */
-#cpu,
-#memory,
-#temperature {
-  padding: 0 8px;
+#cpu, #memory, #temperature {
+  font-family: "Berkeley Mono", monospace;
+  font-size: 12px;
   font-feature-settings: "tnum";
-  transition: color 0.15s ease;
 }
 
-#cpu {
-  color: #A7C080;
-}
-
-#memory {
-  color: #83C092;
-}
-
-#temperature {
-  color: #DBBC7F;
-}
-
-#temperature.critical {
-  color: #E67E80;
-  animation: heat-pulse 1.4s ease-in-out infinite alternate;
-}
-
-@keyframes heat-pulse {
-  from { color: #E67E80; }
-  to   { color: #F4A8AA; }
-}
-
-/* System modules */
 #wireplumber {
-  color: #D3C6AA;
-  padding: 0 8px;
-  transition: color 0.2s ease;
-}
-
-#wireplumber.muted {
-  color: #E67E80;
-}
-
-#power-profiles-daemon {
-  padding: 0 8px;
-  transition: color 0.2s ease;
-}
-
-#power-profiles-daemon.performance {
-  color: #E67E80;
-}
-
-#power-profiles-daemon.balanced {
-  color: #DBBC7F;
-}
-
-#power-profiles-daemon.power-saver {
-  color: #A7C080;
-}
-
-#idle_inhibitor {
-  padding: 0 8px;
-  color: #5C6A72;
-  transition: color 0.2s ease;
-}
-
-#idle_inhibitor.activated {
-  color: #A7C080;
-}
-
-/* Info modules */
-#clock {
-  color: #D3C6AA;
-  padding: 0 8px;
+  font-family: "IBM Plex Sans", sans-serif;
+  min-width: 66px;
+  color: @fg;
   font-feature-settings: "tnum";
-  letter-spacing: 0.03em;
-  transition: color 0.15s ease;
+}
+#wireplumber.muted { color: @muted; }
+
+#custom-power {
+  font-family: "Hack Nerd Font Mono", monospace;
+  font-size: 16px;
+  min-width: 16px;
+  padding-top: 2px;
 }
 
-#clock:hover {
-  color: #DBBC7F;
+#hardware:hover #custom-hardware,
+#tray-drawer:hover #custom-tray,
+#wireplumber:hover, #power-profiles-daemon:hover, #idle_inhibitor:hover {
+  background: alpha(@blue, 0.10);
+  color: @blue;
 }
 
-#tray {
-  padding: 0 8px;
-}
+#custom-power:hover { background: alpha(@red, 0.12); color: @red; }
+#temperature.critical { color: @red; }
+#power-profiles-daemon.performance, #idle_inhibitor.activated { color: @yellow; }
+#power-profiles-daemon.power-saver { color: @green; }
 
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
+#tray { padding: 0 10px; }
+#tray > .passive { -gtk-icon-effect: dim; }
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: rgba(230, 126, 128, 0.2);
+  background: alpha(@yellow, 0.12);
+  border-radius: 3px;
+  box-shadow: inset 0 -1px @yellow;
+}
+
+#clock {
+  padding: 0 10px;
+  color: @fg;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  font-feature-settings: "tnum";
+}
+
+#custom-date {
+  color: @muted;
+  padding: 0 10px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+}
+
+tooltip, menu {
+  background: @bg;
+  color: @fg;
+  border: 1px solid @edge;
   border-radius: 6px;
 }
 
-#custom-power {
-  color: #E67E80;
-  padding: 0 8px;
-  font-size: 16px;
-  transition: color 0.2s ease;
-}
-
-#custom-power:hover {
-  color: #F4A8AA;
-}
+tooltip label { padding: 6px 8px; }
+menu { padding: 5px; }
+menuitem { padding: 7px 16px; border-radius: 4px; }
+menuitem:hover { background: @surface; color: @blue; }
+separator { background: @edge; min-height: 1px; margin: 4px 8px; }

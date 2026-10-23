@@ -1,32 +1,40 @@
-margin=4
-padding=8
-border-size=2
-border-radius=8
-width=350
+margin=8
+padding=12
+border-size=1
+border-radius=6
+width=360
+height=160
+max-icon-size=32
 
-background-color=#2D353B
-text-color=#D3C6AA
-border-color=#7FBBB3
-progress-color=over #5C6A72
+background-color=#1f1f26
+text-color=#c5c9c7
+border-color=#8ba4b0
+progress-color=over #393b44
 
-font=Berkeley Mono 10
+font=IBM Plex Sans 11
+format=<span font_desc="Berkeley Mono 9" foreground="#a4a7a4">%a</span>\n<b>%s</b>\n%b
 
-on-button-left=exec makoctl menu tofi
+on-button-left=exec makoctl menu -n "$id" -- tofi --prompt-text='action › '
+on-button-right=dismiss
+
+default-timeout=10000
+ignore-timeout=1
 
 [urgency=low]
-background-color=#2D353B
-text-color=#D3C6AA
-border-color=#5C6A72
-default-timeout=3000
+background-color=#1f1f26
+text-color=#c5c9c7
+border-color=#393b44
 
 [urgency=normal]
-background-color=#2D353B
-text-color=#D3C6AA
-border-color=#7FBBB3
-default-timeout=6000
+background-color=#1f1f26
+text-color=#c5c9c7
+border-color=#8ba4b0
 
 [urgency=critical]
-background-color=#2D353B
-text-color=#E67E80
-border-color=#E67E80
-default-timeout=0
+background-color=#1f1f26
+text-color=#c4746e
+border-color=#c4746e
+
+# Ghostty and other clients may omit the app name; avoid an empty label row.
+[app-name=""]
+format=<b>%s</b>\n%b

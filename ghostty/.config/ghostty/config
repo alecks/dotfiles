@@ -2,7 +2,7 @@ font-family = Input Mono Condensed
 font-size = 16
 window-colorspace = "display-p3"
 
-theme = Flexoki Dark
+theme = Kanso Ink
 
 # Don't dim unfocused windows.
 unfocused-split-opacity = 1
