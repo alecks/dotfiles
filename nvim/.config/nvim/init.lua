@@ -21,6 +21,8 @@ do
 	vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 	vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste after cursor from system clipboard" })
 	vim.keymap.set("n", "<leader>P", '"+P', { desc = "Paste before cursor from system clipboard" })
+	vim.keymap.set("x", "<leader>p", '"_d"+P', { desc = "Replace selection from clipboard" })
+	vim.keymap.set("x", "<leader>P", '"_d"+P', { desc = "Replace selection from clipboard" })
 
 	vim.opt.breakindent = true
 	vim.opt.ignorecase = true
