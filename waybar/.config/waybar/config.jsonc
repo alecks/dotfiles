@@ -25,7 +25,7 @@
   "mpris": {
     "format": "{status_icon}  {dynamic}",
     "format-paused": "󰏤  {dynamic}",
-    "format-playing": "󰝚  {dynamic}",
+    "format-playing": "󰝚   {dynamic}",
     "format-stopped": "",
     "dynamic-order": [
       "artist",
