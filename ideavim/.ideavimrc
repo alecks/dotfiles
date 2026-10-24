@@ -1,0 +1,118 @@
+" NOTE: AI-generated .ideavimrc based on my neovim conf.
+" Neovim-style IdeaVim, based on ~/dotfiles/nvim/.config/nvim/init.lua.
+" Reload with :source ~/.ideavimrc (restart once if coming from Helix mappings).
+" The previous Helix config is preserved in ~/.ideavimrc.hx.bk.
+
+let mapleader = " "
+let maplocalleader = " "
+set number relativenumber
+set noshowmode
+set nocursorline
+set scrolloff=8
+set tabstop=4 shiftwidth=4
+set ignorecase smartcase
+set hlsearch incsearch
+set timeout timeoutlen=300
+
+" Keep ordinary y/d/p on Vim registers; use Space for the system clipboard.
+" Disable IDE paste processing so indentation/register contents behave like Vim.
+set clipboard-=unnamed
+set clipboard-=unnamedplus
+set clipboard-=ideaput
+nnoremap <Space> <Nop>
+xnoremap <Space> <Nop>
+nnoremap <leader>y "+y
+xnoremap <leader>y "+y
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+xnoremap <leader>p "_d"+P
+xnoremap <leader>P "_d"+P
+nnoremap <Esc> :nohlsearch<CR>
+
+" Split navigation. Keep these with Vim in Normal mode and with the IDE in
+" Insert mode, where completion and native editor shortcuts should still work.
+sethandler <C-h> n:vim i:ide
+sethandler <C-j> n:vim i:ide
+sethandler <C-k> n:vim i:ide
+sethandler <C-l> n:vim i:ide
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Neovim buffers become IDE editor tabs. CloseContent may close an empty split;
+" IdeaVim cannot exactly reproduce MiniBufremove's split-preserving deletion.
+nmap H <Action>(PreviousTab)
+nmap L <Action>(NextTab)
+nmap <leader>q <Action>(CloseContent)
+
+" MiniPick / MiniExtra / MiniFiles equivalents.
+" RecentFiles is the closest built-in buffer picker (also includes closed files).
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fg <Action>(FindInPath)
+nmap <leader>fb <Action>(RecentFiles)
+nmap <leader>fs <Action>(GotoSymbol)
+nmap <leader>fd <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>e <Action>(ActivateProjectToolWindow)
+" Opens the current file's diff against its repository version; not an overlay.
+nmap <leader>gd <Action>(Compare.SameVersion)
+
+" Format immediately, without sharing the file-picker prefix.
+nmap <leader>= <Action>(ReformatCode)
+xmap <leader>= <Action>(ReformatCode)
+
+" LSP equivalents. JetBrains uses GotoDeclaration for ordinary definition jumps;
+" GotoTypeDeclaration is the closest distinct counterpart for your gD binding.
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gr <Action>(FindUsages)
+nmap K <Action>(QuickJavaDoc)
+nmap <leader>r <Action>(RenameElement)
+nmap <leader>a <Action>(ShowIntentionActions)
+set idearefactormode=select
+
+" MiniBracketed / Neovim diagnostic navigation equivalents.
+nmap ]b <Action>(NextTab)
+nmap [b <Action>(PreviousTab)
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+nmap [h <Action>(VcsShowPrevChangeMarker)
+
+" These extensions ship inside IdeaVim; no additional IDE plugins to install.
+" Approximate mini.ai's argument text objects (cia/daa/via).
+set argtextobj
+let g:argtextobj_pairs = "(:),[:],{:}"
+set textobj-entire
+set highlightedyank
+let g:highlightedyank_highlight_duration = 150
+
+" mini.surround muscle memory: sa{motion}{pair}, sd{pair}, sr{old}{new}.
+" Examples: saiw) surrounds a word; sd) removes parens; sr)" changes to quotes.
+" Surround matching/spacing follows vim-surround, rather than mini.surround.
+let g:surround_no_mappings = 1
+set surround
+nmap sa <Plug>YSurround
+nmap sd <Plug>DSurround
+nmap sr <Plug>CSurround
+xmap sa <Plug>VSurround
+
+" mini.operators replacement: gR{motion}, gRR (line), Visual gR.
+" Move the extension's default gr mapping out of the way of FindUsages.
+set ReplaceWithRegister
+nmap gR <Plug>ReplaceWithRegisterOperator
+nmap gRR <Plug>ReplaceWithRegisterLine
+xmap gR <Plug>ReplaceWithRegisterVisual
+silent! nunmap grr
+nmap gr <Action>(FindUsages)
+silent! vunmap gr
+
+" IDE-owned features to configure in Settings:
+" - Editor > General > Smart Keys: paired brackets/quotes (mini.pairs).
+" - Tools > Actions on Save > Reformat code (Conform's format-on-save).
+" - Editor > Code Style: language-specific indentation and formatter rules.
+" - Appearance / Editor > Color Scheme: theme (Kanso does not port via IdeaVim).
+" - GitHub Copilot: install/configure its JetBrains plugin for suggestions.
+" Completion, diagnostics, Git gutter, sessions and syntax highlighting use IDE
+" implementations. Mini's gS split/join, other operators, advanced ai objects,
+" terminal-mode Escape and splitright/splitbelow have no direct config equivalent.
