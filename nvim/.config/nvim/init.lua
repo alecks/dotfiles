@@ -13,7 +13,7 @@ do
 	vim.opt.termguicolors = true
 
 	vim.opt.cursorline = false
-	vim.opt.scrolloff = 20
+	vim.opt.scrolloff = 8
 
 	vim.opt.tabstop = 4
 	vim.opt.shiftwidth = 4
@@ -326,7 +326,7 @@ do
 		},
 	})
 
-	vim.keymap.set({ "n", "v" }, "<leader>f", function()
+	vim.keymap.set({ "n", "v" }, "<leader>=", function()
 		require("conform").format({ async = true })
 	end, { desc = "Format buffer" })
 end
