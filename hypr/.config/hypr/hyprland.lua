@@ -77,7 +77,7 @@ hl.animation({ leaf = "fade", enabled = true, speed = 1.8, bezier = "settle" })
 hl.animation({ leaf = "fadeIn", enabled = true, speed = 0.8, bezier = "enter" })
 hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.6, bezier = "exit" })
 hl.animation({ leaf = "border", enabled = true, speed = 1.8, bezier = "settle" })
-hl.animation({ leaf = "borderangle", enabled = false })
+hl.animation({ leaf = "borderangle", enabled = true, speed = 40, bezier = "linear", style = "loop" })
 
 -- Percentages limit travel to a small portion of the screen.
 hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "enter", style = "slidefade 12%" })
