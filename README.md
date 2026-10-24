@@ -16,8 +16,7 @@ This repository has a `stow-all.sh` script which can be used to install configur
 - [Fish](https://fishshell.com/) shell
 - [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono) typeface (not included here)
 - [Input Mono](https://input.djr.com) font too, when I feel like it
-- [Flexoki](https://stephango.com/flexoki) colourscheme for code
-- [Everforest](https://github.com/sainnhe/everforest) colourscheme for UI
+- [Kanso](https://github.com/webhooked/kanso.nvim) colourscheme
 
 See `stowlist-shared`.
 
