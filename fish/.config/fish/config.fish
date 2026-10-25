@@ -38,3 +38,12 @@ if command -q zoxide
     zoxide init fish | source
     abbr --add cd z
 end
+
+function gitignore --description "Generate a .gitignore from GitHub templates"
+    if test (count $argv) -ne 1
+        echo "Usage: gitignore <language>"
+        return 1
+    end
+
+    gh api "gitignore/templates/$argv[1]" --jq '.source' > .gitignore
+end
