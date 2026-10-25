@@ -175,7 +175,8 @@ do
 	require("copilot").setup({
 		suggestion = {
 			enabled = true,
-			auto_trigger = true,
+			auto_trigger = false, -- Request suggestions explicitly with Alt-].
+			trigger_on_accept = false,
 			hide_during_completion = false,
 		},
 	})
@@ -196,8 +197,8 @@ do
 		severity_sort = true,
 		float = { border = "rounded", source = "if_many" },
 		underline = { severity = { min = vim.diagnostic.severity.WARN } },
-		virtual_text = false, -- text shows at end of line
-		virtual_lines = true, -- text shows underneath the line, using virtual lines
+		virtual_text = true, -- text shows at end of line
+		virtual_lines = false, -- text shows underneath the line, using virtual lines
 		jump = {
 			on_jump = function(_, bufnr)
 				vim.diagnostic.open_float({
