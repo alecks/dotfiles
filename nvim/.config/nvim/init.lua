@@ -101,6 +101,7 @@ do
 	require("mini.bracketed").setup({})
 	require("mini.bufremove").setup({})
 
+	vim.opt.completeopt = { "menuone", "noselect", "fuzzy" }
 	require("mini.completion").setup({})
 
 	require("mini.diff").setup({})
@@ -178,19 +179,25 @@ do
 			hide_during_completion = false,
 		},
 	})
+
+	vim.pack.add({ gh("vyfor/cord.nvim") })
+	require("cord").setup({
+		editor = { tooltip = "guten morgen guten morgen" },
+	})
 end
 
 -- KEYBINDS
 do
 	vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+	vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic" })
 	vim.diagnostic.config({
 		update_in_insert = false,
 		severity_sort = true,
 		float = { border = "rounded", source = "if_many" },
 		underline = { severity = { min = vim.diagnostic.severity.WARN } },
-		virtual_text = true, -- text shows at end of line
-		virtual_lines = false, -- text shows underneath the line, using virtual lines
+		virtual_text = false, -- text shows at end of line
+		virtual_lines = true, -- text shows underneath the line, using virtual lines
 		jump = {
 			on_jump = function(_, bufnr)
 				vim.diagnostic.open_float({

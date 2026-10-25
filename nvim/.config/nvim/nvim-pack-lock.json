@@ -8,6 +8,10 @@
       "rev": "bae5beb4bd902498ba80add63db5a7e7e6ffb4d8",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
+    "cord.nvim": {
+      "rev": "85f295e43550bc968b66d95d8bfd6e12bb17df08",
+      "src": "https://github.com/vyfor/cord.nvim"
+    },
     "kanso.nvim": {
       "rev": "1afbbb449aa0254823dbe1932e3cbb51886ff9fe",
       "src": "https://github.com/webhooked/kanso.nvim"
