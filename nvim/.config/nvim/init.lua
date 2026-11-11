@@ -11,6 +11,7 @@ do
 	vim.opt.signcolumn = "yes"
 	vim.opt.relativenumber = true
 	vim.opt.termguicolors = true
+	vim.opt.guicursor = "a:block" -- use block cursor in all mods
 
 	vim.opt.cursorline = false
 	vim.opt.scrolloff = 8
@@ -125,32 +126,32 @@ do
 	vim.opt.showtabline = 2
 
 	local statusline = require("mini.statusline")
-	statusline.setup({})
-	-- statusline.setup({
-	-- 	content = {
-	-- 		active = function()
-	-- 			local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
-	-- 			local git = statusline.section_git({ trunc_width = 40 })
-	-- 			local diff = statusline.section_diff({ trunc_width = 75 })
-	-- 			local diagnostics = statusline.section_diagnostics({ trunc_width = 75 })
-	-- 			local lsp = statusline.section_lsp({ trunc_width = 75 })
-	-- 			local filename = statusline.section_filename({ trunc_width = 140 })
-	-- 			local fileinfo = statusline.section_fileinfo({ trunc_width = 120 })
-	-- 			local location = statusline.section_location({ trunc_width = 75 })
-	-- 			local search = statusline.section_searchcount({ trunc_width = 75 })
-	--
-	-- 			return statusline.combine_groups({
-	-- 				{ hl = "StatusLine", strings = { mode } },
-	-- 				{ hl = "StatusLine", strings = { git, diff, diagnostics, lsp } },
-	-- 				"%<",
-	-- 				{ hl = "StatusLine", strings = { filename } },
-	-- 				"%=",
-	-- 				{ hl = "StatusLine", strings = { fileinfo } },
-	-- 				{ hl = "StatusLine", strings = { search, location } },
-	-- 			})
-	-- 		end,
-	-- 	},
-	-- })
+	-- statusline.setup({})
+	statusline.setup({
+		content = {
+			active = function()
+				local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
+				local git = statusline.section_git({ trunc_width = 40 })
+				local diff = statusline.section_diff({ trunc_width = 75 })
+				local diagnostics = statusline.section_diagnostics({ trunc_width = 75 })
+				local lsp = statusline.section_lsp({ trunc_width = 75 })
+				local filename = statusline.section_filename({ trunc_width = 140 })
+				local fileinfo = statusline.section_fileinfo({ trunc_width = 120 })
+				local location = statusline.section_location({ trunc_width = 75 })
+				local search = statusline.section_searchcount({ trunc_width = 75 })
+
+				return statusline.combine_groups({
+					{ hl = "StatusLine", strings = { mode } },
+					{ hl = "StatusLine", strings = { git, diff, diagnostics, lsp } },
+					"%<",
+					{ hl = "StatusLine", strings = { filename } },
+					"%=",
+					{ hl = "StatusLine", strings = { fileinfo } },
+					{ hl = "StatusLine", strings = { search, location } },
+				})
+			end,
+		},
+	})
 
 	local function update_tabline()
 		local buffers = vim.fn.getbufinfo({ buflisted = 1 })
@@ -168,8 +169,12 @@ do
 	-- COLOURSCHEME
 	-- vim.pack.add({ gh("vague-theme/vague.nvim") })
 	-- vim.cmd.colorscheme("vague")
+	-- vim.pack.add({ gh("webhooked/kanso.nvim") })
+	-- vim.cmd.colorscheme("kanso-zen")
+	-- vim.pack.add({ gh("bluz71/vim-moonfly-colors") })
+	-- vim.cmd.colorscheme("moonfly")
 	vim.pack.add({ gh("webhooked/kanso.nvim") })
-	vim.cmd.colorscheme("kanso")
+	vim.cmd.colorscheme("kanso-ink")
 
 	vim.pack.add({ gh("zbirenbaum/copilot.lua") })
 	require("copilot").setup({
